@@ -1,6 +1,10 @@
 extends Node
 class_name StateMachineState
 
+func _ready():
+	set_process(false)
+	set_physics_process(false)
+
 func change_state(state_name: String):
 	get_parent().change_state(state_name)
 

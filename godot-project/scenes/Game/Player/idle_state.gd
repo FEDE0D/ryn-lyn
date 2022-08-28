@@ -1,6 +1,8 @@
-extends StateMachineState
+extends PlayerState
 
-export(NodePath) onready var player = $"../.."
+func _on_state_enter():
+	$"%AnimatedSprite".play("idle")
 
 func _physics_process_state(_delta):
-	player.process_movement(_delta)
+	$"../..".process_idle()
+	$"../..".process_control()
