@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scenes/Game/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Game/Player/Player.tscn" type="PackedScene" id=1]
 
 [sub_resource type="PhysicsMaterial" id=2]
 

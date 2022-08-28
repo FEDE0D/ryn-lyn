@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "LiveCaption",
 "language": "GDScript",
 "path": "res://addons/godot_subtitles/live_caption_node.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://scripts/StateMachine/StateMachine.gd"
+}, {
+"base": "Node",
+"class": "StateMachineState",
+"language": "GDScript",
+"path": "res://scripts/StateMachine/StateMachineState.gd"
 } ]
 _global_script_class_icons={
-"LiveCaption": ""
+"LiveCaption": "",
+"StateMachine": "",
+"StateMachineState": ""
 }
 
 [application]

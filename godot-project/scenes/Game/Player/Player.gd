@@ -15,7 +15,7 @@ var can_double_jump: bool = false
 func _ready():
 	pass
 
-func _physics_process(_delta):
+func process_movement(_delta):
 	var move_force = 0
 	var on_floor = $FootRayCast.is_colliding()
 	if !is_on_floor and on_floor:
