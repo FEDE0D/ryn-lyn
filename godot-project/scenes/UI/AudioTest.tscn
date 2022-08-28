@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/audio/y2mate.com - Stereo Audio Test Left Right Test.mp3" type="AudioStream" id=1]
+[ext_resource path="res://resources/audio/fight.ogg" type="AudioStream" id=2]
+
+[node name="AudioTest" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Button" type="Button" parent="HFlowContainer"]
+margin_right = 61.0
+margin_bottom = 20.0
+text = "Audio 1"
+
+[node name="Button2" type="Button" parent="HFlowContainer"]
+margin_left = 65.0
+margin_right = 126.0
+margin_bottom = 20.0
+text = "Audio 2"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+attenuation = 2.82842
+bus = "Voices"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "Music"
