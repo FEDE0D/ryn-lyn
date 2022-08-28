@@ -21,12 +21,17 @@ _global_script_class_icons={
 [application]
 
 config/name="RynLyn"
-run/main_scene="res://scenes/UI/MainMenu.tscn"
+run/main_scene="res://scenes/Game/World.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 TTS="*res://addons/godot-tts/TTS.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
 
 [editor_plugins]
 
@@ -35,6 +40,11 @@ enabled=PoolStringArray( "res://addons/godot-accessibility/plugin.cfg", "res://a
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
 
 [physics]
 
