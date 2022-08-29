@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Character2D",
+"language": "GDScript",
+"path": "res://scenes/Game/Player/Character.gd"
+}, {
+"base": "StateMachineState",
+"class": "EnemyState",
+"language": "GDScript",
+"path": "res://scenes/Game/Enemy/enemy_state.gd"
+}, {
 "base": "RichTextLabel",
 "class": "LiveCaption",
 "language": "GDScript",
@@ -30,6 +40,8 @@ _global_script_classes=[ {
 "path": "res://scripts/StateMachine/StateMachineState.gd"
 } ]
 _global_script_class_icons={
+"Character2D": "",
+"EnemyState": "",
 "LiveCaption": "",
 "PlayerState": "",
 "StateMachine": "",
@@ -86,6 +98,7 @@ action={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
 
 [physics]
 

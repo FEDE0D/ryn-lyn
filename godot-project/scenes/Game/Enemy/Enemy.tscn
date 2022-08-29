@@ -1,0 +1,106 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://resources/images/zombie_tilesheet.png" type="Texture" id=1]
+[ext_resource path="res://scripts/StateMachine/StateMachine.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Game/Enemy/idle-state.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Game/Enemy/Enemy.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 320, 110, 80, 110 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 160, 110, 80, 110 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 400, 110, 80, 110 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 240, 110, 80, 110 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 80, 110 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 110, 80, 110 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 80, 110, 80, 110 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 4
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="RayCastPitLeft" type="RayCast2D" parent="."]
+rotation = 0.523598
+enabled = true
+cast_to = Vector2( 0, 30 )
+
+[node name="RayCastPitRight" type="RayCast2D" parent="."]
+rotation = -0.523598
+enabled = true
+cast_to = Vector2( 0, 30 )
+
+[node name="RayCastWallRight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 20, 0 )
+
+[node name="RayCastWallLeft" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -20, 0 )
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="direction" type="Node2D" parent="visual"]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="visual/direction"]
+unique_name_in_owner = true
+position = Vector2( 0, -4 )
+scale = Vector2( 0.425, 0.425 )
+frames = SubResource( 9 )
+animation = "idle"
+playing = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 2 )
+state = NodePath("idle")
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )

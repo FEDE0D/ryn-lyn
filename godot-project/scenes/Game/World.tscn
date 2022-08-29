@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Game/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Game/Enemy/Enemy.tscn" type="PackedScene" id=2]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -48,3 +49,15 @@ shape = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 100, 240 )
+
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 520, 260 )
+motion_force = 20.0
+
+[node name="Enemy2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 580, 160 )
+motion_force = 20.0
+
+[node name="Enemy3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 760, 220 )
+motion_force = 20.0
