@@ -28,7 +28,7 @@ position = Vector2( 520, 13 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 60, -27 )
+position = Vector2( 100, -27 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
@@ -48,16 +48,27 @@ position = Vector2( 1120, -127 )
 shape = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 100, 240 )
+position = Vector2( 60, 300 )
+moving_platform_apply_velocity_on_leave = 2
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+smoothing_enabled = true
+drag_margin_left = 0.4
+drag_margin_top = 0.5
+drag_margin_right = 0.4
+drag_margin_bottom = 0.5
+editor_draw_drag_margin = true
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 520, 260 )
-motion_force = 20.0
+position = Vector2( 240, 300 )
+motion_force = 40.0
 
 [node name="Enemy2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 580, 160 )
-motion_force = 20.0
+position = Vector2( 1220, 280 )
+motion_force = 40.0
 
 [node name="Enemy3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 760, 220 )
-motion_force = 20.0
+position = Vector2( 960, 280 )
+motion_force = 40.0

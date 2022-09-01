@@ -6,7 +6,7 @@ class_name PlayerState
 # TODO complete with other actions
 
 func _receive_damage(damage):
-	pass
+	change_state("damage", damage)
 
 func _pickup_key():
 	pass

@@ -1,4 +1,8 @@
 extends Character2D
+class_name Player
+
+func receive_attack():
+	$"%StateMachine".state._receive_damage(0.25)
 
 func process_control():
 	move_force = 0
@@ -24,13 +28,20 @@ func process_control():
 
 func process_idle():
 	if is_on_floor:
-		if move_force != 0:
+		if abs(velocity.x) > 5.0:
 			$"%AnimatedSprite".play("walk")
 		else:
 			$"%AnimatedSprite".play("idle")
 	else:
-		$"%AnimatedSprite".play("jump")
+		if velocity.y < 0 and $"%AnimatedSprite".animation in ["walk", "idle", "falling"]:
+			$"%AnimatedSprite".play("jump-start")
+		if velocity.y > 0 and $"%AnimatedSprite".animation in ["jump-start", "jump-loop"]:
+			$"%AnimatedSprite".animation = "falling"
 
 func _on_StateMachine_on_state_changed(old_state, new_state):
 #	print("Change state %s->%s" % [old_state, new_state])
 	pass
+
+func _on_AnimatedSprite_animation_finished():
+	if $"%AnimatedSprite".animation == "jump-start":
+		$"%AnimatedSprite".animation = "jump-loop"

@@ -1,10 +1,7 @@
 extends EnemyState
 
-func _physics_process_state(delta):
-	$"../..".process_motion()
+func _on_state_enter(param = null):
+	$"%AnimatedSprite".play("idle")
 
-func touch_wall(direction: float):
-	$"../..".direction = -direction
-
-func pit(direction: float):
-	$"../..".direction = -direction
+func player_detected(player):
+	change_state("alerted")
