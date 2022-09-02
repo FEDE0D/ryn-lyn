@@ -63,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="RynLyn"
-run/main_scene="res://scenes/Game/World.tscn"
+run/main_scene="res://scenes/UI/menu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -75,6 +75,8 @@ DebugControl="*res://scripts/DebugControl.gd"
 
 window/size/width=1280
 window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -109,6 +111,11 @@ action={
 debug_fullscreen={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777254,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_reload={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777248,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

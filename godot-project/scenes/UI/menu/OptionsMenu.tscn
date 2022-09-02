@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/fonts/control.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/godot_subtitles/fonts/Roboto/normal.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/UI/menu/OptionsMenu.gd" type="Script" id=3]
+
+[node name="OptionsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+margin_right = 1260.0
+margin_bottom = 522.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+tab_align = 0
+
+[node name="Graficos" type="Tabs" parent="VBoxContainer/Panel/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Audio" type="Tabs" parent="VBoxContainer/Panel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Accesibilidad" type="Tabs" parent="VBoxContainer/Panel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Panel2" type="Panel" parent="VBoxContainer"]
+margin_top = 526.0
+margin_right = 1260.0
+margin_bottom = 700.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel2/HBoxContainer"]
+margin_right = 1076.0
+margin_bottom = 174.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Panel2/HBoxContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1056.0
+margin_bottom = 154.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+custom_fonts/normal_font = ExtResource( 2 )
+text = "Esta opción cambiar la resolución del juego. "
+
+[node name="Control" type="VBoxContainer" parent="VBoxContainer/Panel2/HBoxContainer"]
+margin_left = 1080.0
+margin_right = 1260.0
+margin_bottom = 174.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/Panel2/HBoxContainer/Control"]
+margin_right = 180.0
+margin_bottom = 85.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Guardar"
+
+[node name="BackButton" type="Button" parent="VBoxContainer/Panel2/HBoxContainer/Control"]
+margin_top = 89.0
+margin_right = 180.0
+margin_bottom = 174.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Volver"
+
+[connection signal="pressed" from="VBoxContainer/Panel2/HBoxContainer/Control/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel2/HBoxContainer/Control/BackButton" to="." method="_on_BackButton_pressed"]
