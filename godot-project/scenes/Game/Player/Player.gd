@@ -12,6 +12,13 @@ func process_control():
 		$"%AnimatedSprite".play("idle")
 	is_on_floor = on_floor
 	
+	if !is_on_floor and velocity.y > 0:
+		var collider = $"%EnemyRayCast".get_collider()
+		if collider and collider.is_in_group("enemy"):
+			velocity.y = -jump_double_force
+			can_double_jump = true
+			collider.on_player_stomp()
+	
 	if Input.is_action_pressed("left"):
 		move_force -= motion_force
 		$"%direction".scale.x = -1
@@ -25,6 +32,7 @@ func process_control():
 		can_double_jump = false
 	if Input.is_action_just_pressed("action"):
 		$StateMachine.change_state("attack")
+	
 
 func process_idle():
 	if is_on_floor:
@@ -37,6 +45,7 @@ func process_idle():
 			$"%AnimatedSprite".play("jump-start")
 		if velocity.y > 0 and $"%AnimatedSprite".animation in ["jump-start", "jump-loop"]:
 			$"%AnimatedSprite".animation = "falling"
+		
 
 func _on_StateMachine_on_state_changed(old_state, new_state):
 #	print("Change state %s->%s" % [old_state, new_state])

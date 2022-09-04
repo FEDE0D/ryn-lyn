@@ -7,8 +7,8 @@ func touch_wall(direction: float):
 func pit(direction: float):
 	pass
 
-func player_detected(player: Player):
+func on_attack_animation():
 	pass
 
-func on_attack_animation():
+func on_player_stomp():
 	pass

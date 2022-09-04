@@ -63,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="RynLyn"
-run/main_scene="res://scenes/UI/menu/MainMenu.tscn"
+run/main_scene="res://scenes/Game/World.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -75,6 +75,8 @@ DebugControl="*res://scripts/DebugControl.gd"
 
 window/size/width=1280
 window/size/height=720
+window/size/test_width=640
+window/size/test_height=360
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
@@ -124,6 +126,7 @@ debug_reload={
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="MoonLight"
 
 [physics]
 
