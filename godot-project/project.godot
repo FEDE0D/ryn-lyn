@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Game/Player/Character.gd"
 }, {
+"base": "Node2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://scenes/Game/Door/Door.gd"
+}, {
 "base": "Character2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -51,6 +56,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Character2D": "",
+"Door": "",
 "Enemy": "",
 "EnemyState": "",
 "LiveCaption": "",
