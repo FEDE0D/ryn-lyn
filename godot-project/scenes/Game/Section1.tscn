@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/Game/Tutorial/Tutorial.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=6]
+[ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=7]
+[ext_resource path="res://scenes/Game/Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Game/Enemy/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Game/Button/Button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Game/Door/Door.tscn" type="PackedScene" id=11]
+
+[sub_resource type="PhysicsMaterial" id=2]
+
+[node name="Section1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 200, 327 )
+physics_material_override = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 0, -180 )
+polygon = PoolVector2Array( -200, -327, -200, -527, -160, -267, -100, -167, -60, -87, 40, -7, 200, -7, 400, -7, 700, -7, 700, 33, -200, 33 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 0, -180 )
+polygon = PoolVector2Array( 700, -7, 840, -47, 1000, -87, 1120, -107, 1260, -127, 1380, -127, 1460, -127, 1560, -107, 1680, -67, 1800, -27, 1880, -27, 1980, -27, 2100, -27, 2100, -67, 2180, -67, 2180, -27, 2180, 33, 700, 33 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 560, -167 )
+polygon = PoolVector2Array( 1620, -80, 1800, -80, 1860, -20, 2000, 40, 2100, 120, 2200, 160, 2200, 240, 1620, 240 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 560, 13 )
+polygon = PoolVector2Array( 3420, -80, 3500, -100, 3620, -120, 3820, -140, 3820, 60, 3420, 60 )
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 560, 13 )
+polygon = PoolVector2Array( 2200, -20, 2480, -20, 2480, -60, 2700, -60, 2700, -140, 2920, -140, 2920, -60, 3000, -60, 3300, -60, 3420, -80, 3420, 60, 2200, 60 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 500, 0 )
+polygon = PoolVector2Array( 4380, -127, 4480, -127, 4560, -127, 4560, -207, 4860, -207, 4820, -107, 4760, 93, 4660, 193, 4540, 193, 4460, 173, 4380, 113, 4300, 73, 4380, 73 )
+
+[node name="decorations-foreground" type="Node2D" parent="StaticBody2D"]
+z_index = 1
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D/decorations-foreground"]
+position = Vector2( 5256, -527 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="StaticBody2D/decorations-foreground"]
+position = Vector2( 5640, -267 )
+rotation = -0.261799
+scale = Vector2( 0.186508, 0.186508 )
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 360, -127 )
+polygon = PoolVector2Array( 5180, 13, 5280, -7, 5320, -67, 5380, -187, 5420, -287, 5420, -347, 5420, -587, 5460, -660, 5520, -540, 5600, -240, 5600, -60, 5680, 0, 5740, 140, 5660, 260, 5560, 293, 5460, 393, 5220, 553, 4800, 653, 4380, 553, 4100, 633, 3940, 600, 3940, 540, 3960, 460, 3980, 440, 4140, 453, 4300, 453, 4500, 453, 4640, 453, 4800, 433, 4980, 373, 5100, 253, 5180, 133 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 340, 0 )
+polygon = PoolVector2Array( 3800, 413, 3600, 413, 3480, 413, 3340, 413, 3200, 413, 3200, 433, 3160, 433, 3160, 453, 3120, 453, 3120, 473, 3080, 473, 3080, 493, 3040, 493, 3040, 513, 2600, 513, 2400, 513, 2400, 633, 2800, 713, 3800, 473, 3960, 473, 3960, 413 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 500, 0 )
+polygon = PoolVector2Array( 4860, -207, 4860, -187, 4900, -187, 4900, -167, 4940, -167, 4940, -147, 4920, -127, 4900, -107, 4860, -67, 4840, -67, 4800, -27, 4780, -7, 4840, -187 )
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 500, 0 )
+polygon = PoolVector2Array( 2240, 513, 2200, 513, 2200, 533, 2160, 533, 2160, 553, 2120, 553, 2120, 573, 2080, 573, 2080, 593, 2040, 593, 2040, 613, 2000, 613, 2000, 693, 1720, 693, 1720, 773, 1840, 793, 2000, 793, 2060, 773, 2100, 753, 2180, 713, 2220, 693, 2340, 693, 2420, 693, 2540, 693, 2240, 633 )
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 4380, -127, 4420, -127, 4440, -127, 4440, -87, 4440, -47, 4480, -47, 4480, 33, 4760, 33, 4780, -47, 4780, -107, 4800, -127, 4880, -127, 4880, 73, 4880, 113, 4820, 133, 4720, 153, 4540, 153, 4440, 113, 4400, 73, 4380, 73 )
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 4600, -127, 4720, -127, 4720, -107, 4700, -87, 4580, -87, 4580, -107.951 )
+
+[node name="tutoriales" type="Node2D" parent="."]
+
+[node name="Tutorial2" parent="tutoriales" instance=ExtResource( 2 )]
+position = Vector2( 2180, 114 )
+
+[node name="Tutorial3" parent="tutoriales" instance=ExtResource( 2 )]
+position = Vector2( 3360, 268 )
+
+[node name="Tutorial4" parent="tutoriales" instance=ExtResource( 2 )]
+position = Vector2( 3360, 828 )
+scale = Vector2( -1, 1 )
+
+[node name="gollems" type="Node2D" parent="."]
+
+[node name="Enemy" parent="gollems" instance=ExtResource( 9 )]
+position = Vector2( 4180, 720 )
+
+[node name="Enemy2" parent="gollems" instance=ExtResource( 9 )]
+position = Vector2( 4020, 720 )
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
+position = Vector2( 60, -320 )
+moving_platform_apply_velocity_on_leave = 2
+motion_force = 160.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 0, -60 )
+current = true
+zoom = Vector2( 0.6, 0.6 )
+limit_left = 0
+smoothing_enabled = true
+drag_margin_left = 0.4
+drag_margin_top = 0.5
+drag_margin_right = 0.4
+drag_margin_bottom = 0.5
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="doors" type="Node2D" parent="."]
+
+[node name="Button" parent="doors" instance=ExtResource( 10 )]
+position = Vector2( 3060, 839 )
+door = NodePath("../Door")
+button_type = "KEEP"
+
+[node name="Door" parent="doors" instance=ExtResource( 11 )]
+position = Vector2( 3000, 832 )
+
+[node name="TODO" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="TODO"]
+margin_left = 140.0
+margin_top = -60.0
+margin_right = 216.0
+margin_bottom = -46.0
+text = "Cinematic 1"
+
+[node name="Label2" type="Label" parent="TODO"]
+margin_left = 1560.0
+margin_top = -60.0
+margin_right = 1636.0
+margin_bottom = -46.0
+text = "Cinematic 2"

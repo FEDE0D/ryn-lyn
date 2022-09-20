@@ -92,6 +92,7 @@ animations = [ {
 } ]
 
 [node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
+z_index = -1
 collision_layer = 4
 script = ExtResource( 4 )
 
@@ -144,11 +145,10 @@ shape = SubResource( 11 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="visual/direction"]
 unique_name_in_owner = true
 light_mask = 3
-position = Vector2( 0, -3 )
+position = Vector2( 0, -5 )
 scale = Vector2( 0.0866667, 0.0866666 )
 frames = SubResource( 9 )
 animation = "idle"
-frame = 5
 playing = true
 
 [node name="StateMachine" type="Node" parent="."]

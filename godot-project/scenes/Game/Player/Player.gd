@@ -13,7 +13,9 @@ func process_control():
 	is_on_floor = on_floor
 	
 	if !is_on_floor and velocity.y > 0:
-		var collider = $"%EnemyRayCast".get_collider()
+		var collider = $"%EnemyRayCastL".get_collider()
+		if !collider:
+			collider = $"%EnemyRayCastR".get_collider()
 		if collider and collider.is_in_group("enemy"):
 			velocity.y = -jump_double_force
 			can_double_jump = true
