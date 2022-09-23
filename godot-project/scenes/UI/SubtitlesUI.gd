@@ -17,10 +17,13 @@ func _on_dialog_start(dialog: DialogResource):
 	while current_line_index < dialog.lines.size():
 		var dialog_line: DialogLineResource = dialog.lines[current_line_index]
 		var line = dialog_line.text
+		var actor: ActorResource = dialog_line.actor
 		var duration = line.length() * 0.03
+		
 		current_line_index += 1
 		$"%Subtitles".percent_visible = 0.0
-		$"%Subtitles".bbcode_text = "%s" % line
+		$"%Subtitles".bbcode_text = "[b]%s[/b]:\n%s" % [actor.name, line]
+		$"%ActorImage".texture = actor.image
 		
 		$"%Tween".interpolate_property($"%Subtitles", "percent_visible", 0.0, 1.0, duration)
 		$"%Tween".start()

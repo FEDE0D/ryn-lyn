@@ -78,7 +78,8 @@ custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="SubtitlesContainer/PanelContainer/Panel/HBoxContainer/Control"]
+[node name="ActorImage" type="TextureRect" parent="SubtitlesContainer/PanelContainer/Panel/HBoxContainer/Control"]
+unique_name_in_owner = true
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 202.0

@@ -58,7 +58,7 @@ func _on_AnimatedSprite_animation_finished():
 	if $"%AnimatedSprite".animation == "jump-start":
 		$"%AnimatedSprite".animation = "jump-loop"
 
-func _on_game_state_changed(new_state):
+func _on_game_state_changed(new_state, previous_state):
 	if new_state == GameState.STATE.GAME:
 		$"%StateMachine".change_state("idle")
 	else:
