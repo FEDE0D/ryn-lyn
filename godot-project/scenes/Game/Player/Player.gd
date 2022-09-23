@@ -1,6 +1,9 @@
 extends Character2D
 class_name Player
 
+func _ready():
+	GameState.connect("on_state_changed", self, "_on_game_state_changed")
+
 func receive_attack():
 	$"%StateMachine".state._receive_damage(0.25)
 
@@ -32,9 +35,8 @@ func process_control():
 	if Input.is_action_just_pressed("jump") and !is_on_floor and can_double_jump:
 		velocity.y = -jump_double_force
 		can_double_jump = false
-	if Input.is_action_just_pressed("action"):
-		$StateMachine.change_state("attack")
-	
+#	if Input.is_action_just_pressed("action"):
+#		$StateMachine.change_state("attack")
 
 func process_idle():
 	if is_on_floor:
@@ -47,12 +49,17 @@ func process_idle():
 			$"%AnimatedSprite".play("jump-start")
 		if velocity.y > 0 and $"%AnimatedSprite".animation in ["jump-start", "jump-loop"]:
 			$"%AnimatedSprite".animation = "falling"
-		
 
 func _on_StateMachine_on_state_changed(old_state, new_state):
-#	print("Change state %s->%s" % [old_state, new_state])
+	print("Change state %s->%s" % [old_state, new_state])
 	pass
 
 func _on_AnimatedSprite_animation_finished():
 	if $"%AnimatedSprite".animation == "jump-start":
 		$"%AnimatedSprite".animation = "jump-loop"
+
+func _on_game_state_changed(new_state):
+	if new_state == GameState.STATE.GAME:
+		$"%StateMachine".change_state("idle")
+	else:
+		$"%StateMachine".change_state("paused")

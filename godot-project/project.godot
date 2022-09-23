@@ -9,10 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "ActorResource",
+"language": "GDScript",
+"path": "res://scripts/ActorResource.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Character2D",
 "language": "GDScript",
 "path": "res://scenes/Game/Player/Character.gd"
+}, {
+"base": "Resource",
+"class": "DialogLineResource",
+"language": "GDScript",
+"path": "res://scripts/DialogLineResource.gd"
+}, {
+"base": "Resource",
+"class": "DialogResource",
+"language": "GDScript",
+"path": "res://scripts/DialogResource.gd"
 }, {
 "base": "Node2D",
 "class": "Door",
@@ -55,7 +70,10 @@ _global_script_classes=[ {
 "path": "res://scripts/StateMachine/StateMachineState.gd"
 } ]
 _global_script_class_icons={
+"ActorResource": "",
 "Character2D": "",
+"DialogLineResource": "",
+"DialogResource": "",
 "Door": "",
 "Enemy": "",
 "EnemyState": "",
@@ -76,6 +94,7 @@ config/icon="res://icon.png"
 
 TTS="*res://addons/godot-tts/TTS.gd"
 DebugControl="*res://scripts/DebugControl.gd"
+GameState="*res://scripts/GameState.gd"
 
 [display]
 
@@ -124,6 +143,11 @@ debug_fullscreen={
 debug_reload={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777248,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+subtitle={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

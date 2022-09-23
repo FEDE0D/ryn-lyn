@@ -7,7 +7,8 @@ export(NodePath) onready var state = get_node(state)
 func change_state(state_name: String, param = null):
 	var new_state = get_node(state_name)
 	assert(new_state, "New state with name %s cannot be found" % state_name)
-	assert(new_state != state, "New state is same as current state")
+	if new_state == state:
+		push_warning("New state is same as current state")
 	
 	set_process(false)
 	set_physics_process(false)
