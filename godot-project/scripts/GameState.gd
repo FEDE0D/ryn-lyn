@@ -27,12 +27,12 @@ func hide_pause():
 func push_state(s):
 	var previous = _state.front()
 	_state.push_front(s)
-	print("push %s" % GameState.STATE.keys()[s])
+#	print("push %s" % GameState.STATE.keys()[s])
 	emit_signal("on_state_changed", _state.front(), previous)
 
 func pop_state():
 	var previous = _state.pop_front()
-	print("pop %s" % GameState.STATE.keys()[previous])
+#	print("pop %s" % GameState.STATE.keys()[previous])
 	emit_signal("on_state_changed", _state.front(), previous)
 
 func is_in_state(state):

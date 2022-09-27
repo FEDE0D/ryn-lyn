@@ -51,7 +51,7 @@ func process_idle():
 			$"%AnimatedSprite".animation = "falling"
 
 func _on_StateMachine_on_state_changed(old_state, new_state):
-	print("Change state %s->%s" % [old_state, new_state])
+#	print("Change state %s->%s" % [old_state, new_state])
 	pass
 
 func _on_AnimatedSprite_animation_finished():

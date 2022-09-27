@@ -71,13 +71,16 @@ polygon = PoolVector2Array( 4860, -207, 4860, -187, 4900, -187, 4900, -167, 4940
 
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( 500, 0 )
-polygon = PoolVector2Array( 2240, 513, 2200, 513, 2200, 533, 2160, 533, 2160, 553, 2120, 553, 2120, 573, 2080, 573, 2080, 593, 2040, 593, 2040, 613, 2000, 613, 2000, 693, 1720, 693, 1720, 773, 1840, 793, 2000, 793, 2060, 773, 2100, 753, 2180, 713, 2220, 693, 2340, 693, 2420, 693, 2540, 693, 2240, 633 )
+polygon = PoolVector2Array( 2240, 513, 2200, 513, 2200, 533, 2160, 533, 2160, 553, 2120, 553, 2120, 573, 2080, 573, 2080, 593, 2040, 593, 2040, 613, 2000, 613, 2000, 693, 1960, 693, 1900, 693, 1900, 713, 1860, 713, 1860, 733, 1780, 733, 1780, 753, 1740, 753, 1740, 773, 1620, 773, 1620, 793, 1740, 793, 2000, 793, 2060, 773, 2100, 753, 2180, 713, 2220, 693, 2340, 693, 2420, 693, 2540, 693, 2240, 633 )
 
 [node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( 4380, -127, 4420, -127, 4440, -127, 4440, -87, 4440, -47, 4480, -47, 4480, 33, 4760, 33, 4780, -47, 4780, -107, 4800, -127, 4880, -127, 4880, 73, 4880, 113, 4820, 133, 4720, 153, 4540, 153, 4440, 113, 4400, 73, 4380, 73 )
 
 [node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( 4600, -127, 4720, -127, 4720, -107, 4700, -87, 4580, -87, 4580, -107.951 )
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 2220, 633, 2280, 633, 2280, 653, 2260, 673, 2220, 673, 2160, 713, 2120, 793, 2040, 793, 2040, 633 )
 
 [node name="tutoriales" type="Node2D" parent="."]
 
@@ -103,7 +106,7 @@ position = Vector2( 4180, 720 )
 position = Vector2( 4020, 720 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1900, 40 )
+position = Vector2( 3840, 620 )
 moving_platform_apply_velocity_on_leave = 2
 motion_force = 160.0
 
@@ -122,13 +125,13 @@ editor_draw_drag_margin = true
 
 [node name="doors" type="Node2D" parent="."]
 
-[node name="Button" parent="doors" instance=ExtResource( 10 )]
-position = Vector2( 3060, 839 )
-door = NodePath("../Door")
+[node name="Button2" parent="doors" instance=ExtResource( 10 )]
+position = Vector2( 2380, 1100 )
+door = NodePath("../Door2")
 button_type = "KEEP"
 
-[node name="Door" parent="doors" instance=ExtResource( 11 )]
-position = Vector2( 3000, 832 )
+[node name="Door2" parent="doors" instance=ExtResource( 11 )]
+position = Vector2( 2380, 960 )
 
 [node name="TODO" type="Node2D" parent="."]
 
