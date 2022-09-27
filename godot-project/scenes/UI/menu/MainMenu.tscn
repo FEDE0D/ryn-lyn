@@ -183,7 +183,6 @@ margin_bottom = 100.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 expand = true
-flip_h = true
 
 [node name="Control" type="Control" parent="HBoxContainer/Control3"]
 anchor_right = 1.0
