@@ -1,6 +1,6 @@
 extends Node2D
 
-export(NodePath) onready var door = get_node(door) as Door
+export(Array, NodePath) var doors
 export(bool) var active: bool = false
 
 var pressed: Array = []
@@ -28,9 +28,11 @@ func _input(event):
 func turn_on():
 	active = true
 	$visuals/AnimatedSprite.play("on")
-	door.activate()
+	for door in doors:
+		get_node(door).invert()
 
 func turn_off():
 	active = false
 	$visuals/AnimatedSprite.play("off")
-	door.deactivate()
+	for door in doors:
+		get_node(door).invert()

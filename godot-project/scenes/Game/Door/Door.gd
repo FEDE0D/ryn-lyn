@@ -20,3 +20,9 @@ func deactivate(ignore_state: bool = false):
 	active = false
 	$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
 	$AnimationPlayer.play("open")
+
+func invert():
+	if active:
+		deactivate()
+	else:
+		activate()

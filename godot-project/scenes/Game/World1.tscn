@@ -140,7 +140,7 @@ polygon = PoolVector2Array( 10920, 633, 10840, 633, 10820, 613, 10960, 613, 1098
 polygon = PoolVector2Array( 10960, 533, 11040, 573, 11060, 573, 11100, 593, 11120, 553, 11080, 533, 11080, 513, 11000, 513, 10960, 513 )
 
 [node name="CollisionPolygon2D26" type="CollisionPolygon2D" parent="Sector1"]
-polygon = PoolVector2Array( 11380, 713, 11480, 713, 11480, 733, 11580, 733, 11580, 753, 11660, 753, 11660, 773, 11780, 773, 11780, 813, 11860, 813, 11860, 873, 11940, 873, 11940, 933, 12020, 933, 12020, 1013, 12100, 1013, 12100, 1073, 12200, 1073, 12340, 1073, 12220, 1193, 12100, 1173, 11960, 1113, 11880, 1033, 11740, 973, 11680, 833, 11360, 833 )
+polygon = PoolVector2Array( 11380, 713, 11480, 713, 11480, 733, 11580, 733, 11580, 753, 11660, 753, 11660, 773, 11780, 773, 11780, 813, 11860, 813, 11860, 873, 11940, 873, 11940, 933, 12020, 933, 12020, 1013, 12100, 1013, 12100, 1073, 12200, 1073, 12320, 1073, 12320, 1053, 12340, 1053, 12340, 1073, 12320, 1093, 12220, 1193, 12100, 1173, 11960, 1113, 11880, 1033, 11740, 973, 11680, 833, 11360, 833 )
 
 [node name="CollisionPolygon2D27" type="CollisionPolygon2D" parent="Sector1"]
 position = Vector2( 40, 20 )
@@ -173,7 +173,7 @@ position = Vector2( 5840, 900 )
 position = Vector2( 5680, 900 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 11080, 900 )
+position = Vector2( 11260, 1000 )
 moving_platform_apply_velocity_on_leave = 2
 motion_force = 160.0
 
@@ -194,7 +194,6 @@ editor_draw_drag_margin = true
 
 [node name="Bonfire4" parent="doors" instance=ExtResource( 14 )]
 position = Vector2( 10780, 880 )
-door = NodePath("../Door3")
 active = true
 
 [node name="Door2" parent="doors" instance=ExtResource( 4 )]
@@ -208,20 +207,23 @@ position = Vector2( 11380, 1040 )
 
 [node name="Door4" parent="doors" instance=ExtResource( 4 )]
 position = Vector2( 11460, 880 )
+active = false
+
+[node name="Door6" parent="doors" instance=ExtResource( 4 )]
+position = Vector2( 11760, 1060 )
 
 [node name="Bonfire" parent="doors" instance=ExtResource( 14 )]
 position = Vector2( 11200, 1040 )
-door = NodePath("../Door4")
+doors = [ NodePath("../Door4"), NodePath("../Door") ]
 active = true
 
 [node name="Bonfire2" parent="doors" instance=ExtResource( 14 )]
 position = Vector2( 11700, 920 )
-door = NodePath("../Door")
+doors = [ NodePath("../Door6"), NodePath("../Door") ]
 active = true
 
 [node name="Bonfire3" parent="doors" instance=ExtResource( 14 )]
 position = Vector2( 7360, 1300 )
-door = NodePath("../Door2")
 active = true
 
 [node name="Door5" parent="doors" instance=ExtResource( 4 )]
@@ -229,7 +231,7 @@ position = Vector2( 12380, 1400 )
 
 [node name="Bonfire5" parent="doors" instance=ExtResource( 14 )]
 position = Vector2( 12400, 1200 )
-door = NodePath("../Door5")
+doors = [ NodePath("../Door5") ]
 active = true
 
 [node name="TODO" type="Node2D" parent="."]
