@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -9,10 +9,11 @@
 [ext_resource path="res://scenes/Game/Tutorial/Tutorial.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/UI/menu/PauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Game/Enemy/Enemy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/Game/Button/Button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_1.png" type="Texture" id=10]
 [ext_resource path="res://resources/images/decorations/plants/groddle_plant_2.png" type="Texture" id=11]
 [ext_resource path="res://resources/images/decorations/plants/groddle_grass_1.png" type="Texture" id=12]
 [ext_resource path="res://resources/images/decorations/plants/groddle_fern_1.png" type="Texture" id=13]
+[ext_resource path="res://scenes/Game/Button/Bonfire.tscn" type="PackedScene" id=14]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -129,7 +130,21 @@ polygon = PoolVector2Array( 10380, 593, 10360, 593, 10340, 613, 10440, 613, 1046
 polygon = PoolVector2Array( 10680, 673, 10620, 813, 10740, 833, 10760, 793, 10760, 833, 10800, 853, 10840, 893, 10860, 853, 10860, 893, 10920, 893, 10920, 853, 11020, 753, 11160, 833, 11360, 833, 11380, 713, 11000, 713, 10960, 713, 10900, 733, 10820, 713 )
 
 [node name="CollisionPolygon2D23" type="CollisionPolygon2D" parent="Sector1"]
-polygon = PoolVector2Array( 11100, 613, 11120, 653, 11280, 653, 11320, 613 )
+position = Vector2( 0, -60 )
+polygon = PoolVector2Array( 11120, 613, 11100, 653, 11280, 653, 11320, 653, 11360, 633, 11440, 673, 11480, 693, 11540, 693, 11600, 653, 11560, 573, 11620, 573, 11620, 613, 11640, 573, 11660, 533, 11640, 513, 11560, 493, 11520, 593, 11520, 653, 11480, 653, 11440, 653, 11380, 613, 11360, 593, 11280, 613 )
+
+[node name="CollisionPolygon2D24" type="CollisionPolygon2D" parent="Sector1"]
+polygon = PoolVector2Array( 10920, 633, 10840, 633, 10820, 613, 10960, 613, 10980, 633 )
+
+[node name="CollisionPolygon2D25" type="CollisionPolygon2D" parent="Sector1"]
+polygon = PoolVector2Array( 10960, 533, 11040, 573, 11060, 573, 11100, 593, 11120, 553, 11080, 533, 11080, 513, 11000, 513, 10960, 513 )
+
+[node name="CollisionPolygon2D26" type="CollisionPolygon2D" parent="Sector1"]
+polygon = PoolVector2Array( 11380, 713, 11480, 713, 11480, 733, 11580, 733, 11580, 753, 11660, 753, 11660, 773, 11780, 773, 11780, 813, 11860, 813, 11860, 873, 11940, 873, 11940, 933, 12020, 933, 12020, 1013, 12100, 1013, 12100, 1073, 12200, 1073, 12340, 1073, 12220, 1193, 12100, 1173, 11960, 1113, 11880, 1033, 11740, 973, 11680, 833, 11360, 833 )
+
+[node name="CollisionPolygon2D27" type="CollisionPolygon2D" parent="Sector1"]
+position = Vector2( 40, 20 )
+polygon = PoolVector2Array( 11840, 693, 11900, 713, 11940, 713, 11960, 733, 11960, 753, 11980, 773, 12060, 773, 12060, 873, 12080, 893, 12180, 893, 12220, 873, 12240, 853, 12300, 733, 12180, 593, 12200, 653, 12220, 733, 12240, 753, 12220, 853, 12080, 853, 12080, 773, 12060, 753, 12000, 753, 11980, 733, 11980, 693 )
 
 [node name="tutoriales" type="Node2D" parent="."]
 
@@ -158,7 +173,7 @@ position = Vector2( 5840, 900 )
 position = Vector2( 5680, 900 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 11180, 1000 )
+position = Vector2( 11080, 900 )
 moving_platform_apply_velocity_on_leave = 2
 motion_force = 160.0
 
@@ -177,20 +192,10 @@ editor_draw_drag_margin = true
 
 [node name="doors" type="Node2D" parent="."]
 
-[node name="Button2" parent="doors" instance=ExtResource( 10 )]
-position = Vector2( 7380, 1300 )
-door = NodePath("../Door2")
-button_type = "KEEP"
-
-[node name="Button3" parent="doors" instance=ExtResource( 10 )]
+[node name="Bonfire4" parent="doors" instance=ExtResource( 14 )]
 position = Vector2( 10780, 880 )
 door = NodePath("../Door3")
-button_type = "KEEP"
-
-[node name="Button4" parent="doors" instance=ExtResource( 10 )]
-position = Vector2( 11240, 1040 )
-door = NodePath("../Door4")
-button_type = "KEEP"
+active = true
 
 [node name="Door2" parent="doors" instance=ExtResource( 4 )]
 position = Vector2( 7400, 1140 )
@@ -198,8 +203,34 @@ position = Vector2( 7400, 1140 )
 [node name="Door3" parent="doors" instance=ExtResource( 4 )]
 position = Vector2( 10720, 1000 )
 
+[node name="Door" parent="doors" instance=ExtResource( 4 )]
+position = Vector2( 11380, 1040 )
+
 [node name="Door4" parent="doors" instance=ExtResource( 4 )]
-position = Vector2( 11420, 1100 )
+position = Vector2( 11460, 880 )
+
+[node name="Bonfire" parent="doors" instance=ExtResource( 14 )]
+position = Vector2( 11200, 1040 )
+door = NodePath("../Door4")
+active = true
+
+[node name="Bonfire2" parent="doors" instance=ExtResource( 14 )]
+position = Vector2( 11700, 920 )
+door = NodePath("../Door")
+active = true
+
+[node name="Bonfire3" parent="doors" instance=ExtResource( 14 )]
+position = Vector2( 7360, 1300 )
+door = NodePath("../Door2")
+active = true
+
+[node name="Door5" parent="doors" instance=ExtResource( 4 )]
+position = Vector2( 12380, 1400 )
+
+[node name="Bonfire5" parent="doors" instance=ExtResource( 14 )]
+position = Vector2( 12400, 1200 )
+door = NodePath("../Door5")
+active = true
 
 [node name="TODO" type="Node2D" parent="."]
 
@@ -223,19 +254,46 @@ text = "Cinematic 2"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 8 )]
 
-[node name="GroddleGrass1" type="Sprite" parent="."]
+[node name="decorations" type="Node2D" parent="."]
+
+[node name="GroddleGrass1" type="Sprite" parent="decorations"]
 position = Vector2( 9922.94, 943.765 )
 rotation = 1.83259
 scale = Vector2( 0.719095, 0.719095 )
 texture = ExtResource( 12 )
 
-[node name="GroddlePlant2" type="Sprite" parent="."]
+[node name="GroddlePlant2" type="Sprite" parent="decorations"]
 position = Vector2( 9880, 785 )
 scale = Vector2( 0.627451, 0.627451 )
 texture = ExtResource( 11 )
 
-[node name="GroddleFern1" type="Sprite" parent="."]
+[node name="GroddleFern1" type="Sprite" parent="decorations"]
 position = Vector2( 9701, 947 )
 rotation = 3.14159
 scale = Vector2( 0.191816, 0.191816 )
 texture = ExtResource( 13 )
+
+[node name="Water" type="Polygon2D" parent="decorations"]
+color = Color( 0.282353, 0.729412, 0.815686, 0.772549 )
+polygon = PoolVector2Array( 10360, 1020, 10540, 1020, 10520, 1040, 10460, 1060, 10400, 1060, 10360, 1040 )
+
+[node name="Water2" type="Polygon2D" parent="decorations"]
+position = Vector2( -680, 220 )
+color = Color( 0.282353, 0.729412, 0.815686, 0.772549 )
+polygon = PoolVector2Array( 10300, 1060, 10560, 1060, 10520, 1080, 10460, 1080, 10420, 1060, 10400, 1060, 10360, 1080 )
+
+[node name="Water3" type="Polygon2D" parent="decorations"]
+position = Vector2( -360, 60 )
+color = Color( 0.282353, 0.729412, 0.815686, 0.772549 )
+polygon = PoolVector2Array( 10440, 1040, 10500, 1040, 10500, 1060, 10480, 1060 )
+
+[node name="TreeConiferousFg1" type="Sprite" parent="decorations"]
+position = Vector2( 11901.8, 722.653 )
+scale = Vector2( 0.626382, 0.626382 )
+texture = ExtResource( 10 )
+
+[node name="Polygon2D" type="Polygon2D" parent="decorations"]
+position = Vector2( 280, 347 )
+z_index = -1
+color = Color( 0.133333, 0.0862745, 0.0627451, 1 )
+polygon = PoolVector2Array( 11880, 693, 11920, 733, 11940, 773, 12020, 773, 12020, 873, 12040, 893, 12140, 893, 12180, 873, 12200, 853, 12240, 773, 12200, 753, 12160, 733, 12120, 673, 12080, 653, 12040, 513, 12080, 453, 12040, 393, 11820, 373, 11760, 433, 11740, 493, 11740, 573, 11840, 613 )

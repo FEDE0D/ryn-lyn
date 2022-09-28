@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/images/mechanics/button/on.png" type="Texture" id=1]
+[ext_resource path="res://resources/images/mechanics/button/off.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Game/Button/Bonfire.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 45.1221
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+} ]
+
+[node name="Bonfire" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="visuals"]
+position = Vector2( 0, -9 )
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 1 )
+animation = "off"
+
+[node name="Button" type="Button" parent="visuals"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.5
+margin_top = -70.0
+margin_right = 29.5
+margin_bottom = -50.0
+text = "Press X"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

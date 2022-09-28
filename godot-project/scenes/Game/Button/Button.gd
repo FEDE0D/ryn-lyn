@@ -7,7 +7,7 @@ var pressed: Array = []
 func _on_Area2D_body_entered(body):
 	if pressed.empty():
 		$AnimationPlayer.play("pressed")
-		door.open()
+		door.activate()
 	pressed.append(body)
 
 func _on_Area2D_body_exited(body):
@@ -15,4 +15,4 @@ func _on_Area2D_body_exited(body):
 		pressed.erase(body)
 		if pressed.empty():
 			$AnimationPlayer.play_backwards("pressed")
-			door.close()
+			door.deactivate()
