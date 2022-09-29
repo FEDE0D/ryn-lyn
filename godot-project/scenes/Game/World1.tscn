@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -17,6 +17,10 @@
 [ext_resource path="res://resources/images/decorations/stones/bling_stonemonument_1.png" type="Texture" id=15]
 [ext_resource path="res://resources/images/decorations/stones/bling_stonemonument_3.png" type="Texture" id=16]
 [ext_resource path="res://scenes/Game/Button/Trigger.tscn" type="PackedScene" id=17]
+[ext_resource path="res://resources/images/platforms/trees/platform_branch_boards_11_g1.png" type="Texture" id=18]
+[ext_resource path="res://resources/images/platforms/trees/platform_branch_boards_04_g1.png" type="Texture" id=19]
+[ext_resource path="res://resources/images/platforms/trees/platform_branch_boards_03_g1.png" type="Texture" id=20]
+[ext_resource path="res://scenes/Game/Items/MoonStoneItem.tscn" type="PackedScene" id=21]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -147,10 +151,36 @@ polygon = PoolVector2Array( 11380, 713, 11480, 713, 11480, 733, 11580, 733, 1158
 
 [node name="CollisionPolygon2D27" type="CollisionPolygon2D" parent="Sector1"]
 position = Vector2( 40, 20 )
-polygon = PoolVector2Array( 11840, 693, 11840, 713, 11900, 713, 11940, 713, 11960, 733, 11960, 753, 11980, 773, 12060, 773, 12060, 873, 12080, 893, 12180, 893, 12220, 873, 12240, 853, 12300, 733, 12180, 593, 12200, 653, 12220, 733, 12240, 753, 12220, 853, 12080, 853, 12080, 773, 12060, 753, 12000, 753, 11980, 733, 11980, 693 )
+polygon = PoolVector2Array( 11840, 693, 11840, 713, 11900, 713, 11940, 713, 11960, 733, 11960, 753, 11980, 773, 12060, 773, 12060, 873, 12080, 893, 12180, 893, 12220, 873, 12240, 853, 12300, 733, 12280, 693, 12240, 693, 12200, 613, 12200, 513, 12240, 473, 12200, 493, 12180, 533, 12180, 593, 12200, 653, 12220, 733, 12240, 753, 12220, 853, 12080, 853, 12080, 773, 12060, 753, 12000, 753, 11980, 733, 11980, 693 )
 
 [node name="CollisionPolygon2D28" type="CollisionPolygon2D" parent="Sector1"]
-polygon = PoolVector2Array( 13160, 1153, 13160, 1193, 12220, 1193, 12260, 1153 )
+polygon = PoolVector2Array( 13160, 1153, 13680, 1153, 13680, 993, 13720, 993, 13880, 953, 13880, 993, 13720, 1053, 13720, 1153, 13720, 1193, 13160, 1193, 12220, 1193, 12260, 1153 )
+
+[node name="CollisionPolygon2D29" type="CollisionPolygon2D" parent="Sector1"]
+polygon = PoolVector2Array( 13280, 993, 13280, 1013, 13180, 1013, 13180, 993 )
+
+[node name="CollisionPolygon2D30" type="CollisionPolygon2D" parent="Sector1"]
+polygon = PoolVector2Array( 13040, 913, 13040, 933, 13140, 933, 13140, 913 )
+
+[node name="CollisionPolygon2D31" type="CollisionPolygon2D" parent="Sector1"]
+position = Vector2( -140, -67 )
+polygon = PoolVector2Array( 12680, 900, 12760, 920, 13140, 920, 13140, 900, 12920, 900, 12860, 880, 12780, 860, 12740, 840, 12700, 840, 12680, 860, 12620, 860, 12560, 820, 12480, 820, 12460, 860, 12580, 880 )
+
+[node name="CollisionPolygon2D32" type="CollisionPolygon2D" parent="Sector1"]
+polygon = PoolVector2Array( 12400, 613, 12400, 633, 12600, 633, 12600, 613 )
+
+[node name="CollisionPolygon2D33" type="CollisionPolygon2D" parent="Sector1"]
+polygon = PoolVector2Array( 12760, 613, 12760, 633, 12920, 633, 12920, 613 )
+
+[node name="CollisionPolygon2D36" type="CollisionPolygon2D" parent="Sector1"]
+position = Vector2( 660, -167 )
+polygon = PoolVector2Array( 12740, 620, 12740, 640, 13320, 640, 13760, 640, 13760, 440, 13760, 40, 13740, 40, 13740, 420, 13400, 420, 13380, 440, 13280, 440, 13260, 440, 13240, 460, 13220, 460, 13200, 480, 13180, 480, 13160, 500, 13140, 500, 13120, 520, 13100, 520, 13080, 540, 13060, 540, 13040, 560, 13020, 560, 13000, 580, 12960, 580, 12940, 600, 12920, 600, 12900, 620, 12880, 620 )
+
+[node name="CollisionPolygon2D34" type="CollisionPolygon2D" parent="Sector1"]
+polygon = PoolVector2Array( 13000, 533, 13100, 533, 13100, 553, 13000, 553 )
+
+[node name="CollisionPolygon2D35" type="CollisionPolygon2D" parent="Sector1"]
+polygon = PoolVector2Array( 13160, 473, 13260, 473, 13260, 453, 13160, 453 )
 
 [node name="tutoriales" type="Node2D" parent="."]
 
@@ -170,6 +200,9 @@ dialog = ExtResource( 3 )
 position = Vector2( 8520, 1411 )
 dialog = ExtResource( 3 )
 
+[node name="MoonStoneItem" parent="tutoriales" instance=ExtResource( 21 )]
+position = Vector2( 14440, 540 )
+
 [node name="gollems" type="Node2D" parent="."]
 
 [node name="Enemy" parent="gollems" instance=ExtResource( 9 )]
@@ -178,8 +211,11 @@ position = Vector2( 5820, 920 )
 [node name="Enemy2" parent="gollems" instance=ExtResource( 9 )]
 position = Vector2( 5640, 920 )
 
+[node name="Enemy3" parent="gollems" instance=ExtResource( 9 )]
+position = Vector2( 13520, 1440 )
+
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 12420, 1360 )
+position = Vector2( 13700, 700 )
 moving_platform_apply_velocity_on_leave = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -368,3 +404,33 @@ polygon = PoolVector2Array( 5180, 620, 5040, 700, 5080, 780, 5120, 860, 5200, 92
 z_index = -2
 color = Color( 0.309804, 0.219608, 0.219608, 1 )
 polygon = PoolVector2Array( 5620, 200, 5800, 220, 5760, 320, 5600, 580, 5420, 640, 5180, 620, 5040, 700, 4840, 660, 4800, 600, 4800, 540, 4720, 500, 4760, 440, 5020, 440, 5140, 420, 5280, 500, 5360, 460, 5420, 400, 5460, 320, 5520, 280, 5600, 200 )
+
+[node name="PlatformBranchBoards04G1" type="Sprite" parent="decorations"]
+position = Vector2( 13433.4, 1345.12 )
+scale = Vector2( 1.10302, 1.10302 )
+z_index = -1
+texture = ExtResource( 19 )
+
+[node name="PlatformBranchBoards11G1" type="Sprite" parent="decorations"]
+position = Vector2( 13288.7, 1263.23 )
+scale = Vector2( 0.857144, 1.02747 )
+z_index = -1
+texture = ExtResource( 18 )
+
+[node name="TreeConiferousFg2" type="Sprite" parent="decorations"]
+position = Vector2( 13341.8, 1082.65 )
+scale = Vector2( 0.626382, 0.626382 )
+z_index = -1
+texture = ExtResource( 10 )
+
+[node name="PlatformBranchBoards04G2" type="Sprite" parent="decorations"]
+position = Vector2( 13425, 802 )
+scale = Vector2( 1, 1 )
+z_index = -1
+texture = ExtResource( 19 )
+
+[node name="PlatformBranchBoards03G1" type="Sprite" parent="decorations"]
+position = Vector2( 13265.7, 880.75 )
+scale = Vector2( 0.519802, 0.519802 )
+z_index = -1
+texture = ExtResource( 20 )

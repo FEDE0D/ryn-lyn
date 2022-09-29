@@ -2,27 +2,39 @@ extends Node
 
 signal on_state_changed(new_state, previous_state)
 signal on_dialog_start(dialog)
+signal on_player_collected_stone()
 
 enum STATE {GAME, PAUSED, SUBTITLE}
 var _state = [STATE.GAME]
 
+# NAVIGATION
+
 func start_game():
 	_state = [STATE.GAME]
 
-func show_dialog(dialog: DialogResource):
-	GameState.push_state(GameState.STATE.SUBTITLE)
-	emit_signal("on_dialog_start", dialog)
+func main_menu():
+	get_tree().change_scene("res://scenes/UI/menu/MainMenu.tscn")
 
 func show_pause():
 	if !is_in_state(GameState.STATE.PAUSED):
 		GameState.push_state(GameState.STATE.PAUSED)
 
-func main_menu():
-	get_tree().change_scene("res://scenes/UI/menu/MainMenu.tscn")
-
 func hide_pause():
 	if is_in_state(GameState.STATE.PAUSED):
 		GameState.pop_state()
+
+# DIALOG
+
+func show_dialog(dialog: DialogResource):
+	GameState.push_state(GameState.STATE.SUBTITLE)
+	emit_signal("on_dialog_start", dialog)
+
+# ITEMS
+
+func player_collected_stone():
+	emit_signal("on_player_collected_stone")
+
+# STATES
 
 func push_state(s):
 	var previous = _state.front()

@@ -1,9 +1,12 @@
 extends Node2D
 
+signal on_player_entered
+
 export(Array, NodePath) var doors
 export(String, "ACTIVATE", "DEACTIVATE", "INVERT") var mode = "INVERT"
 
 func _on_Area2D_body_entered(body):
+	emit_signal("on_player_entered")
 	for door in doors:
 		if mode == "INVERT":
 			get_node(door).invert()

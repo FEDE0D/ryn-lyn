@@ -5,6 +5,7 @@ var air_time: float = 0.0
 
 func _ready():
 	GameState.connect("on_state_changed", self, "_on_game_state_changed")
+	GameState.connect("on_player_collected_stone", self, "_on_player_collected_stone")
 
 func receive_attack():
 	$"%StateMachine".state._receive_damage(0.25)
@@ -22,7 +23,7 @@ func process_control(delta):
 		if !collider:
 			collider = $"%EnemyRayCastR".get_collider()
 		if collider and collider.is_in_group("enemy"):
-			velocity.y = -jump_double_force
+			velocity.y = -jump_double_force * 1.3
 			can_double_jump = true
 			collider.on_player_stomp()
 	
@@ -74,3 +75,7 @@ func _on_game_state_changed(new_state, previous_state):
 		$"%StateMachine".change_state("idle")
 	else:
 		$"%StateMachine".change_state("paused")
+
+func _on_player_collected_stone():
+	var stone = preload()
+	$MoonStoneNode
