@@ -1,13 +1,15 @@
 extends Character2D
 class_name Player
 
+var air_time: float = 0.0
+
 func _ready():
 	GameState.connect("on_state_changed", self, "_on_game_state_changed")
 
 func receive_attack():
 	$"%StateMachine".state._receive_damage(0.25)
 
-func process_control():
+func process_control(delta):
 	move_force = 0
 	var on_floor = $FootRayCast.is_colliding()
 	if !is_on_floor and on_floor:
@@ -15,7 +17,7 @@ func process_control():
 		$"%AnimatedSprite".play("idle")
 	is_on_floor = on_floor
 	
-	if !is_on_floor and velocity.y > 0:
+	if !is_on_floor and velocity.y > 0: # falling
 		var collider = $"%EnemyRayCastL".get_collider()
 		if !collider:
 			collider = $"%EnemyRayCastR".get_collider()
@@ -25,20 +27,29 @@ func process_control():
 			collider.on_player_stomp()
 	
 	if Input.is_action_pressed("left"):
-		move_force -= motion_force
+		move_force -= motion_force * Input.get_action_strength("left")
 		$"%direction".scale.x = -1
 	if Input.is_action_pressed("right"):
-		move_force += motion_force
+		move_force += motion_force * Input.get_action_strength("right")
 		$"%direction".scale.x = 1
 	if Input.is_action_just_pressed("jump") and is_on_floor:
 		velocity.y = -jump_force
-	if Input.is_action_just_pressed("jump") and !is_on_floor and can_double_jump:
+	if Input.is_action_just_pressed("jump") and !is_on_floor and can_double_jump and air_time > 0.2:
 		velocity.y = -jump_double_force
 		can_double_jump = false
-#	if Input.is_action_just_pressed("action"):
-#		$StateMachine.change_state("attack")
-
-func process_idle():
+		$"%FeetDust".restart()
+		$"%FeetDust".emitting = true
+		yield(get_tree().create_timer(0.3), "timeout")
+		$"%FeetDust".emitting = false
+	if Input.is_action_just_released("jump") and !is_on_floor and velocity.y < 0:
+		velocity.y = -jump_force/3.0
+	
+	if !is_on_floor:
+		air_time += delta
+	else:
+		air_time = 0.0
+	
+func process_idle(delta):
 	if is_on_floor:
 		if abs(velocity.x) > 5.0:
 			$"%AnimatedSprite".play("walk")

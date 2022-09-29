@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://scenes/Game/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://scripts/StateMachine/StateMachine.gd" type="Script" id=2]
@@ -90,6 +90,7 @@
 [ext_resource path="res://resources/images/player/Slashing in The Air/0_Fallen_Angels_Slashing in The Air_004.png" type="Texture" id=88]
 [ext_resource path="res://resources/images/player/Slashing in The Air/0_Fallen_Angels_Slashing in The Air_003.png" type="Texture" id=89]
 [ext_resource path="res://scenes/Game/Player/paused-state.gd" type="Script" id=90]
+[ext_resource path="res://resources/images/effects/dust.png" type="Texture" id=91]
 [ext_resource path="res://resources/images/effects/box_blur_1.png" type="Texture" id=94]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -137,10 +138,20 @@ animations = [ {
 "speed": 20.0
 } ]
 
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.386139, 0.588636 ), -1.95285, -1.95285, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=9]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.117318, 1 )
+colors = PoolColorArray( 0.509804, 0.509804, 0.509804, 0, 0.889648, 0.889648, 0.889648, 0.784314, 0.509804, 0.509804, 0.509804, 0 )
+
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource( 1 )
-motion_force = 180.0
+motion_force = 170.0
+jump_force = 400.0
+jump_double_force = 350.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
@@ -198,8 +209,30 @@ position = Vector2( 0, -1 )
 scale = Vector2( 0.0711111, 0.0711113 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 3
+frame = 10
 playing = true
+
+[node name="FeetDust" type="CPUParticles2D" parent="visual/direction"]
+unique_name_in_owner = true
+position = Vector2( 0, 4 )
+emitting = false
+amount = 4
+explosiveness = 1.0
+local_coords = false
+texture = ExtResource( 91 )
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2( 0, 1 )
+spread = 15.0
+gravity = Vector2( 0, -100 )
+initial_velocity = 60.0
+initial_velocity_random = 0.08
+linear_accel = 23.85
+scale_amount = 2.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
+hue_variation = 0.01
 
 [node name="MoonStoneTargetPosition" type="Position2D" parent="."]
 unique_name_in_owner = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://resources/images/decorations/plants/groddle_grass_1.png" type="Texture" id=12]
 [ext_resource path="res://resources/images/decorations/plants/groddle_fern_1.png" type="Texture" id=13]
 [ext_resource path="res://scenes/Game/Button/Bonfire.tscn" type="PackedScene" id=14]
+[ext_resource path="res://resources/images/decorations/stones/bling_stonemonument_1.png" type="Texture" id=15]
+[ext_resource path="res://resources/images/decorations/stones/bling_stonemonument_3.png" type="Texture" id=16]
+[ext_resource path="res://scenes/Game/Button/Trigger.tscn" type="PackedScene" id=17]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -80,7 +83,7 @@ polygon = PoolVector2Array( 4300, 600, 4100, 633, 3940, 600, 3940, 540, 4020, 34
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Sector1"]
 position = Vector2( 9000, 200 )
 scale = Vector2( -1, 1 )
-polygon = PoolVector2Array( 3800, 413, 3600, 413, 3480, 413, 3340, 413, 3200, 413, 3200, 433, 3160, 433, 3160, 453, 3120, 453, 3120, 473, 3080, 473, 3080, 493, 3040, 493, 3040, 513, 2600, 513, 2400, 513, 2400, 633, 2800, 713, 3800, 473, 3960, 473, 4160, 420, 4220, 313, 4080, 233, 4080, 293, 4020, 313, 3960, 380 )
+polygon = PoolVector2Array( 3800, 413, 3660, 413, 3420, 413, 3340, 413, 3200, 413, 3200, 433, 3160, 433, 3160, 453, 3120, 453, 3120, 473, 3080, 473, 3080, 493, 3040, 493, 3040, 513, 2600, 513, 2400, 513, 2400, 633, 2800, 713, 3800, 473, 3960, 473, 4160, 420, 4220, 313, 4080, 233, 4080, 293, 4020, 313, 3960, 380 )
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Sector1"]
 position = Vector2( 500, 0 )
@@ -89,7 +92,7 @@ polygon = PoolVector2Array( 4860, -207, 4860, -187, 4900, -187, 4900, -167, 4940
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Sector1"]
 position = Vector2( 8840, 200 )
 scale = Vector2( -1, 1 )
-polygon = PoolVector2Array( 2240, 513, 2200, 513, 2200, 533, 2160, 533, 2160, 553, 2120, 553, 2120, 573, 2080, 573, 2080, 593, 2040, 593, 2040, 613, 2000, 613, 2000, 693, 1960, 693, 1900, 693, 1900, 713, 1860, 713, 1860, 733, 1780, 733, 1780, 753, 1740, 753, 1740, 773, 1620, 773, 1620, 793, 1740, 793, 2000, 793, 2060, 773, 2100, 753, 2180, 713, 2220, 693, 2340, 693, 2420, 693, 2540, 693, 2240, 633 )
+polygon = PoolVector2Array( 2240, 513, 2200, 513, 2200, 533, 2160, 533, 2160, 553, 2120, 553, 2120, 573, 2080, 573, 2080, 593, 2040, 593, 2040, 613, 2000, 613, 2000, 693, 1960, 693, 1900, 693, 1900, 713, 1900, 733, 1860, 733, 1860, 753, 1820, 753, 1820, 773, 1780, 773, 1740, 773, 1620, 773, 1620, 793, 1740, 793, 2000, 793, 2060, 773, 2100, 753, 2180, 713, 2220, 693, 2340, 693, 2420, 693, 2540, 693, 2240, 633 )
 
 [node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Sector1"]
 polygon = PoolVector2Array( 4380, -127, 4420, -127, 4440, -127, 4440, -87, 4440, -47, 4480, -47, 4480, 33, 4760, 33, 4780, -47, 4780, -107, 4800, -127, 4880, -127, 4880, 73, 4880, 113, 4820, 133, 4720, 153, 4540, 153, 4440, 113, 4400, 73, 4380, 73 )
@@ -100,7 +103,7 @@ polygon = PoolVector2Array( 4600, -127, 4720, -127, 4720, -107, 4700, -87, 4580,
 [node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Sector1"]
 position = Vector2( 9340, 180 )
 scale = Vector2( -1, 1 )
-polygon = PoolVector2Array( 2220, 633, 2280, 633, 2280, 653, 2260, 673, 2220, 673, 2160, 713, 2120, 793, 2120, 813, 2020, 813, 1859, 813, 1720, 973, 1340, 973, 1340, 893, 1400, 893, 1400, 873, 1460, 873, 1460, 853, 1520, 853, 1520, 833, 1580, 833, 1580, 813, 1620, 813, 1620, 793, 1660, 793, 1660, 773, 1700, 773, 1700, 753, 1740, 753, 1740, 733, 1800, 733, 1800, 713, 1860, 713, 1860, 693, 1920, 693, 1920, 673, 1980, 673, 1980, 653, 2040, 653, 2040, 633 )
+polygon = PoolVector2Array( 2220, 633, 2300, 633, 2320, 633, 2320, 653, 2300, 653, 2260, 673, 2220, 673, 2160, 713, 2120, 793, 2120, 813, 2020, 813, 1859, 813, 1720, 973, 1340, 973, 1340, 893, 1400, 893, 1400, 873, 1460, 873, 1460, 853, 1520, 853, 1520, 833, 1580, 833, 1580, 813, 1620, 813, 1620, 793, 1660, 793, 1660, 773, 1700, 773, 1700, 753, 1740, 753, 1740, 733, 1800, 733, 1800, 713, 1860, 713, 1860, 693, 1920, 693, 1920, 673, 1980, 673, 1980, 653, 2040, 653, 2040, 633 )
 
 [node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="Sector1"]
 polygon = PoolVector2Array( 8000, 1093, 8440, 1093, 8440, 1073, 8520, 1073, 8520, 1053, 8600, 1053, 8600, 1033, 8660, 1033, 8660, 1013, 8720, 1013, 8720, 993, 8760, 993, 8760, 973, 8800, 973, 8800, 953, 8840, 953, 8840, 933, 8880, 933, 8880, 913, 8920, 913, 8940, 913, 8960, 893, 8960, 873, 9000, 873, 9000, 853, 9040, 853, 9040, 833, 9080, 833, 9080, 813, 9120, 813, 9120, 793, 9160, 793, 9160, 773, 9200, 773, 9200, 753, 9300, 753, 9320, 793, 9400, 813, 9400, 1173, 9200, 1173, 8000, 1173 )
@@ -134,17 +137,20 @@ position = Vector2( 0, -60 )
 polygon = PoolVector2Array( 11120, 613, 11100, 653, 11280, 653, 11320, 653, 11360, 633, 11440, 673, 11480, 693, 11540, 693, 11600, 653, 11560, 573, 11620, 573, 11620, 613, 11640, 573, 11660, 533, 11640, 513, 11560, 493, 11520, 593, 11520, 653, 11480, 653, 11440, 653, 11380, 613, 11360, 593, 11280, 613 )
 
 [node name="CollisionPolygon2D24" type="CollisionPolygon2D" parent="Sector1"]
-polygon = PoolVector2Array( 10920, 633, 10840, 633, 10820, 613, 10960, 613, 10980, 633 )
+polygon = PoolVector2Array( 10920, 633, 10840, 633, 10820, 613, 10780, 613, 10780, 573, 10820, 573, 10840, 593, 10860, 613, 10960, 613, 10960, 633 )
 
 [node name="CollisionPolygon2D25" type="CollisionPolygon2D" parent="Sector1"]
-polygon = PoolVector2Array( 10960, 533, 11040, 573, 11060, 573, 11100, 593, 11120, 553, 11080, 533, 11080, 513, 11000, 513, 10960, 513 )
+polygon = PoolVector2Array( 11020, 553, 11040, 573, 11060, 573, 11100, 593, 11120, 553, 11080, 533, 11060, 533, 11040, 533, 11020, 533 )
 
 [node name="CollisionPolygon2D26" type="CollisionPolygon2D" parent="Sector1"]
-polygon = PoolVector2Array( 11380, 713, 11480, 713, 11480, 733, 11580, 733, 11580, 753, 11660, 753, 11660, 773, 11780, 773, 11780, 813, 11860, 813, 11860, 873, 11940, 873, 11940, 933, 12020, 933, 12020, 1013, 12100, 1013, 12100, 1073, 12200, 1073, 12320, 1073, 12320, 1053, 12340, 1053, 12340, 1073, 12320, 1093, 12220, 1193, 12100, 1173, 11960, 1113, 11880, 1033, 11740, 973, 11680, 833, 11360, 833 )
+polygon = PoolVector2Array( 11380, 713, 11480, 713, 11480, 733, 11580, 733, 11580, 753, 11660, 753, 11660, 773, 11780, 773, 11780, 833, 11860, 833, 11860, 893, 11940, 893, 11940, 953, 12020, 953, 12020, 1013, 12100, 1013, 12100, 1073, 12200, 1073, 12300, 1073, 12320, 1053, 12340, 1053, 12340, 1073, 12300, 1113, 12300, 1153, 12260, 1153, 12220, 1193, 12100, 1173, 11960, 1113, 11880, 1033, 11740, 973, 11680, 833, 11360, 833 )
 
 [node name="CollisionPolygon2D27" type="CollisionPolygon2D" parent="Sector1"]
 position = Vector2( 40, 20 )
-polygon = PoolVector2Array( 11840, 693, 11900, 713, 11940, 713, 11960, 733, 11960, 753, 11980, 773, 12060, 773, 12060, 873, 12080, 893, 12180, 893, 12220, 873, 12240, 853, 12300, 733, 12180, 593, 12200, 653, 12220, 733, 12240, 753, 12220, 853, 12080, 853, 12080, 773, 12060, 753, 12000, 753, 11980, 733, 11980, 693 )
+polygon = PoolVector2Array( 11840, 693, 11840, 713, 11900, 713, 11940, 713, 11960, 733, 11960, 753, 11980, 773, 12060, 773, 12060, 873, 12080, 893, 12180, 893, 12220, 873, 12240, 853, 12300, 733, 12180, 593, 12200, 653, 12220, 733, 12240, 753, 12220, 853, 12080, 853, 12080, 773, 12060, 753, 12000, 753, 11980, 733, 11980, 693 )
+
+[node name="CollisionPolygon2D28" type="CollisionPolygon2D" parent="Sector1"]
+polygon = PoolVector2Array( 13160, 1153, 13160, 1193, 12220, 1193, 12260, 1153 )
 
 [node name="tutoriales" type="Node2D" parent="."]
 
@@ -167,15 +173,14 @@ dialog = ExtResource( 3 )
 [node name="gollems" type="Node2D" parent="."]
 
 [node name="Enemy" parent="gollems" instance=ExtResource( 9 )]
-position = Vector2( 5840, 900 )
+position = Vector2( 5820, 920 )
 
 [node name="Enemy2" parent="gollems" instance=ExtResource( 9 )]
-position = Vector2( 5680, 900 )
+position = Vector2( 5640, 920 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 11260, 1000 )
+position = Vector2( 12420, 1360 )
 moving_platform_apply_velocity_on_leave = 2
-motion_force = 160.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 0, -60 )
@@ -194,6 +199,7 @@ editor_draw_drag_margin = true
 
 [node name="Bonfire4" parent="doors" instance=ExtResource( 14 )]
 position = Vector2( 10780, 880 )
+doors = [ NodePath("../Door3") ]
 active = true
 
 [node name="Door2" parent="doors" instance=ExtResource( 4 )]
@@ -224,15 +230,53 @@ active = true
 
 [node name="Bonfire3" parent="doors" instance=ExtResource( 14 )]
 position = Vector2( 7360, 1300 )
+doors = [ NodePath("../Door2") ]
 active = true
 
 [node name="Door5" parent="doors" instance=ExtResource( 4 )]
-position = Vector2( 12380, 1400 )
+position = Vector2( 12140, 1230 )
+rotation = 1.57079
+
+[node name="Door7" parent="doors" instance=ExtResource( 4 )]
+position = Vector2( 12800, 1480 )
+active = false
+
+[node name="Door8" parent="doors" instance=ExtResource( 4 )]
+position = Vector2( 12860, 1480 )
+active = false
+
+[node name="Door9" parent="doors" instance=ExtResource( 4 )]
+position = Vector2( 12920, 1480 )
+active = false
+
+[node name="Door10" parent="doors" instance=ExtResource( 4 )]
+position = Vector2( 12980, 1480 )
+active = false
 
 [node name="Bonfire5" parent="doors" instance=ExtResource( 14 )]
 position = Vector2( 12400, 1200 )
 doors = [ NodePath("../Door5") ]
 active = true
+
+[node name="Trigger" parent="doors" instance=ExtResource( 17 )]
+position = Vector2( 12900, 1480 )
+doors = [ NodePath("../Door7") ]
+mode = "ACTIVATE"
+
+[node name="Trigger2" parent="doors" instance=ExtResource( 17 )]
+position = Vector2( 12960, 1480 )
+doors = [ NodePath("../Door8") ]
+mode = "ACTIVATE"
+
+[node name="Trigger3" parent="doors" instance=ExtResource( 17 )]
+position = Vector2( 13020, 1480 )
+doors = [ NodePath("../Door9") ]
+mode = "ACTIVATE"
+
+[node name="Trigger4" parent="doors" instance=ExtResource( 17 )]
+position = Vector2( 13080, 1480 )
+doors = [ NodePath("../Door10") ]
+mode = "ACTIVATE"
 
 [node name="TODO" type="Node2D" parent="."]
 
@@ -257,6 +301,10 @@ text = "Cinematic 2"
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 8 )]
 
 [node name="decorations" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="GroddleGrass1" type="Sprite" parent="decorations"]
 position = Vector2( 9922.94, 943.765 )
@@ -299,3 +347,24 @@ position = Vector2( 280, 347 )
 z_index = -1
 color = Color( 0.133333, 0.0862745, 0.0627451, 1 )
 polygon = PoolVector2Array( 11880, 693, 11920, 733, 11940, 773, 12020, 773, 12020, 873, 12040, 893, 12140, 893, 12180, 873, 12200, 853, 12240, 773, 12200, 753, 12160, 733, 12120, 673, 12080, 653, 12040, 513, 12080, 453, 12040, 393, 11820, 373, 11760, 433, 11740, 493, 11740, 573, 11840, 613 )
+
+[node name="BlingStonemonument3" type="Sprite" parent="decorations"]
+position = Vector2( 5649.96, 892 )
+scale = Vector2( 0.686274, 0.686274 )
+z_index = -1
+texture = ExtResource( 16 )
+
+[node name="BlingStonemonument1" type="Sprite" parent="decorations"]
+position = Vector2( 5912.25, 900.063 )
+scale = Vector2( 0.63245, 0.63245 )
+texture = ExtResource( 15 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="decorations"]
+z_index = -2
+color = Color( 0.184314, 0.14902, 0.14902, 1 )
+polygon = PoolVector2Array( 5180, 620, 5040, 700, 5080, 780, 5120, 860, 5200, 920, 5320, 960, 5520, 960, 5680, 960, 5760, 960, 5800, 940, 5840, 820, 5880, 740, 5880, 700, 5700, 720, 5460, 720, 5300, 700 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="decorations"]
+z_index = -2
+color = Color( 0.309804, 0.219608, 0.219608, 1 )
+polygon = PoolVector2Array( 5620, 200, 5800, 220, 5760, 320, 5600, 580, 5420, 640, 5180, 620, 5040, 700, 4840, 660, 4800, 600, 4800, 540, 4720, 500, 4760, 440, 5020, 440, 5140, 420, 5280, 500, 5360, 460, 5420, 400, 5460, 320, 5520, 280, 5600, 200 )

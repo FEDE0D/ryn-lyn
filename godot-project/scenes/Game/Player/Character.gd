@@ -3,8 +3,8 @@ class_name Character2D
 
 export(float) var gravity_force: float = 18.9
 export(float) var motion_force: float = 200.0
-const jump_force: float = 350.0
-const jump_double_force: float = 400.0
+export(float) var jump_force: float = 350.0
+export(float) var jump_double_force: float = 400.0
 const friction: float = 0.2
 const acceleration: float = 0.2
 const acceleration_air: float = 0.1

@@ -28,3 +28,7 @@ func _on_ConfirmationDialog_confirmed():
 	$ConfirmationDialog.hide()
 	get_tree().paused = false
 	GameState.main_menu()
+
+func _on_Restart_pressed():
+	GameState.hide_pause()
+	get_tree().reload_current_scene()
