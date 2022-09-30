@@ -34,6 +34,6 @@ func _on_AnimatedSprite_frame_changed():
 		if $"%AnimatedSprite".frame > 2 and $"%AnimatedSprite".frame < 7:
 			$"%StateMachine".state.on_attack_animation()
 
-
 func _on_StateMachine_on_state_changed(old_state, new_state):
-	print(old_state, " ", new_state)
+#	print(old_state, " ", new_state)
+	pass

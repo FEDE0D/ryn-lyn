@@ -209,7 +209,7 @@ position = Vector2( 0, -1 )
 scale = Vector2( 0.0711111, 0.0711113 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 10
+frame = 5
 playing = true
 
 [node name="FeetDust" type="CPUParticles2D" parent="visual/direction"]
@@ -235,10 +235,9 @@ color_ramp = SubResource( 9 )
 hue_variation = 0.01
 
 [node name="MoonStoneTargetPosition" type="Position2D" parent="."]
-unique_name_in_owner = true
 position = Vector2( 0, -48 )
 
-[node name="Node" type="Node" parent="."]
+[node name="MoonStoneNode" type="Node" parent="."]
 
 [connection signal="on_state_changed" from="StateMachine" to="." method="_on_StateMachine_on_state_changed"]
 [connection signal="animation_finished" from="visual/direction/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

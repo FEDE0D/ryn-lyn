@@ -9,6 +9,9 @@ func _ready():
 
 func receive_attack():
 	$"%StateMachine".state._receive_damage(0.25)
+	if has_node("MoonStoneNode/MoonStone"):
+			$"MoonStoneNode/MoonStone".deactivate()
+	
 
 func process_control(delta):
 	move_force = 0
@@ -44,6 +47,9 @@ func process_control(delta):
 		$"%FeetDust".emitting = false
 	if Input.is_action_just_released("jump") and !is_on_floor and velocity.y < 0:
 		velocity.y = -jump_force/3.0
+	if Input.is_action_just_pressed("action"):
+		if has_node("MoonStoneNode/MoonStone"):
+			$"MoonStoneNode/MoonStone".invert()
 	
 	if !is_on_floor:
 		air_time += delta
@@ -77,5 +83,6 @@ func _on_game_state_changed(new_state, previous_state):
 		$"%StateMachine".change_state("paused")
 
 func _on_player_collected_stone():
-	var stone = preload()
-	$MoonStoneNode
+	var node = preload("res://scenes/Game/Player/MoonStone.tscn").instance()
+	node.global_position = $MoonStoneTargetPosition.global_position
+	$MoonStoneNode.add_child(node)

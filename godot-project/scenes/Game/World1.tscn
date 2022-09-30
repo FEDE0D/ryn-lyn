@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -21,10 +21,12 @@
 [ext_resource path="res://resources/images/platforms/trees/platform_branch_boards_04_g1.png" type="Texture" id=19]
 [ext_resource path="res://resources/images/platforms/trees/platform_branch_boards_03_g1.png" type="Texture" id=20]
 [ext_resource path="res://scenes/Game/Items/MoonStoneItem.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/Game/World1.gd" type="Script" id=22]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
 [node name="World1" type="Node2D"]
+script = ExtResource( 22 )
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -158,9 +160,11 @@ polygon = PoolVector2Array( 13160, 1153, 13680, 1153, 13680, 993, 13720, 993, 13
 
 [node name="CollisionPolygon2D29" type="CollisionPolygon2D" parent="Sector1"]
 polygon = PoolVector2Array( 13280, 993, 13280, 1013, 13180, 1013, 13180, 993 )
+one_way_collision = true
 
 [node name="CollisionPolygon2D30" type="CollisionPolygon2D" parent="Sector1"]
 polygon = PoolVector2Array( 13040, 913, 13040, 933, 13140, 933, 13140, 913 )
+one_way_collision = true
 
 [node name="CollisionPolygon2D31" type="CollisionPolygon2D" parent="Sector1"]
 position = Vector2( -140, -67 )
@@ -168,19 +172,31 @@ polygon = PoolVector2Array( 12680, 900, 12760, 920, 13140, 920, 13140, 900, 1292
 
 [node name="CollisionPolygon2D32" type="CollisionPolygon2D" parent="Sector1"]
 polygon = PoolVector2Array( 12400, 613, 12400, 633, 12600, 633, 12600, 613 )
+one_way_collision = true
 
 [node name="CollisionPolygon2D33" type="CollisionPolygon2D" parent="Sector1"]
 polygon = PoolVector2Array( 12760, 613, 12760, 633, 12920, 633, 12920, 613 )
+one_way_collision = true
 
 [node name="CollisionPolygon2D36" type="CollisionPolygon2D" parent="Sector1"]
 position = Vector2( 660, -167 )
-polygon = PoolVector2Array( 12740, 620, 12740, 640, 13320, 640, 13760, 640, 13760, 440, 13760, 40, 13740, 40, 13740, 420, 13400, 420, 13380, 440, 13280, 440, 13260, 440, 13240, 460, 13220, 460, 13200, 480, 13180, 480, 13160, 500, 13140, 500, 13120, 520, 13100, 520, 13080, 540, 13060, 540, 13040, 560, 13020, 560, 13000, 580, 12960, 580, 12940, 600, 12920, 600, 12900, 620, 12880, 620 )
+polygon = PoolVector2Array( 12740, 620, 12740, 640, 13320, 640, 14500, 640, 15280, 340, 15400, 280, 15620, 140, 15960, 60, 15636.4, 60, 15240, 60, 15260, 80, 15320, 100, 15360, 140, 15380, 200, 14860, 200, 14860, 180, 14820, 180, 14820, 240, 14720, 240, 14720, 260, 14640, 260, 14640, 280, 14560, 280, 14560, 300, 14480, 300, 14480, 320, 14400, 320, 14400, 340, 13860, 340, 13860, 480, 13620, 480, 13620, 460, 13580, 460, 13580, 440, 13540, 440, 13540, 420, 13322, 420, 13280, 440, 13260, 440, 13240, 460, 13220, 460, 13200, 480, 13180, 480, 13160, 500, 13140, 500, 13120, 520, 13100, 520, 13080, 540, 13060, 540, 13040, 560, 13020, 560, 13000, 580, 12960, 580, 12940, 600, 12920, 600, 12900, 620, 12880, 620 )
 
 [node name="CollisionPolygon2D34" type="CollisionPolygon2D" parent="Sector1"]
 polygon = PoolVector2Array( 13000, 533, 13100, 533, 13100, 553, 13000, 553 )
+one_way_collision = true
 
 [node name="CollisionPolygon2D35" type="CollisionPolygon2D" parent="Sector1"]
 polygon = PoolVector2Array( 13160, 473, 13260, 473, 13260, 453, 13160, 453 )
+one_way_collision = true
+
+[node name="CollisionPolygon2D37" type="CollisionPolygon2D" parent="Sector1"]
+position = Vector2( 280, -20 )
+polygon = PoolVector2Array( 16040, -107, 16060, -127, 16080, -127, 16100, -147, 16180, -147, 16200, -127, 16220, -127, 16240, -107, 16280, -107, 16300, -87, 15980, -87, 16000, -107 )
+
+[node name="CollisionPolygon2D38" type="CollisionPolygon2D" parent="Sector1"]
+position = Vector2( 300, 0 )
+polygon = PoolVector2Array( 16300, -107, 16300, -427, 16320, -427, 16320, -107 )
 
 [node name="tutoriales" type="Node2D" parent="."]
 
@@ -200,8 +216,21 @@ dialog = ExtResource( 3 )
 position = Vector2( 8520, 1411 )
 dialog = ExtResource( 3 )
 
+[node name="Tutorial6" parent="tutoriales" instance=ExtResource( 7 )]
+position = Vector2( 16420, 220 )
+show_on_start = false
+dialog = ExtResource( 3 )
+
 [node name="MoonStoneItem" parent="tutoriales" instance=ExtResource( 21 )]
-position = Vector2( 14440, 540 )
+position = Vector2( 16620, 40 )
+z_index = 1
+
+[node name="Trigger" parent="tutoriales" instance=ExtResource( 17 )]
+position = Vector2( 16280, 140 )
+scale = Vector2( 1, 2 )
+enabled = false
+doors = [ NodePath("../Tutorial6") ]
+mode = "ACTIVATE"
 
 [node name="gollems" type="Node2D" parent="."]
 
@@ -214,8 +243,20 @@ position = Vector2( 5640, 920 )
 [node name="Enemy3" parent="gollems" instance=ExtResource( 9 )]
 position = Vector2( 13520, 1440 )
 
+[node name="Enemy4" parent="gollems" instance=ExtResource( 9 )]
+position = Vector2( 14620, 600 )
+
+[node name="Enemy5" parent="gollems" instance=ExtResource( 9 )]
+position = Vector2( 15180, 480 )
+
+[node name="Enemy6" parent="gollems" instance=ExtResource( 9 )]
+position = Vector2( 15840, 340 )
+
+[node name="Enemy7" parent="gollems" instance=ExtResource( 9 )]
+position = Vector2( 16000, 340 )
+
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 13700, 700 )
+position = Vector2( 16160, 200 )
 moving_platform_apply_velocity_on_leave = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -295,24 +336,46 @@ doors = [ NodePath("../Door5") ]
 active = true
 
 [node name="Trigger" parent="doors" instance=ExtResource( 17 )]
-position = Vector2( 12900, 1480 )
+position = Vector2( 12900, 1380 )
+scale = Vector2( 1, 4 )
 doors = [ NodePath("../Door7") ]
 mode = "ACTIVATE"
 
 [node name="Trigger2" parent="doors" instance=ExtResource( 17 )]
-position = Vector2( 12960, 1480 )
+position = Vector2( 12960, 1380 )
+scale = Vector2( 1, 4 )
 doors = [ NodePath("../Door8") ]
 mode = "ACTIVATE"
 
 [node name="Trigger3" parent="doors" instance=ExtResource( 17 )]
-position = Vector2( 13020, 1480 )
+position = Vector2( 13020, 1380 )
+scale = Vector2( 1, 4 )
 doors = [ NodePath("../Door9") ]
 mode = "ACTIVATE"
 
 [node name="Trigger4" parent="doors" instance=ExtResource( 17 )]
-position = Vector2( 13080, 1480 )
+position = Vector2( 13080, 1380 )
+scale = Vector2( 1, 4 )
 doors = [ NodePath("../Door10") ]
 mode = "ACTIVATE"
+
+[node name="Door11" parent="doors" instance=ExtResource( 4 )]
+position = Vector2( 14380, 580 )
+
+[node name="Trigger5" parent="doors" instance=ExtResource( 17 )]
+position = Vector2( 14300, 520 )
+scale = Vector2( 2, 2 )
+doors = [ NodePath("../Door11") ]
+mode = "DEACTIVATE"
+
+[node name="Door12" parent="doors" instance=ExtResource( 4 )]
+position = Vector2( 14900, 500 )
+
+[node name="Trigger6" parent="doors" instance=ExtResource( 17 )]
+position = Vector2( 14820, 440 )
+scale = Vector2( 2, 2 )
+doors = [ NodePath("../Door12") ]
+mode = "DEACTIVATE"
 
 [node name="TODO" type="Node2D" parent="."]
 
@@ -434,3 +497,8 @@ position = Vector2( 13265.7, 880.75 )
 scale = Vector2( 0.519802, 0.519802 )
 z_index = -1
 texture = ExtResource( 20 )
+
+[node name="TreeConiferousFg3" type="Sprite" parent="decorations"]
+position = Vector2( 15949.8, -39.1664 )
+scale = Vector2( 0.616348, 0.616348 )
+texture = ExtResource( 1 )
