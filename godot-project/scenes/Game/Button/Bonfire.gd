@@ -2,24 +2,34 @@ extends Node2D
 
 export(Array, NodePath) var doors
 export(bool) var active: bool = false
+export(float) var timer: float = 1.0
 
-var pressed: Array = []
+var collisions: Array = []
+onready var time: float = timer
 
 func _ready():
 	if active:
 		$visuals/AnimatedSprite.play("on")
 
 func _on_Area2D_body_entered(body):
-	if not pressed.has(body):
-		pressed.append(body)
-	$visuals/Button.show()
+	if not collisions.has(body):
+		collisions.append(body)
 
 func _on_Area2D_body_exited(body):
-	pressed.erase(body)
-	$visuals/Button.hide()
+	collisions.erase(body)
 
-func _input(event):
-	if event.is_action_pressed("action") and not pressed.empty():
+func _process(delta):
+	if Input.is_action_pressed("action"):
+		if not collisions.empty():
+			$visuals/ProgressBar.show()
+			time -= delta
+			$visuals/ProgressBar.value = (1 - (time / timer))
+	else:
+		time = timer
+		$visuals/ProgressBar.hide()
+	
+	if time <= 0:
+		Input.action_release("action")
 		if active:
 			turn_off()
 		else:

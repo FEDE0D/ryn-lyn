@@ -9,3 +9,6 @@ func _on_PlayButton_pressed():
 
 func _on_OptionsButton_pressed():
 	get_tree().change_scene("res://scenes/UI/menu/OptionsMenu.tscn")
+
+func _on_SalirButton_pressed():
+	get_tree().quit()

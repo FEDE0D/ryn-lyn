@@ -202,3 +202,4 @@ text = "Créditos"
 
 [connection signal="pressed" from="HBoxContainer/Control2/VBoxContainer/Control2/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/Control2/VBoxContainer/Control2/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/Control2/VBoxContainer/Control2/VBoxContainer/SalirButton" to="." method="_on_SalirButton_pressed"]
