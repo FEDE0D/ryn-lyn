@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -27,8 +27,27 @@
 [ext_resource path="res://scenes/UI/BlurEffect.tscn" type="PackedScene" id=25]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_4.png" type="Texture" id=26]
 [ext_resource path="res://resources/images/tilable/b6f797a70b411b2d6c4481dac17a323a--d-texture-paint-texture.jpg" type="Texture" id=27]
+[ext_resource path="res://resources/images/tilable/grass.png" type="Texture" id=28]
+[ext_resource path="res://resources/images/tilable/8ad4ed6ed2efa873e7264442b2019736--d-texture-paint-texture.jpg" type="Texture" id=29]
+[ext_resource path="res://resources/images/tilable/gravel_2.png" type="Texture" id=30]
+[ext_resource path="res://resources/images/tilable/bush_patch_2.png" type="Texture" id=31]
+[ext_resource path="res://resources/images/tilable/heights_platform_rock_2.png" type="Texture" id=32]
+[ext_resource path="res://resources/images/tilable/tree_wallpaper_1.png" type="Texture" id=33]
+[ext_resource path="res://scenes/UI/AsistenceUI.tscn" type="PackedScene" id=34]
 
 [sub_resource type="PhysicsMaterial" id=2]
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.519048, 1 ), 0.0168947, 0.0168947, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 1.98113, 0, 1, Vector2( 0.504762, 1 ), 5.53848e-08, 5.53848e-08, 0, 0, Vector2( 1, 0 ), -2.01923, 0.0, 1, 0 ]
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 3.36898, 0, 1, Vector2( 0.161905, 0.545455 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.650826, 0.0, 1, 0 ]
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0 ), 0.0, 3.36898, 0, 1, Vector2( 0.161905, 0.545455 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.254545 ), -0.347108, 0.0, 1, 0 ]
 
 [node name="World1" type="Node2D"]
 script = ExtResource( 22 )
@@ -36,39 +55,65 @@ script = ExtResource( 22 )
 [node name="Background" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 
+[node name="CanvasModulate" type="CanvasModulate" parent="Background"]
+color = Color( 0.733333, 0.733333, 0.733333, 1 )
+
 [node name="BackgroundColor" type="ColorRect" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.235294, 0.286275, 0.270588, 1 )
+color = Color( 0.333333, 0.396078, 0.372549, 1 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
-modulate = Color( 0.407843, 0.490196, 0.360784, 1 )
 motion_scale = Vector2( 0.3, 0 )
 motion_mirroring = Vector2( 1280, 0 )
 
+[node name="Polygon2D" type="Polygon2D" parent="Background/ParallaxLayer"]
+position = Vector2( 0, -20 )
+color = Color( 0.184314, 0.27451, 0.113725, 1 )
+polygon = PoolVector2Array( -460, 120, -240, 120, -100, 160, 20, 120, 260, 120, 420, 200, 660, 180, 800, 180, 960, 240, 1120, 160, 1240, 220, 1400, 400, 1400, 1420, -480, 1420 )
+
+[node name="TextureRect" type="TextureRect" parent="Background/ParallaxLayer"]
+margin_left = 5.0
+margin_top = -40.0
+margin_right = 941.0
+margin_bottom = 270.0
+texture = ExtResource( 33 )
+expand = true
+
 [node name="TreeConiferousFg4" type="Sprite" parent="Background/ParallaxLayer"]
-modulate = Color( 0.627451, 0.529412, 0.529412, 1 )
-position = Vector2( 350, -258.681 )
+modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+position = Vector2( 350, -518.681 )
 scale = Vector2( 0.972222, 0.972222 )
 texture = ExtResource( 26 )
-
-[node name="TreeConiferousFg3" type="Sprite" parent="Background/ParallaxLayer"]
-modulate = Color( 0.627451, 0.529412, 0.529412, 1 )
-position = Vector2( 766.875, 1.21527 )
-scale = Vector2( 0.613095, 0.613095 )
-texture = ExtResource( 2 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Background"]
 modulate = Color( 0.792157, 0.792157, 0.792157, 1 )
 z_index = 1
+motion_scale = Vector2( 0.4, 0 )
+motion_offset = Vector2( 640, 0 )
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="TreeConiferousFg3" type="Sprite" parent="Background/ParallaxLayer2"]
+modulate = Color( 0.870588, 0.870588, 0.870588, 1 )
+position = Vector2( 506.875, -218.785 )
+scale = Vector2( 0.613095, 0.613095 )
+texture = ExtResource( 2 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background"]
+modulate = Color( 0.792157, 0.792157, 0.792157, 1 )
+z_index = 2
 motion_scale = Vector2( 0.5, 0 )
 motion_mirroring = Vector2( 1280, 0 )
 
-[node name="TreeConiferousFg2" type="Sprite" parent="Background/ParallaxLayer2"]
-modulate = Color( 0.647059, 0.588235, 0.588235, 1 )
-position = Vector2( 680.41, -86.6276 )
+[node name="TreeConiferousFg2" type="Sprite" parent="Background/ParallaxLayer3"]
+position = Vector2( 700.41, -286.628 )
 scale = Vector2( 0.764625, 0.764625 )
 texture = ExtResource( 1 )
+
+[node name="FrontColor" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2607, 0.33, 0.328845, 0.545098 )
 
 [node name="InGameUI" type="CanvasLayer" parent="."]
 
@@ -78,11 +123,17 @@ texture = ExtResource( 1 )
 
 [node name="SectionTitle" parent="InGameUI" instance=ExtResource( 24 )]
 
+[node name="AsistenceUI" parent="InGameUI" instance=ExtResource( 34 )]
+
 [node name="BlurEffect" parent="InGameUI" instance=ExtResource( 25 )]
+mouse_filter = 2
 
 [node name="Collision" type="StaticBody2D" parent="."]
 position = Vector2( 200, 327 )
 physics_material_override = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision"]
 position = Vector2( 0, -180 )
@@ -102,14 +153,14 @@ polygon = PoolVector2Array( 3420, -80, 3500, -100, 3620, -120, 3820, -140, 3820,
 
 [node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Collision"]
 position = Vector2( 560, 13 )
-polygon = PoolVector2Array( 2200, -20, 2480, -20, 2480, -60, 2700, -60, 2700, -140, 2920, -140, 2920, -60, 3000, -60, 3300, -60, 3420, -80, 3420, 60, 2200, 60 )
+polygon = PoolVector2Array( 2200, -20, 2480, -20, 2480, -60, 2700, -60, 2700, -140, 2840, -140, 2880, -100, 2920, -100, 2920, -60, 3000, -60, 3080, -60, 3080, -140, 3120, -140, 3120, -200, 3160, -200, 3180, -140, 3180, -60, 3300, -60, 3420, -80, 3420, 60, 2200, 60 )
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Collision"]
 position = Vector2( 500, 0 )
-polygon = PoolVector2Array( 4380, -127, 4480, -127, 4560, -127, 4560, -207, 4860, -207, 4820, -107, 4760, 93, 4660, 193, 4540, 193, 4460, 173, 4380, 113, 4300, 73, 4380, 73 )
+polygon = PoolVector2Array( 4380, -127, 4480, -127, 4560, -127, 4560, -187, 4860, -187, 4820, -107, 4760, 93, 4660, 193, 4540, 193, 4460, 173, 4380, 113, 4300, 73, 4380, 73 )
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Collision"]
-position = Vector2( 360, -127 )
+position = Vector2( 360, -120 )
 polygon = PoolVector2Array( 5180, 13, 5280, -7, 5320, -67, 5380, -187, 5420, -287, 5420, -347, 5420, -587, 5460, -660, 5520, -540, 5600, -240, 5600, -60, 5680, 0, 5740, 140, 5660, 260, 5560, 293, 5460, 393, 5260, 560, 4800, 540, 4620, 460, 4580, 420, 4620, 400, 4780, 420, 4880, 420, 4980, 373, 5100, 253, 5180, 133 )
 
 [node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="Collision"]
@@ -123,7 +174,7 @@ polygon = PoolVector2Array( 3800, 413, 3660, 413, 3420, 413, 3340, 413, 3200, 41
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Collision"]
 position = Vector2( 500, 0 )
-polygon = PoolVector2Array( 4860, -207, 4860, -187, 4900, -187, 4900, -167, 4940, -167, 4940, -147, 4920, -127, 4900, -107, 4860, -67, 4840, -67, 4800, -27, 4780, -7, 4840, -187 )
+polygon = PoolVector2Array( 4860, -187, 4860, -167, 4900, -167, 4900, -147, 4940, -147, 4940, -127, 4900, -107, 4860, -67, 4840, -67, 4800, -27, 4780, -7, 4820, -107 )
 
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Collision"]
 position = Vector2( 8840, 200 )
@@ -232,13 +283,485 @@ polygon = PoolVector2Array( 16300, -107, 16300, -427, 16320, -427, 16320, -107 )
 polygon = PoolVector2Array( 15140, 653, 14820, 1053, 15160, 1673, 15220, 2353, 15400, 2933, 15400, 3313, 15440, 3733, 15480, 4673, 15240, 4893, 15640, 4813, 15960, 3153, 15880, 1913, 15860, 1033, 15900, 513 )
 
 [node name="visuals" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StonePolygon2" type="Polygon2D" parent="visuals"]
+color = Color( 0.109804, 0.0784314, 0.0784314, 1 )
+texture = ExtResource( 29 )
+texture_scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( 5609, 203, 5654, 222, 5786, 235, 5794, 348, 5662, 575, 5529, 633, 5644, 679, 5830, 641, 5878, 702, 5868, 740, 5835, 829, 5830, 919, 5871, 962, 5182, 997, 4957, 776, 4730, 692, 4635, 527, 4717, 429, 5086, 400, 5302, 413, 5375, 343, 5527, 224 )
 
 [node name="Polygon2D" type="Polygon2D" parent="visuals"]
+color = Color( 0.647059, 0.647059, 0.647059, 1 )
 texture = ExtResource( 27 )
 texture_scale = Vector2( 3, 3 )
-polygon = PoolVector2Array( -220, -480, 0, -360, 40, -120, 100, -20, 140, 60, 240, 140, 520, 140, 900, 140, 1040, 100, 1200, 60, 1440, 20, 1660, 20, 1760, 40, 2000, 120, 2300, 120, 2300, 80, 2380, 80, 2380, 240, 2180, 260, 2140, 540, 1520, 520, 1260, 540, 1020, 500, 920, 380, 820, 320, 700, 440, 400, 420, 260, 360, 140, 360, -160, 300, -340, 140, -360, 60, -320, -80, -320, -160, -420, -380, -400, -420, -300, -460 )
+polygon = PoolVector2Array( -220, -480, 0, -360, 40, -120, 100, -20, 140, 60, 240, 140, 520, 140, 900, 140, 1040, 100, 1200, 60, 1440, 20, 1660, 20, 1760, 40, 2000, 120, 2300, 120, 2300, 80, 2380, 80, 2380, 240, 2280, 280, 2180, 300, 2140, 540, 1520, 520, 1260, 540, 1020, 500, 920, 380, 820, 320, 700, 440, 400, 420, 260, 360, 140, 360, -160, 300, -340, 140, -360, 60, -320, -80, -320, -160, -420, -380, -400, -420, -300, -460 )
+uv = PoolVector2Array( -220, -480, 0, -360, 40, -120, 100, -20, 140, 60, 240, 140, 520, 140, 900, 140, 1040, 100, 1200, 60, 1440, 20, 1660, 20, 1760, 40, 2000, 120, 2300, 120, 2300, 80, 2380, 80, 2380, 240, 2180, 260, 2140, 540, 1520, 520, 1260, 540, 1020, 500, 920, 380, 820, 320, 700, 440, 400, 420, 260, 360, 140, 360, -160, 300, -340, 140, -360, 60, -320, -80, -320, -160, -420, -380, -400, -420, -300, -460 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="visuals"]
+color = Color( 0.647059, 0.647059, 0.647059, 1 )
+texture = ExtResource( 27 )
+texture_scale = Vector2( 3, 3 )
+polygon = PoolVector2Array( 2380, 80, 2560, 80, 2620, 140, 2760, 200, 2860, 280, 2960, 320, 3240, 320, 3240, 280, 3460, 280, 3460, 200, 3600, 200, 3640, 240, 3680, 240, 3680, 280, 3840, 280, 3840, 200, 3880, 200, 3880, 140, 3920, 140, 3940, 200, 3940, 280, 4060, 280, 4180, 260, 4260, 240, 4380, 220, 4580, 200, 4640, 200, 4640, 280, 4680, 280, 4680, 360, 4960, 360, 4980, 280, 4980, 220, 5000, 200, 5260, 200, 5260, 140, 5560, 140, 5560, 140, 5560, 160, 5600, 160, 5600, 180, 5640, 180, 5640, 200, 5600, 220, 5560, 260, 5540, 260, 5480, 320, 5460, 420, 5360, 520, 5240, 520, 5160, 500, 5080, 440, 5000, 460, 4900, 480, 4740, 480, 4700, 480, 4580, 540, 4500, 740, 3480, 860, 2960, 900, 2799, 610, 2540, 440, 2380, 440, 2360, 260 )
+
+[node name="StonePolygon4" type="Polygon2D" parent="visuals"]
+color = Color( 0.505882, 0.501961, 0.494118, 1 )
+texture = ExtResource( 29 )
+polygon = PoolVector2Array( 8640, 1420, 8640, 1400, 8720, 1400, 8720, 1380, 8800, 1380, 8800, 1360, 8860, 1360, 8860, 1340, 8920, 1340, 8920, 1320, 8960, 1320, 8960, 1300, 9000, 1300, 9000, 1280, 9040, 1280, 9040, 1260, 9080, 1260, 9080, 1240, 9140, 1240, 9160, 1220, 9160, 1200, 9200, 1200, 9200, 1180, 9240, 1180, 9240, 1160, 9280, 1160, 9280, 1140, 9320, 1140, 9320, 1120, 9360, 1120, 9360, 1100, 9400, 1100, 9400, 1080, 9500, 1080, 9520, 1120, 9600, 1140, 9600, 1180, 9120, 1380, 8820, 1480, 8640, 1480 )
+
+[node name="StonePolygon3" type="Polygon2D" parent="visuals"]
+color = Color( 0.505882, 0.501961, 0.494118, 1 )
+texture = ExtResource( 29 )
+polygon = PoolVector2Array( 7420, 1300, 7380, 1220, 7320, 1180, 7280, 1180, 7240, 1160, 7220, 1160, 7220, 1140, 7466.25, 1140, 7471.25, 1140, 7500, 1140, 7500, 1160, 7560, 1160, 7560, 1180, 7620, 1180, 7620, 1200, 7680, 1200, 7680, 1220, 7740, 1220, 7740, 1240, 7800, 1240, 7800, 1260, 7840, 1260, 7840, 1280, 7880, 1280, 7880, 1300, 7920, 1300, 7920, 1320, 7960, 1320, 7960, 1340, 8020, 1340, 8020, 1360, 8080, 1360, 8080, 1380, 8140, 1380, 8140, 1400, 8200, 1400, 8200, 1420, 8640, 1420, 8663, 1566, 8197, 1555, 8094, 1548, 7820, 1480, 7680, 1320, 7580, 1320 )
+
+[node name="DirtPolygon" type="Polygon2D" parent="visuals"]
+color = Color( 0.647059, 0.647059, 0.647059, 1 )
+texture = ExtResource( 27 )
+texture_scale = Vector2( 3, 3 )
+polygon = PoolVector2Array( 4800, 200, 4780, 220, 4780, 240, 4900, 240, 4920, 220, 4920, 200 )
+
+[node name="DirtPolygon2" type="Polygon2D" parent="visuals"]
+color = Color( 0.647059, 0.647059, 0.647059, 1 )
+texture = ExtResource( 27 )
+texture_scale = Vector2( 3, 3 )
+polygon = PoolVector2Array( 6020, -460, 5980, -380, 5980, -80, 5840, 200, 5740, 220, 5740, 340, 5660, 460, 5540, 580, 5440, 620, 5340, 620, 5179, 607, 5139, 627, 5180, 667, 5360, 747, 5819, 768, 6019, 599, 6119, 502, 6222, 466, 6302, 344, 6241, 201, 6160, 142, 6161, -33, 6079, -336 )
+
+[node name="DirtPolygon3" type="Polygon2D" parent="visuals"]
+color = Color( 0.647059, 0.647059, 0.647059, 1 )
+texture = ExtResource( 27 )
+texture_scale = Vector2( 3, 3 )
+polygon = PoolVector2Array( 4700, 479, 4857, 521, 4840, 561, 4862, 657, 5060, 660, 5059, 680, 5100, 701, 5099, 719, 5140, 720, 5136, 741, 5124, 760, 5120, 798, 5121, 820, 5181, 842, 5196, 854, 5242, 908, 5400, 940, 5407, 1001, 5340, 1040, 5320, 1120, 5300, 1700, 4760, 1720, 4580, 1380, 4900, 1200, 5020, 1020, 5040, 940, 4978, 839, 4860, 801, 4665, 837, 4489, 797, 4491, 721, 4566, 527 )
+
+[node name="DirtPolygon4" type="Polygon2D" parent="visuals"]
+color = Color( 0.647059, 0.647059, 0.647059, 1 )
+texture = ExtResource( 27 )
+texture_scale = Vector2( 3, 3 )
+polygon = PoolVector2Array( 8184, 1499, 8188, 1501, 8198, 1494, 8199, 1491, 8220, 1493, 8281, 1489, 8326, 1498, 8405, 1493, 8422, 1493, 8424, 1498, 8426, 1502, 8442, 1500, 8494, 1501, 8496, 1488, 8500, 1475, 8559, 1479, 8565, 1476, 8569, 1462, 8622, 1462, 8624, 1456, 8626, 1442, 8631, 1451, 8639, 1452, 8640, 1440, 8720, 1420, 8780, 1400, 8860, 1380, 8900, 1360, 8940, 1340, 9000, 1320, 9080, 1280, 9100, 1260, 9180, 1240, 9220, 1200, 9300, 1180, 9340, 1140, 9400, 1120, 9440, 1100, 9480, 1120, 9560, 1140, 9580, 1160, 9600, 1180, 9680, 1180, 9680, 1220, 9620, 1240, 9620, 1280, 9680, 1300, 9720, 1280, 9740, 1280, 9780, 1300, 9840, 1300, 9880, 1280, 9940, 1320, 9880, 1340, 9780, 1360, 9620, 1380, 9600, 1500, 9080, 2040, 8260, 1940, 7760, 1900, 7760, 1700, 7700, 1560, 7580, 1420, 7520, 1380, 7540, 1340, 7560, 1280, 7576, 1288, 7639, 1272, 7644, 1274, 7645, 1317, 7692, 1319, 7691, 1283, 7704, 1287, 7753, 1276, 7766, 1284, 7763, 1338, 7764, 1354, 7768.74, 1358.23, 7813, 1360, 7816, 1364, 7820, 1389, 7830, 1396, 7916, 1394, 7921, 1396, 7948, 1404, 7960, 1400, 7957, 1372, 7999, 1368, 7998, 1399, 8014, 1406, 8049, 1405, 8057, 1461, 8109, 1463, 8123, 1457, 8133, 1452, 8168, 1437, 8168, 1462 )
+
+[node name="StonePolygon" type="Polygon2D" parent="visuals"]
+color = Color( 0.505882, 0.501961, 0.494118, 1 )
+texture = ExtResource( 29 )
+polygon = PoolVector2Array( 5400, 940, 6000, 940, 6000, 960, 6040, 960, 6040, 980, 6080, 980, 6080, 1000, 6120, 1000, 6120, 1020, 6160, 1020, 6160, 1040, 6800, 1040, 6840, 1040, 6840, 1060, 6880, 1060, 6880, 1080, 6920, 1080, 6920, 1100, 6960, 1100, 6960, 1120, 7000, 1120, 7000, 1140, 7040, 1140, 7040, 1220, 7140, 1220, 7140, 1260, 7180, 1260, 7180, 1280, 7220, 1280, 7220, 1300, 7420, 1300, 7403, 1268, 7404, 1261, 7416, 1260, 7433, 1259, 7463, 1259, 7465, 1261, 7465, 1267, 7471, 1277, 7474, 1285, 7476, 1285, 7478, 1273, 7479, 1264, 7483, 1260, 7526, 1257, 7549, 1257, 7565, 1258, 7569, 1259, 7576, 1284, 7579, 1311, 7581, 1319, 7577, 1323, 7578, 1325, 7581, 1327, 7578, 1360, 7576, 1367, 7580, 1369, 7579, 1394, 7573, 1400, 7540, 1405, 7484, 1405, 7476, 1447, 7441, 1451, 7407, 1458, 7400, 1580, 7160, 1580, 6800, 1540, 5800, 1580, 5207, 1475, 5199, 1289, 5218, 1217, 5222, 1133, 5265, 1128, 5287, 1128, 5287, 1099, 5289, 1084, 5289, 1072, 5265, 1067, 5257, 1065, 5255, 1063, 5253, 1001, 5256, 989, 5254, 986, 5215, 974, 5214, 971, 5217, 933, 5219, 931, 5233, 929, 5224, 917, 5216, 912, 5215, 910, 5243, 909, 5310, 922, 5311, 924, 5308, 933, 5300, 936, 5322, 939, 5316, 936, 5314, 933, 5315, 923 )
+
+[node name="Line2D" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 320, 140, 340, 140, 480, 140, 760, 140, 900, 140, 1200, 60, 1440, 20, 1660, 20 )
+width = 60.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 1440, 20, 1660, 20, 1760, 40, 2000, 120, 2300, 120 )
+width = 60.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 1980, 120, 2100, 120, 2240, 120, 2300, 120, 2300, 80, 2560, 80, 2620, 140, 2760, 200, 2860, 280, 2960, 320, 3080, 320, 3240, 320 )
+width = 60.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D4" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 3100, 320, 3160, 320, 3240, 320, 3240, 280, 3460, 280, 3460, 220 )
+width = 30.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D5" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 3640, 280, 3800, 280, 3840, 280, 3840, 200 )
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D6" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 3900, 280, 4060, 280, 4180, 260, 4260, 240, 4380, 220, 4580, 200, 4640, 200, 4640, 280, 4680, 280, 4680, 360, 4700, 360 )
+width = 60.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D7" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 4980, 280, 4980, 220, 5000, 200, 5260, 200, 5260, 140, 5500, 140 )
+width = 30.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GrassLine" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5880, 120, 5860, 160, 5840, 200, 5740, 220, 5740, 280 )
+width = 22.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GrassLine2" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 6160, 1040, 6560, 1040, 6840, 1040, 6840, 1060, 6880, 1060, 6880, 1080, 6920, 1080, 6920, 1100, 6960, 1100, 6960, 1120, 7000, 1120, 7000, 1140, 7040, 1140, 7040, 1220 )
+width = 22.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GrassLine3" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 6160, 1040, 6460, 1040, 6840, 1040 )
+width = 40.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GrassLine4" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 7220, 1300, 7260, 1300, 7380, 1300, 7420, 1300, 7400, 1260 )
+width = 40.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GrassLine5" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 8140, 1400, 8200, 1400, 8200, 1420, 8440, 1420, 8500, 1420, 8620, 1420, 8640, 1420 )
+width = 40.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 28 )
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5500, 140, 5520, 140, 5540, 140, 5560, 140 )
+width = 16.0
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine3" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5560, 160, 5579.97, 160, 5600, 160 )
+width = 16.0
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine4" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5600, 180, 5620, 180, 5640, 180, 5640, 200 )
+width = 16.0
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine2" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 4680, 360, 4700, 360, 4840, 360, 4960, 360, 4967, 335 )
+width = 16.0
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine19" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 4780, 220, 4800, 200, 4920, 200, 4920, 220 )
+width = 30.0
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine5" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 3460, 200, 3480, 200, 3540, 200, 3600, 200, 3640, 240, 3660, 240 )
+width = 40.0
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine18" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 3840, 220, 3840, 200, 3880, 200, 3880, 140, 3920, 140, 3940, 200 )
+width = 40.0
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine6" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5632, 489, 5625, 496, 5594, 527, 5540, 580, 5440, 620, 5413, 621, 5340, 620, 5265, 616, 5180, 607, 5173, 610 )
+width = 40.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.407843, 0.407843, 0.407843, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine7" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 4865, 659, 5061, 661, 5061, 681, 5103, 704 )
+width = 40.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.407843, 0.407843, 0.407843, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine8" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5440, 940, 5500, 940, 5560, 940, 5880, 940, 6000, 940 )
+width = 20.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.533333, 0.533333, 0.533333, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine17" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5980, 940, 6000, 940, 6000, 960, 6040, 960, 6040, 980, 6080, 980, 6080, 1000, 6120, 1000, 6120, 1020, 6160, 1020, 6160, 1040, 6180, 1040 )
+width = 20.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.533333, 0.533333, 0.533333, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine9" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 7040, 1220, 7140, 1220, 7140, 1260, 7180, 1260, 7180, 1280, 7220, 1280, 7220, 1300, 7229, 1299 )
+width = 20.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.447059, 0.447059, 0.447059, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine10" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 6820, 1040, 6840, 1040, 6840, 1060, 6880, 1060 )
+width = 20.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine11" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 6877, 1075, 6880, 1080, 6888, 1079, 6900, 1080, 6900, 1080, 6915, 1079, 6923, 1080, 6920, 1080 )
+width = 20.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine12" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 6917, 1096, 6930, 1097, 6950, 1100, 6958, 1098, 6962, 1099 )
+width = 20.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine13" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 6960, 1114, 6962, 1118, 6975, 1119, 6986, 1120, 6997, 1121, 7000, 1128 )
+width = 20.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine14" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 7000, 1136, 7003, 1141, 7030, 1141, 7041, 1139, 7041, 1145 )
+width = 20.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine15" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 9680, 1180, 9600, 1180, 9600, 1140, 9520, 1120, 9500, 1080, 9400, 1080, 9400, 1100, 9360, 1100, 9360, 1120, 9320, 1120, 9320, 1140, 9280, 1140, 9280, 1160, 9240, 1160, 9240, 1180, 9200, 1180, 9200, 1200, 9160, 1200, 9160, 1220, 9140, 1240, 9080, 1240, 9080, 1260, 9040, 1260, 9040, 1280, 9000, 1280, 9000, 1300, 8960, 1300, 8960, 1320, 8920, 1320, 8920, 1340, 8860, 1340, 8860, 1360, 8800, 1360, 8800, 1380, 8720, 1380, 8720, 1400, 8640, 1400, 8640, 1400, 8640, 1420, 8480, 1420 )
+width = 30.0
+width_curve = SubResource( 5 )
+default_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StoneLine16" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 7220, 1160, 7220, 1140, 7260, 1140, 7440, 1140, 7500, 1140, 7500, 1160, 7560, 1160, 7560, 1180, 7620, 1180, 7620, 1200, 7680, 1200, 7680, 1220, 7740, 1220, 7740, 1240, 7800, 1240, 7800, 1260, 7840, 1260, 7840, 1280, 7880, 1280, 7880, 1300, 7920, 1300, 7920, 1320, 7960, 1320, 7960, 1340, 8020, 1340, 8020, 1360, 8080, 1360, 8080, 1380, 8140, 1380, 8140, 1380, 8140, 1400, 8200, 1400, 8200, 1420, 8280, 1420 )
+width = 30.0
+width_curve = SubResource( 6 )
+default_color = Color( 0.611765, 0.603922, 0.603922, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GravelLine" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 0, -360, 40, -120, 140, 60 )
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 30 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GravelLine2" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 2183, 299, 2276, 271, 2356, 242, 2362, 254, 2372, 370 )
+width = 20.0
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 30 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GravelLine3" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5580, 240, 5560, 260, 5540, 260, 5480, 320, 5460, 420 )
+width = 20.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.623529, 0.623529, 0.623529, 1 )
+texture = ExtResource( 30 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GravelLine4" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5700, 400, 5740, 340, 5740, 220 )
+width_curve = SubResource( 4 )
+default_color = Color( 0.764706, 0.764706, 0.764706, 1 )
+texture = ExtResource( 30 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GravelLine5" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5057, 659, 5063, 680, 5099, 700, 5099, 720, 5141, 722, 5137, 743, 5126, 759, 5119, 799, 5121, 819, 5178, 839 )
+width_curve = SubResource( 4 )
+default_color = Color( 0.764706, 0.764706, 0.764706, 1 )
+texture = ExtResource( 30 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="BushLine" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 5980, -380, 5980, -320, 5980, -80, 5920, 40 )
+width = 80.0
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 31 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="BushLine2" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 6140, -100, 6160, -40, 6160, 140, 6240, 200, 6280, 320 )
+width = 80.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.788235, 0.74902, 0.74902, 1 )
+texture = ExtResource( 31 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="tutoriales" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Tutorial2" parent="tutoriales" instance=ExtResource( 7 )]
 position = Vector2( 2180, 120 )
@@ -279,16 +802,22 @@ scale = Vector2( 10, 10 )
 [node name="GuideStone" parent="tutoriales" instance=ExtResource( 23 )]
 position = Vector2( 900, 140 )
 section_title = "Bosque Largo"
+objective_text = "Encuentra la entrada al Templo Chuluk"
 
 [node name="GuideStone2" parent="tutoriales" instance=ExtResource( 23 )]
 position = Vector2( 5380, 940 )
 section_title = "Templo Chuluk"
+objective_text = "Encuentra la salida al templo"
 
 [node name="GuideStone3" parent="tutoriales" instance=ExtResource( 23 )]
 position = Vector2( 12720, 1480 )
-section_title = "Templo Chuluk"
+section_title = "Ryn-Lyn"
+objective_text = "Encuentra y utiliza la piedra de luna para salir del bosque"
 
 [node name="gollems" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Enemy" parent="gollems" instance=ExtResource( 9 )]
 position = Vector2( 5720, 920 )
@@ -313,10 +842,13 @@ position = Vector2( 16000, 340 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 unique_name_in_owner = true
-position = Vector2( 80, -280 )
+position = Vector2( 260, 80 )
 moving_platform_apply_velocity_on_leave = 2
 
 [node name="doors" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Bonfire4" parent="doors" instance=ExtResource( 14 )]
 position = Vector2( 10780, 880 )
@@ -475,16 +1007,6 @@ scale = Vector2( 0.686274, 0.686274 )
 z_index = -1
 texture = ExtResource( 16 )
 
-[node name="Polygon2D2" type="Polygon2D" parent="decorations"]
-z_index = -2
-color = Color( 0.184314, 0.14902, 0.14902, 1 )
-polygon = PoolVector2Array( 5180, 620, 5040, 700, 5080, 780, 5120, 860, 5200, 920, 5320, 960, 5520, 960, 5680, 960, 5760, 960, 5800, 940, 5840, 820, 5880, 740, 5880, 700, 5700, 720, 5460, 720, 5300, 700 )
-
-[node name="Polygon2D3" type="Polygon2D" parent="decorations"]
-z_index = -2
-color = Color( 0.309804, 0.219608, 0.219608, 1 )
-polygon = PoolVector2Array( 5620, 200, 5800, 220, 5760, 320, 5600, 580, 5420, 640, 5180, 620, 5040, 700, 4840, 660, 4800, 600, 4800, 540, 4720, 500, 4760, 440, 5020, 440, 5140, 420, 5280, 500, 5360, 460, 5420, 400, 5460, 320, 5520, 280, 5600, 200 )
-
 [node name="PlatformBranchBoards04G1" type="Sprite" parent="decorations"]
 position = Vector2( 13433.4, 1345.12 )
 scale = Vector2( 1.10302, 1.10302 )
@@ -526,11 +1048,11 @@ scale = Vector2( 0.186508, 0.186508 )
 texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="decorations"]
-position = Vector2( 5456, -200 )
+position = Vector2( 5464, -185 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
-[node name="BlingStonemonument1" type="Sprite" parent="."]
+[node name="BlingStonemonument1" type="Sprite" parent="decorations"]
 position = Vector2( 14100, 1220 )
 scale = Vector2( 0.764901, 0.764901 )
 texture = ExtResource( 15 )

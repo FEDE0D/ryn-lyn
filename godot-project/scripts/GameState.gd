@@ -3,7 +3,7 @@ extends Node
 signal on_state_changed(new_state, previous_state)
 signal on_dialog_start(dialog)
 signal on_player_collected_stone()
-signal on_player_enter_section(title)
+signal on_player_enter_section(title, objective)
 
 enum STATE {GAME, PAUSED, SUBTITLE}
 var _state = [STATE.GAME]
@@ -35,8 +35,8 @@ func show_dialog(dialog: DialogResource):
 func player_collected_stone():
 	emit_signal("on_player_collected_stone")
 
-func player_enter_section(title):
-	emit_signal("on_player_enter_section", title)
+func player_enter_section(title, objective):
+	emit_signal("on_player_enter_section", title, objective)
 
 # STATES
 

@@ -26,11 +26,4 @@ monitorable = false
 position = Vector2( 0, -40 )
 shape = SubResource( 1 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = -40.0
-margin_top = 20.0
-margin_right = 59.0
-margin_bottom = 34.0
-text = "TODO: objetivo"
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

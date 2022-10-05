@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/fonts/control_sm.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/UI/AssistanceUIItem.gd" type="Script" id=2]
+
+[node name="AssistanceUIItem" type="HFlowContainer"]
+margin_right = 320.0
+margin_bottom = 17.0
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 8.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 1 )
+text = "*"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 12.0
+margin_right = 320.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Encuentra la entrada al templo"
+text = "Encuentra la entrada al templo"
+scroll_active = false
