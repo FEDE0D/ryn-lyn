@@ -2,6 +2,7 @@ extends Character2D
 class_name Player
 
 onready var _camera: Camera2D = $CameraNormalPosition/Camera2D
+onready var _camera_offset: Vector2 = $CameraNormalPosition/Camera2D.offset
 var air_time: float = 0.0
 
 func _ready():
@@ -53,6 +54,19 @@ func process_control(delta):
 	else:
 		if has_node("MoonStoneNode/MoonStone"):
 			$"MoonStoneNode/MoonStone".deactivate()
+	
+	var cam_offset = Vector2()
+	if Input.is_action_pressed("camera_left"):
+		cam_offset.x = -Input.get_action_strength("camera_left")
+	elif Input.is_action_pressed("camera_right"):
+		cam_offset.x = Input.get_action_strength("camera_right")
+	if Input.is_action_pressed("camera_up"):
+		cam_offset.y = -Input.get_action_strength("camera_up")
+	elif Input.is_action_pressed("camera_down"):
+		cam_offset.y = Input.get_action_strength("camera_down")
+	$CameraNormalPosition/Camera2D.offset_h = cam_offset.x
+	$CameraNormalPosition/Camera2D.offset_v = cam_offset.y
+	print(cam_offset)
 	
 	if !is_on_floor:
 		air_time += delta

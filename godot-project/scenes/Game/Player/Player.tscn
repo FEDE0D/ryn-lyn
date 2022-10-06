@@ -209,7 +209,7 @@ position = Vector2( 0, -1 )
 scale = Vector2( 0.0711111, 0.0711113 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 12
+frame = 4
 playing = true
 
 [node name="FeetDust" type="CPUParticles2D" parent="visual/direction"]
@@ -240,16 +240,18 @@ position = Vector2( 0, -48 )
 [node name="MoonStoneNode" type="Node" parent="."]
 
 [node name="CameraNormalPosition" type="Position2D" parent="."]
+position = Vector2( 0, -72 )
 
 [node name="Camera2D" type="Camera2D" parent="CameraNormalPosition"]
 current = true
 zoom = Vector2( 0.75, 0.75 )
 limit_left = 0
+limit_bottom = 1600
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 smoothing_speed = 3.0
-offset_v = -0.7
+offset_v = -1.0
 drag_margin_top = 0.45
 editor_draw_limits = true
 editor_draw_drag_margin = true
