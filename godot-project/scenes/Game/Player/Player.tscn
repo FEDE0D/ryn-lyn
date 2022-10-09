@@ -209,7 +209,7 @@ position = Vector2( 0, -1 )
 scale = Vector2( 0.0711111, 0.0711113 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 1
+frame = 6
 playing = true
 
 [node name="FeetDust" type="CPUParticles2D" parent="visual/direction"]
@@ -244,7 +244,7 @@ position = Vector2( 0, -72 )
 
 [node name="Camera2D" type="Camera2D" parent="CameraNormalPosition"]
 current = true
-zoom = Vector2( 0.75, 0.75 )
+zoom = Vector2( 0.7, 0.7 )
 limit_left = 0
 limit_bottom = 1600
 drag_margin_h_enabled = true
