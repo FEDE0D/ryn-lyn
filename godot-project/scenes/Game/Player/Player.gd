@@ -39,7 +39,7 @@ func process_control(delta):
 		$"%direction".scale.x = 1
 	if Input.is_action_just_pressed("jump") and is_on_floor:
 		velocity.y = -jump_force
-	if Input.is_action_just_pressed("jump") and !is_on_floor and can_double_jump and air_time > 0.1:
+	if Input.is_action_just_pressed("jump") and !is_on_floor and can_double_jump and air_time > 0.0:
 		velocity.y = -jump_double_force
 		can_double_jump = false
 		$"%FeetDust".restart()
@@ -47,7 +47,8 @@ func process_control(delta):
 		yield(get_tree().create_timer(0.3), "timeout")
 		$"%FeetDust".emitting = false
 	if Input.is_action_just_released("jump") and !is_on_floor and velocity.y < 0:
-		velocity.y = -jump_force/3.0
+		if can_double_jump:
+			velocity.y = -jump_force/3.0
 	if Input.is_action_pressed("action"):
 		if has_node("MoonStoneNode/MoonStone"):
 			$"MoonStoneNode/MoonStone".activate()

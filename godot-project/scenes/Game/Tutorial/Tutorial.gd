@@ -26,16 +26,16 @@ func _input(event):
 func show_dialog():
 	set_process_input(false)
 	GameState.show_dialog(dialog)
-	$"%Button".hide()
+	$ActionDisplay.hide()
 
 func _on_Area2D_body_entered(body):
 	if !active:
 		return
-	$"%Button".show()
+	$ActionDisplay.show()
 	set_process_input(true)
 	
 func _on_Area2D_body_exited(body):
 	if !active:
 		return
-	$"%Button".hide()
+	$ActionDisplay.hide()
 	set_process_input(false)

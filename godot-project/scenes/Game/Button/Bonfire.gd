@@ -14,9 +14,11 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if not collisions.has(body):
 		collisions.append(body)
+		$ActionDisplay.show()
 
 func _on_Area2D_body_exited(body):
 	collisions.erase(body)
+	$ActionDisplay.hide()
 
 func _process(delta):
 	if Input.is_action_pressed("action"):

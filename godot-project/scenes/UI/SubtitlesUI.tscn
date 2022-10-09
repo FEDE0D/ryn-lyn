@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://addons/godot_subtitles/live_caption_node.gd" type="Script" id=1]
 [ext_resource path="res://resources/themes/default.tres" type="Theme" id=2]
+[ext_resource path="res://addons/input_button/ActionDisplay.gd" type="Script" id=3]
+[ext_resource path="res://resources/fonts/ui-sm.tres" type="DynamicFont" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=6]
 [ext_resource path="res://scenes/UI/SubtitlesUI.gd" type="Script" id=7]
 
@@ -112,14 +114,32 @@ margin_top = 10.0
 margin_right = 1042.0
 margin_bottom = 154.0
 
-[node name="Button" type="Button" parent="SubtitlesContainer/PanelContainer/Panel/HBoxContainer/MarginContainer/Control"]
+[node name="Control" type="Control" parent="SubtitlesContainer/PanelContainer/Panel/HBoxContainer/MarginContainer/Control"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -44.0
-margin_top = -20.0
-text = "NEXT"
+margin_left = -103.0
+margin_top = -23.0
+
+[node name="ActionDisplay" type="Node2D" parent="SubtitlesContainer/PanelContainer/Panel/HBoxContainer/MarginContainer/Control/Control"]
+position = Vector2( 90, 11 )
+scale = Vector2( 0.75, 0.75 )
+script = ExtResource( 3 )
+action = "subtitle"
+
+[node name="Label" type="Label" parent="SubtitlesContainer/PanelContainer/Panel/HBoxContainer/MarginContainer/Control/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.0
+margin_top = -11.5
+margin_right = 18.0
+margin_bottom = 11.5
+custom_fonts/font = ExtResource( 4 )
+text = "Avanzar"
+align = 2
 
 [node name="Tween" type="Tween" parent="."]
 unique_name_in_owner = true

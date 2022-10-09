@@ -1,6 +1,6 @@
 extends EnemyState
 
-const timeout: float = 3.0
+const timeout: float = 5.0
 const attack_distance: float = 30.0
 const attack_timeout: float = 0.5
 var time: float = timeout

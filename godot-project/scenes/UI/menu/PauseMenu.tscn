@@ -194,6 +194,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -214,3 +215,4 @@ anims/show = SubResource( 1 )
 [connection signal="pressed" from="HBoxContainer/PanelContainer/Panel/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/Panel/VBoxContainer/SalirButton" to="." method="_on_SalirButton_pressed"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
+[connection signal="hide" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_hide"]

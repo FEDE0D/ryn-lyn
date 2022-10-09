@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_3.png" type="Texture" id=37]
 [ext_resource path="res://resources/audio/background/forest.ogg" type="AudioStream" id=38]
 [ext_resource path="res://scenes/Game/Tutorial/LightsGuide.tscn" type="PackedScene" id=39]
+[ext_resource path="res://scenes/UI/ActionTutorial.tscn" type="PackedScene" id=40]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -155,7 +156,7 @@ polygon = PoolVector2Array( 3420, -80, 3500, -100, 3620, -120, 3820, -140, 3820,
 
 [node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Collision"]
 position = Vector2( 560, 13 )
-polygon = PoolVector2Array( 2200, -20, 2480, -20, 2480, -60, 2700, -60, 2700, -140, 2840, -140, 2880, -100, 2920, -100, 2920, -60, 3000, -60, 3080, -60, 3080, -140, 3120, -140, 3120, -200, 3160, -200, 3180, -140, 3180, -60, 3300, -60, 3420, -80, 3420, 60, 2200, 60 )
+polygon = PoolVector2Array( 2200, -20, 2480, -20, 2480, -60, 2700, -60, 2700, -140, 2840, -140, 2880, -100, 2920, -100, 2920, -60, 3000, -60, 3080, -60, 3080, -140, 3120, -160, 3180, -140, 3240, -60, 3300, -60, 3420, -80, 3420, 60, 2200, 60 )
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Collision"]
 position = Vector2( 500, 0 )
@@ -335,7 +336,7 @@ uv = PoolVector2Array( -220, -480, 0, -360, 40, -120, 100, -20, 140, 60, 240, 14
 color = Color( 0.647059, 0.647059, 0.647059, 1 )
 texture = ExtResource( 27 )
 texture_scale = Vector2( 3, 3 )
-polygon = PoolVector2Array( 2380, 80, 2560, 80, 2620, 140, 2760, 200, 2860, 280, 2960, 320, 3240, 320, 3240, 280, 3460, 280, 3460, 200, 3600, 200, 3640, 240, 3680, 240, 3680, 280, 3840, 280, 3840, 200, 3880, 200, 3880, 140, 3920, 140, 3940, 200, 3940, 280, 4060, 280, 4180, 260, 4260, 240, 4380, 220, 4580, 200, 4640, 200, 4640, 280, 4680, 280, 4680, 360, 4960, 360, 4980, 280, 4980, 220, 5000, 200, 5260, 200, 5260, 140, 5560, 140, 5560, 140, 5560, 160, 5600, 160, 5600, 180, 5640, 180, 5640, 200, 5600, 220, 5560, 260, 5540, 260, 5480, 320, 5460, 420, 5360, 520, 5240, 520, 5160, 500, 5080, 440, 5000, 460, 4900, 480, 4740, 480, 4700, 480, 4580, 540, 4500, 740, 3480, 860, 2960, 900, 2799, 610, 2540, 440, 2380, 440, 2360, 260 )
+polygon = PoolVector2Array( 2380, 80, 2560, 80, 2620, 140, 2760, 200, 2860, 280, 2960, 320, 3240, 320, 3240, 280, 3460, 280, 3460, 200, 3600, 200, 3640, 240, 3680, 240, 3680, 280, 3840, 280, 3840, 200, 3880, 180, 3940, 200, 4000, 280, 4060, 280, 4180, 260, 4260, 240, 4380, 220, 4580, 200, 4640, 200, 4640, 280, 4680, 280, 4680, 360, 4960, 360, 4980, 280, 4980, 220, 5000, 200, 5260, 200, 5260, 140, 5560, 140, 5560, 140, 5560, 160, 5600, 160, 5600, 180, 5640, 180, 5640, 200, 5600, 220, 5560, 260, 5540, 260, 5480, 320, 5460, 420, 5360, 520, 5240, 520, 5160, 500, 5080, 440, 5000, 460, 4900, 480, 4740, 480, 4700, 480, 4580, 540, 4500, 740, 3480, 860, 2960, 900, 2799, 610, 2540, 440, 2380, 440, 2360, 260 )
 
 [node name="StonePolygon4" type="Polygon2D" parent="visuals"]
 color = Color( 0.505882, 0.501961, 0.494118, 1 )
@@ -499,7 +500,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Line2D6" type="Line2D" parent="visuals"]
-points = PoolVector2Array( 3900, 280, 4060, 280, 4180, 260, 4260, 240, 4380, 220, 4580, 200, 4640, 200, 4640, 280, 4680, 280, 4680, 360, 4700, 360 )
+points = PoolVector2Array( 3980, 280, 4060, 280, 4180, 260, 4260, 240, 4380, 220, 4580, 200, 4640, 200, 4640, 280 )
 width = 60.0
 width_curve = SubResource( 3 )
 default_color = Color( 1, 1, 1, 1 )
@@ -707,6 +708,17 @@ joint_mode = 1
 begin_cap_mode = 2
 end_cap_mode = 2
 
+[node name="StoneLine25" type="Line2D" parent="visuals"]
+points = PoolVector2Array( 4620, 280, 4640, 280, 4680, 280, 4680, 360 )
+width = 30.0
+width_curve = SubResource( 4 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 32 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
 [node name="StoneLine5" type="Line2D" parent="visuals"]
 points = PoolVector2Array( 3460, 200, 3480, 200, 3540, 200, 3600, 200, 3640, 240, 3660, 240 )
 width = 40.0
@@ -729,7 +741,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="StoneLine18" type="Line2D" parent="visuals"]
-points = PoolVector2Array( 3840, 220, 3840, 200, 3880, 200, 3880, 140, 3920, 140, 3940, 200 )
+points = PoolVector2Array( 3840, 220, 3840, 200, 3880, 180, 3940, 200, 4000, 280 )
 width = 40.0
 width_curve = SubResource( 4 )
 default_color = Color( 1, 1, 1, 1 )
@@ -1156,7 +1168,7 @@ text = "CASCADA"
 [node name="tutoriales" type="Node2D" parent="."]
 
 [node name="Tutorial2" parent="tutoriales" instance=ExtResource( 7 )]
-position = Vector2( 2180, 120 )
+position = Vector2( 1700, 20 )
 show_on_start = false
 dialog = ExtResource( 3 )
 
@@ -1239,7 +1251,7 @@ position = Vector2( 16020, 340 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 unique_name_in_owner = true
-position = Vector2( 360, 100 )
+position = Vector2( 300, 80 )
 moving_platform_apply_velocity_on_leave = 2
 
 [node name="doors" type="Node2D" parent="."]
@@ -1486,6 +1498,23 @@ stream = ExtResource( 38 )
 [node name="ForestSound9" type="AudioStreamPlayer2D" parent="audio"]
 position = Vector2( 5360, 100 )
 stream = ExtResource( 38 )
+
+[node name="ActionTutorials" type="Control" parent="."]
+
+[node name="Node2D" type="Node2D" parent="ActionTutorials"]
+position = Vector2( 3500, 0 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="ActionTutorial2" parent="ActionTutorials/Node2D" instance=ExtResource( 40 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 120.0
+margin_bottom = 100.0
+bottom_text = "cuando estés en el aire para realizar un doble salto"
+
+[node name="ActionTutorial" parent="ActionTutorials/Node2D" instance=ExtResource( 40 )]
+margin_left = -1466.67
+margin_right = -1346.67
 
 [connection signal="on_player_entered" from="tutoriales/CollectStoneTrigger" to="." method="_on_CollectStoneTrigger_on_player_entered"]
 [connection signal="on_player_entered" from="tutoriales/EndTrigger" to="." method="_on_EndTrigger_on_player_entered"]
