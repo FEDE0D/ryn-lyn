@@ -20,6 +20,7 @@ func activate():
 
 func _input(event):
 	if event.is_action_pressed("subtitle"):
+		get_tree().set_input_as_handled()
 		show_dialog()
 
 func show_dialog():

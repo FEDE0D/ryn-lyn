@@ -39,7 +39,7 @@ func process_control(delta):
 		$"%direction".scale.x = 1
 	if Input.is_action_just_pressed("jump") and is_on_floor:
 		velocity.y = -jump_force
-	if Input.is_action_just_pressed("jump") and !is_on_floor and can_double_jump and air_time > 0.2:
+	if Input.is_action_just_pressed("jump") and !is_on_floor and can_double_jump and air_time > 0.1:
 		velocity.y = -jump_double_force
 		can_double_jump = false
 		$"%FeetDust".restart()
@@ -66,7 +66,6 @@ func process_control(delta):
 		cam_offset.y = Input.get_action_strength("camera_down")
 	$CameraNormalPosition/Camera2D.offset_h = cam_offset.x
 	$CameraNormalPosition/Camera2D.offset_v = cam_offset.y
-	print(cam_offset)
 	
 	if !is_on_floor:
 		air_time += delta

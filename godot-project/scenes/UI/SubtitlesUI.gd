@@ -6,9 +6,11 @@ var current_line_index: int = 0
 
 func _ready():
 	GameState.connect("on_dialog_start", self, "_on_dialog_start")
+	$"%SubtitlesContainer".hide()
 
 func _input(event):
 	if event.is_action_pressed("subtitle"):
+		get_tree().set_input_as_handled()
 		emit_signal("subtitle_action")
 
 func _on_dialog_start(dialog: DialogResource):

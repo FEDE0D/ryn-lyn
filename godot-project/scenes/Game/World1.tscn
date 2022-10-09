@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -37,6 +37,8 @@
 [ext_resource path="res://resources/images/tilable/wood.png" type="Texture" id=35]
 [ext_resource path="res://resources/images/tilable/tree_stack_trunk.png" type="Texture" id=36]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_3.png" type="Texture" id=37]
+[ext_resource path="res://resources/audio/background/forest.ogg" type="AudioStream" id=38]
+[ext_resource path="res://scenes/Game/Tutorial/LightsGuide.tscn" type="PackedScene" id=39]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -1155,11 +1157,22 @@ text = "CASCADA"
 
 [node name="Tutorial2" parent="tutoriales" instance=ExtResource( 7 )]
 position = Vector2( 2180, 120 )
+show_on_start = false
 dialog = ExtResource( 3 )
 
+[node name="Trigger" parent="tutoriales/Tutorial2" instance=ExtResource( 17 )]
+scale = Vector2( 6.73998, 6.66272 )
+doors = [ NodePath("..") ]
+mode = "ACTIVATE"
+
 [node name="Tutorial3" parent="tutoriales" instance=ExtResource( 7 )]
-position = Vector2( 3360, 280 )
+position = Vector2( 3160, 320 )
 dialog = ExtResource( 3 )
+
+[node name="Trigger" parent="tutoriales/Tutorial3" instance=ExtResource( 17 )]
+scale = Vector2( 7, 7 )
+doors = [ NodePath("..") ]
+mode = "ACTIVATE"
 
 [node name="Tutorial4" parent="tutoriales" instance=ExtResource( 7 )]
 position = Vector2( 6640, 1040 )
@@ -1204,6 +1217,9 @@ position = Vector2( 12720, 1480 )
 section_title = "Ryn-Lyn"
 objective_text = "Encuentra y utiliza la piedra de luna para salir del bosque"
 
+[node name="LightsGuide" parent="tutoriales" instance=ExtResource( 39 )]
+position = Vector2( 5060, 180 )
+
 [node name="gollems" type="Node2D" parent="."]
 
 [node name="Enemy" parent="gollems" instance=ExtResource( 9 )]
@@ -1223,7 +1239,7 @@ position = Vector2( 16020, 340 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 unique_name_in_owner = true
-position = Vector2( 260, 60 )
+position = Vector2( 360, 100 )
 moving_platform_apply_velocity_on_leave = 2
 
 [node name="doors" type="Node2D" parent="."]
@@ -1432,6 +1448,44 @@ position = Vector2( 14100, 1220 )
 scale = Vector2( 0.764901, 0.764901 )
 texture = ExtResource( 15 )
 flip_h = true
+
+[node name="audio" type="Node2D" parent="."]
+
+[node name="ForestSound" type="AudioStreamPlayer2D" parent="audio"]
+position = Vector2( 260, 120 )
+stream = ExtResource( 38 )
+
+[node name="ForestSound2" type="AudioStreamPlayer2D" parent="audio"]
+position = Vector2( 880, 120 )
+stream = ExtResource( 38 )
+
+[node name="ForestSound3" type="AudioStreamPlayer2D" parent="audio"]
+position = Vector2( 1540, 0 )
+stream = ExtResource( 38 )
+
+[node name="ForestSound4" type="AudioStreamPlayer2D" parent="audio"]
+position = Vector2( 2220, 80 )
+stream = ExtResource( 38 )
+
+[node name="ForestSound5" type="AudioStreamPlayer2D" parent="audio"]
+position = Vector2( 2740, 140 )
+stream = ExtResource( 38 )
+
+[node name="ForestSound6" type="AudioStreamPlayer2D" parent="audio"]
+position = Vector2( 3280, 240 )
+stream = ExtResource( 38 )
+
+[node name="ForestSound7" type="AudioStreamPlayer2D" parent="audio"]
+position = Vector2( 4120, 240 )
+stream = ExtResource( 38 )
+
+[node name="ForestSound8" type="AudioStreamPlayer2D" parent="audio"]
+position = Vector2( 4840, 160 )
+stream = ExtResource( 38 )
+
+[node name="ForestSound9" type="AudioStreamPlayer2D" parent="audio"]
+position = Vector2( 5360, 100 )
+stream = ExtResource( 38 )
 
 [connection signal="on_player_entered" from="tutoriales/CollectStoneTrigger" to="." method="_on_CollectStoneTrigger_on_player_entered"]
 [connection signal="on_player_entered" from="tutoriales/EndTrigger" to="." method="_on_EndTrigger_on_player_entered"]

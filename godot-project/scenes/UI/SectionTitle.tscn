@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://resources/fonts/lexia_readable/LexieReadable-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://resources/fonts/section-title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/UI/SectionTitle.gd" type="Script" id=2]
-
-[sub_resource type="DynamicFont" id=2]
-size = 64
-font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -70,11 +66,11 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 446.0
-margin_top = 327.0
-margin_right = 834.0
-margin_bottom = 392.0
-custom_fonts/font = SubResource( 2 )
+margin_left = 449.0
+margin_top = 320.0
+margin_right = 831.0
+margin_bottom = 400.0
+custom_fonts/font = ExtResource( 1 )
 text = "Section Title"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

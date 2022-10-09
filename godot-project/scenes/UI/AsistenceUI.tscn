@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/UI/AsistenceUI.gd" type="Script" id=1]
-[ext_resource path="res://resources/fonts/control_xs.tres" type="DynamicFont" id=2]
+[ext_resource path="res://resources/fonts/ui-xs.tres" type="DynamicFont" id=2]
+[ext_resource path="res://resources/themes/default.tres" type="Theme" id=3]
 
 [node name="AsistenceUI" type="Control"]
 pause_mode = 2
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -26,19 +28,19 @@ self_modulate = Color( 0, 0.623529, 1, 0.854902 )
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 460.0
-margin_bottom = 62.0
+margin_bottom = 66.0
 size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 433.0
-margin_bottom = 35.0
+margin_bottom = 39.0
 custom_constants/separation = 9
 
 [node name="Label2" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
 margin_right = 426.0
-margin_bottom = 15.0
+margin_bottom = 19.0
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 text = "Objetivos"
@@ -47,8 +49,8 @@ autowrap = true
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0.439216 )
-margin_top = 24.0
+margin_top = 28.0
 margin_right = 426.0
-margin_bottom = 28.0
+margin_bottom = 32.0
 
 [node name="Tween" type="Tween" parent="."]
