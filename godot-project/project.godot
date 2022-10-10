@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://scenes/Game/Player/Character.gd"
 }, {
 "base": "Resource",
+"class": "ConfigResource",
+"language": "GDScript",
+"path": "res://scripts/ConfigResource.gd"
+}, {
+"base": "Resource",
 "class": "DialogLineResource",
 "language": "GDScript",
 "path": "res://scripts/DialogLineResource.gd"
@@ -94,6 +99,7 @@ _global_script_class_icons={
 "ActionDisplay": "",
 "ActorResource": "",
 "Character2D": "",
+"ConfigResource": "",
 "DialogLineResource": "",
 "DialogResource": "",
 "Door": "",
@@ -119,6 +125,7 @@ config/icon="res://icon.png"
 TTS="*res://addons/godot-tts/TTS.gd"
 DebugControl="*res://scripts/DebugControl.gd"
 GameState="*res://scripts/GameState.gd"
+GameConfig="*res://scripts/GameConfig.gd"
 
 [display]
 

@@ -201,6 +201,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 9.0
 
 [node name="GraphicContainer" type="VBoxContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -215,14 +216,16 @@ custom_constants/margin_left = 15
 custom_constants/margin_bottom = 15
 
 [node name="WindowModeCheckBtn" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer"]
+unique_name_in_owner = true
 margin_left = 15.0
 margin_top = 15.0
 margin_right = 1094.0
 margin_bottom = 55.0
 focus_neighbour_top = NodePath("../../../../../../../HBoxContainer/Control2/GraphicBtn")
-text = "Modo Ventana"
+text = "Pantalla Completa"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer"]
+visible = false
 margin_top = 74.0
 margin_right = 1109.0
 margin_bottom = 133.0
@@ -624,7 +627,6 @@ size_flags_horizontal = 3
 value = 100.0
 
 [node name="AccContainer" type="ScrollContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 follow_focus = true
@@ -820,3 +822,4 @@ text = "Guardar"
 [connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer10/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "camera_down" ]]
 [connection signal="value_changed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer4/HBoxContainer/HSlider" to="." method="_on_ui_scale_value_changed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/Control/CancelBtn" to="." method="_on_CancelBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/Control/SaveBtn" to="." method="_on_SaveBtn_pressed"]

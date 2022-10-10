@@ -4,9 +4,17 @@ var action_to_change: String
 
 func _ready():
 	$"%GraphicBtn".grab_focus()
+	
+	# TODO refresh config settings
+	$"%WindowModeCheckBtn".pressed = OS.window_fullscreen
 
 func _on_CancelBtn_pressed():
-	get_tree().change_scene("res://scenes/UI/menu/MainMenu.tscn")
+	GameConfig.load_config()
+	GameState.main_menu()
+
+func _on_SaveBtn_pressed():
+	GameConfig.save_config()
+	GameState.main_menu()
 
 func _on_button_focus(container_name):
 	for c in $"%ParentContainer".get_children():
