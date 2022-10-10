@@ -5,14 +5,11 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("pause"):
+		get_tree().set_input_as_handled()
 		if GameState.is_in_state(GameState.STATE.PAUSED):
 			GameState.hide_pause()
 		else:
 			GameState.show_pause()
-	if event.is_action_pressed("ui_cancel"):
-		if GameState.is_in_state(GameState.STATE.PAUSED):
-			get_tree().set_input_as_handled()
-			GameState.hide_pause()
 
 func _on_state_changed(new_state, previous_state):
 	if new_state == GameState.STATE.PAUSED:
