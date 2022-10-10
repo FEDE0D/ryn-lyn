@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://resources/ui/backgrounds/game_background_3.1.png" type="Texture" id=1]
 [ext_resource path="res://resources/themes/default.tres" type="Theme" id=2]
@@ -7,6 +7,37 @@
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.052, 0.052, 0.1, 0.8 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("LabelTouch:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "flash"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LabelTouch:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="OptionsMenu" type="Control"]
 anchor_right = 1.0
@@ -170,7 +201,6 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 9.0
 
 [node name="GraphicContainer" type="VBoxContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -184,7 +214,7 @@ custom_constants/margin_top = 15
 custom_constants/margin_left = 15
 custom_constants/margin_bottom = 15
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer"]
+[node name="WindowModeCheckBtn" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer"]
 margin_left = 15.0
 margin_top = 15.0
 margin_right = 1094.0
@@ -226,6 +256,7 @@ items = [ "1920x1080", null, false, 0, null, "1280x720", null, false, 1, null ]
 selected = 0
 
 [node name="ControlContainer" type="HBoxContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -261,8 +292,10 @@ margin_bottom = 46.0
 focus_neighbour_top = NodePath("../../../../../../../../HBoxContainer/Control2/ControlBtn")
 text = "Moverse a la izquierda"
 
-[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer2/ToolButton"]
+[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer2/ToolButton" groups=["action_left"]]
 script = ExtResource( 3 )
+key_code = -1
+axis = -1
 action = "left"
 pressable = false
 
@@ -282,8 +315,10 @@ margin_right = 537.0
 margin_bottom = 46.0
 text = "Moverse a la derecha"
 
-[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer3/ToolButton"]
+[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer3/ToolButton" groups=["action_right"]]
 script = ExtResource( 3 )
+key_code = -1
+axis = -1
 action = "right"
 pressable = false
 
@@ -303,8 +338,10 @@ margin_right = 537.0
 margin_bottom = 46.0
 text = "Saltar"
 
-[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer4/ToolButton"]
+[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer4/ToolButton" groups=["action_jump"]]
 script = ExtResource( 3 )
+key_code = -1
+axis = -1
 action = "jump"
 pressable = false
 
@@ -324,8 +361,10 @@ margin_right = 537.0
 margin_bottom = 46.0
 text = "Acción"
 
-[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer5/ToolButton"]
+[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer5/ToolButton" groups=["action_action"]]
 script = ExtResource( 3 )
+key_code = -1
+axis = -1
 action = "action"
 pressable = false
 
@@ -345,10 +384,35 @@ margin_right = 537.0
 margin_bottom = 46.0
 text = "Saltar subtítulos"
 
-[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer6/ToolButton"]
+[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer6/ToolButton" groups=["action_subtitle"]]
 script = ExtResource( 3 )
+key_code = -1
+axis = -1
 action = "subtitle"
 pressable = false
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer"]
+margin_top = 359.0
+margin_right = 552.0
+margin_bottom = 499.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LabelTouch" type="Label" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 153.0
+margin_top = 58.0
+margin_right = 399.0
+margin_bottom = 81.0
+text = "Toca un control para asignar..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+autoplay = "flash"
+anims/RESET = SubResource( 3 )
+anims/flash = SubResource( 4 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer"]
 margin_left = 556.0
@@ -381,8 +445,10 @@ margin_bottom = 46.0
 focus_neighbour_top = NodePath("../../../../../../../../HBoxContainer/Control2/ControlBtn")
 text = "Mover cámara a la izquierda"
 
-[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer7/ToolButton"]
+[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer7/ToolButton" groups=["action_camera_left"]]
 script = ExtResource( 3 )
+key_code = -1
+axis = -1
 action = "camera_left"
 pressable = false
 
@@ -402,8 +468,10 @@ margin_right = 538.0
 margin_bottom = 46.0
 text = "Mover cámara a la derecha"
 
-[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer8/ToolButton"]
+[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer8/ToolButton" groups=["action_camera_right"]]
 script = ExtResource( 3 )
+key_code = -1
+axis = -1
 action = "camera_right"
 pressable = false
 
@@ -423,8 +491,10 @@ margin_right = 538.0
 margin_bottom = 46.0
 text = "Mover cámara hacia arriba"
 
-[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer9/ToolButton"]
+[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer9/ToolButton" groups=["action_camera_up"]]
 script = ExtResource( 3 )
+key_code = -1
+axis = -1
 action = "camera_up"
 pressable = false
 
@@ -444,8 +514,10 @@ margin_right = 538.0
 margin_bottom = 46.0
 text = "Mover cámara hacia abajo"
 
-[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer10/ToolButton"]
+[node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer10/ToolButton" groups=["action_camera_down"]]
 script = ExtResource( 3 )
+key_code = -1
+axis = -1
 action = "camera_down"
 pressable = false
 
@@ -736,5 +808,15 @@ text = "Guardar"
 [connection signal="focus_entered" from="VBoxContainer/Control/HBoxContainer/Control2/ControlBtn" to="." method="_on_button_focus" binds= [ "ControlContainer" ]]
 [connection signal="focus_entered" from="VBoxContainer/Control/HBoxContainer/Control2/AudioBtn" to="." method="_on_button_focus" binds= [ "AudioContainer" ]]
 [connection signal="focus_entered" from="VBoxContainer/Control/HBoxContainer/Control2/AccBtn" to="." method="_on_button_focus" binds= [ "AccContainer" ]]
+[connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer/WindowModeCheckBtn" to="." method="_on_WindowModeCheckBtn_toggled"]
+[connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer2/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "left" ]]
+[connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer3/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "right" ]]
+[connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer4/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "jump" ]]
+[connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer5/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "action" ]]
+[connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer6/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "subtitle" ]]
+[connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer7/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "camera_left" ]]
+[connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer8/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "camera_right" ]]
+[connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer9/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "camera_up" ]]
+[connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer10/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "camera_down" ]]
 [connection signal="value_changed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer4/HBoxContainer/HSlider" to="." method="_on_ui_scale_value_changed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/Control/CancelBtn" to="." method="_on_CancelBtn_pressed"]
