@@ -7,6 +7,9 @@ func on_player_collected_stone():
 	$tutoriales/CollectStoneTrigger.enabled = true
 	$doors/Door11.deactivate()
 	$doors/Door12.deactivate()
+	
+	var card = preload("res://scenes/UI/Card.tscn").instance()
+	$InGameUI.add_child(card)
 
 func _on_CollectStoneTrigger_on_player_entered():
 	$tutoriales/CollectStoneTrigger.enabled = false

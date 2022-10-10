@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -37,7 +37,6 @@
 [ext_resource path="res://resources/images/tilable/wood.png" type="Texture" id=35]
 [ext_resource path="res://resources/images/tilable/tree_stack_trunk.png" type="Texture" id=36]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_3.png" type="Texture" id=37]
-[ext_resource path="res://resources/audio/background/forest.ogg" type="AudioStream" id=38]
 [ext_resource path="res://scenes/Game/Tutorial/LightsGuide.tscn" type="PackedScene" id=39]
 [ext_resource path="res://scenes/UI/ActionTutorial.tscn" type="PackedScene" id=40]
 
@@ -1243,7 +1242,7 @@ show_on_start = false
 dialog = ExtResource( 3 )
 
 [node name="MoonStoneItem" parent="tutoriales" instance=ExtResource( 21 )]
-position = Vector2( 16620, 40 )
+position = Vector2( 16620, 120 )
 z_index = 1
 
 [node name="CollectStoneTrigger" parent="tutoriales" instance=ExtResource( 17 )]
@@ -1292,7 +1291,7 @@ position = Vector2( 16020, 340 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 unique_name_in_owner = true
-position = Vector2( 440, -40 )
+position = Vector2( 16380, 160 )
 moving_platform_apply_velocity_on_leave = 2
 
 [node name="doors" type="Node2D" parent="."]
@@ -1503,42 +1502,6 @@ texture = ExtResource( 15 )
 flip_h = true
 
 [node name="audio" type="Node2D" parent="."]
-
-[node name="ForestSound" type="AudioStreamPlayer2D" parent="audio"]
-position = Vector2( 260, 120 )
-stream = ExtResource( 38 )
-
-[node name="ForestSound2" type="AudioStreamPlayer2D" parent="audio"]
-position = Vector2( 880, 120 )
-stream = ExtResource( 38 )
-
-[node name="ForestSound3" type="AudioStreamPlayer2D" parent="audio"]
-position = Vector2( 1540, 0 )
-stream = ExtResource( 38 )
-
-[node name="ForestSound4" type="AudioStreamPlayer2D" parent="audio"]
-position = Vector2( 2220, 80 )
-stream = ExtResource( 38 )
-
-[node name="ForestSound5" type="AudioStreamPlayer2D" parent="audio"]
-position = Vector2( 2740, 140 )
-stream = ExtResource( 38 )
-
-[node name="ForestSound6" type="AudioStreamPlayer2D" parent="audio"]
-position = Vector2( 3280, 240 )
-stream = ExtResource( 38 )
-
-[node name="ForestSound7" type="AudioStreamPlayer2D" parent="audio"]
-position = Vector2( 4120, 240 )
-stream = ExtResource( 38 )
-
-[node name="ForestSound8" type="AudioStreamPlayer2D" parent="audio"]
-position = Vector2( 4840, 160 )
-stream = ExtResource( 38 )
-
-[node name="ForestSound9" type="AudioStreamPlayer2D" parent="audio"]
-position = Vector2( 5360, 100 )
-stream = ExtResource( 38 )
 
 [node name="ActionTutorials" type="Control" parent="."]
 

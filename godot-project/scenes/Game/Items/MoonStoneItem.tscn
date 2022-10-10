@@ -40,6 +40,7 @@ tracks/0/keys = {
 script = ExtResource( 4 )
 
 [node name="Trigger" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 0.7, 0.7 )
 
 [node name="visuals" type="Node2D" parent="."]
 
