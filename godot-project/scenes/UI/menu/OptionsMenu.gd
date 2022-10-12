@@ -10,8 +10,8 @@ func _ready():
 	$"%WindowModeCheckBtn".pressed = OS.window_fullscreen
 	# CONTROLS
 	# AUDIO
-	$"%MusicVolSlider".value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
-	$"%SoundFXVolSlider".value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SoundFX"))
+	$"%MusicVolSlider".value = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	$"%SoundFXVolSlider".value = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SoundFX")))
 	# ACCESSIBILITY
 	$"%AccShowTutorialChk".pressed = GameConfig.config.acc_show_controls
 	$"%AccShowObjectivesChk".pressed = GameConfig.config.acc_show_objectives
@@ -72,11 +72,11 @@ func _on_WindowModeCheckBtn_toggled(button_pressed):
 
 func _on_MusicVolSlider_value_changed(value):
 	GameConfig.config.audio_volume_music = value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(value))
 
 func _on_SoundFXVolSlider_value_changed(value):
 	GameConfig.config.audio_volume_sound_effects = value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SoundFX"), value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SoundFX"), linear2db(value))
 	$"%SoundFXPlayer".play()
 
 func _on_ui_scale_value_changed(value):

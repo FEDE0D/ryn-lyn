@@ -92,6 +92,7 @@ margin_bottom = -160.0
 material = SubResource( 6 )
 scale = Vector2( 0.438889, 0.438889 )
 frames = SubResource( 7 )
+frame = 2
 playing = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -216,7 +217,7 @@ position = Vector2( 380, 60 )
 script = ExtResource( 3 )
 key_code = -1
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
 volume_db = -10.0
 autoplay = true

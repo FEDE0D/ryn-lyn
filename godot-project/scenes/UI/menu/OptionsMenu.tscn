@@ -566,9 +566,9 @@ margin_right = 1069.0
 margin_bottom = 16.0
 focus_neighbour_top = NodePath("../../../../../../../../HBoxContainer/Control2/AudioBtn")
 size_flags_horizontal = 3
-min_value = -100.0
-max_value = 0.0
-step = 10.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 tick_count = 10
 ticks_on_borders = true
 
@@ -600,9 +600,9 @@ margin_left = 359.0
 margin_right = 1069.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
-min_value = -100.0
-max_value = 0.0
-step = 10.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 tick_count = 10
 ticks_on_borders = true
 

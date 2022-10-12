@@ -20,8 +20,9 @@ func load_config():
 		for event in config.control_mapping[action]:
 			InputMap.action_add_event(action, event)
 	# LOAD AUDIO
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), config.audio_volume_music)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SoundFX"), config.audio_volume_sound_effects)
+	print(linear2db(config.audio_volume_music))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(config.audio_volume_music))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SoundFX"), linear2db(config.audio_volume_sound_effects))
 	# LOAD ACCESSIBILITY
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED, SceneTree.STRETCH_ASPECT_EXPAND, get_viewport_rect().size, config.acc_screen_scale)
 
@@ -32,7 +33,8 @@ func save_config():
 	for action in InputMap.get_actions():
 		config.control_mapping[action] = InputMap.get_action_list(action)
 	# SAVE AUDIO
-	config.audio_volume_music = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
+	config.audio_volume_music = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	config.audio_volume_sound_effects = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SoundFX")))
 	# SAVE ACCESSIBILITY
 	var result = ResourceSaver.save("user://config.tres", config)
 	print("Saving %s" % result)
