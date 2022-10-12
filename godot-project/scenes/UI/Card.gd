@@ -12,6 +12,6 @@ func _process(delta):
 		$ButtonCtrl.show()
 
 func _input(event):
-	if $ButtonCtrl.visible and event.is_action_pressed("ui_accept"):
-		get_tree().paused = false
-		queue_free()
+	if $ButtonCtrl.visible and event.is_action_pressed("action"):
+			get_tree().paused = false
+			queue_free()

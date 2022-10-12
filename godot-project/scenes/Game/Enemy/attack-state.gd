@@ -16,5 +16,6 @@ func _physics_process_state(delta):
 
 func on_attack_animation():
 	if !attacked and $"%AttackDetector".get_overlapping_bodies().has($"../..".player):
+		$"%WakePlayer".play()
 		attacked = true
 		$"../..".player.receive_attack()

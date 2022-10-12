@@ -1,11 +1,52 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scenes/UI/menu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/mythology_of_egypt/Mythology Of Egypt.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://addons/input_button/ActionDisplay.gd" type="Script" id=3]
 [ext_resource path="res://resources/ui/backgrounds/game_background_3.1.png" type="Texture" id=4]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_016.png" type="Texture" id=5]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_006.png" type="Texture" id=6]
 [ext_resource path="res://resources/themes/default.tres" type="Theme" id=7]
 [ext_resource path="res://resources/fonts/made_tommy/MADE TOMMY Regular_PERSONAL USE.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_005.png" type="Texture" id=9]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_004.png" type="Texture" id=10]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_003.png" type="Texture" id=11]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_002.png" type="Texture" id=12]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_001.png" type="Texture" id=13]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_017.png" type="Texture" id=14]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_007.png" type="Texture" id=15]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_011.png" type="Texture" id=16]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_010.png" type="Texture" id=17]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_014.png" type="Texture" id=18]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_009.png" type="Texture" id=19]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_013.png" type="Texture" id=20]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_012.png" type="Texture" id=21]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_008.png" type="Texture" id=22]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_015.png" type="Texture" id=23]
+[ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_000.png" type="Texture" id=24]
+[ext_resource path="res://resources/audio/background/little-adventure-95822.mp3" type="AudioStream" id=25]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform vec4 color: hint_color = vec4(1, 1, 1, 1);
+
+void fragment() {
+	vec4 pixColor = texture(TEXTURE, UV);
+	COLOR = color * vec4(1, 1, 1, pixColor.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/color = Color( 0.02895, 0.0234, 0.09, 1 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 24 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 23 ), ExtResource( 5 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 18.0
+} ]
 
 [sub_resource type="DynamicFont" id=1]
 size = 128
@@ -38,6 +79,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 4 )
 expand = true
+
+[node name="Control" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 300.0
+margin_top = -200.0
+margin_right = 340.0
+margin_bottom = -160.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
+material = SubResource( 6 )
+scale = Vector2( 0.438889, 0.438889 )
+frames = SubResource( 7 )
+playing = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -160,6 +215,12 @@ text = "Aceptar"
 position = Vector2( 380, 60 )
 script = ExtResource( 3 )
 key_code = -1
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 25 )
+volume_db = -10.0
+autoplay = true
+bus = "Music"
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Control3/PlayBtn" to="." method="_on_PlayBtn_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Control3/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]

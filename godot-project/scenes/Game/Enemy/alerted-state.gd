@@ -9,6 +9,7 @@ var attack_time = attack_timeout
 func _on_state_enter(param = null):
 	if !close_to_player():
 		$"%AnimatedSprite".play("walk")
+		$"%WakePlayer".play()
 	time = timeout
 	attack_time = attack_timeout
 

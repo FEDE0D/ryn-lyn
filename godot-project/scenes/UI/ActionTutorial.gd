@@ -8,3 +8,6 @@ func _ready():
 	$Control/Control/ActionDisplay.action = action
 	$TopLabel.text = top_text
 	$BottomLabel.text = bottom_text
+	
+	if not action:
+		$Control/Control/ActionDisplay.hide()

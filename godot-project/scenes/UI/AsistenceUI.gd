@@ -11,6 +11,9 @@ func _on_enter_section(title, objective_text):
 	for i in items:
 		i.set_done()
 	
+	if not objective_text:
+		return
+	
 	var item = item_pkg_scn.instance()
 	item.text = objective_text
 	items.append(item)

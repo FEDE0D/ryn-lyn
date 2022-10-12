@@ -22,6 +22,7 @@ func _on_Area2D_body_exited(body):
 
 func _process(delta):
 	if Input.is_action_pressed("action"):
+		get_tree().set_input_as_handled()
 		if not collisions.empty():
 			$visuals/ProgressBar.show()
 			time -= delta
@@ -32,6 +33,7 @@ func _process(delta):
 	
 	if time <= 0:
 		Input.action_release("action")
+		$AudioStreamPlayer.play()
 		if active:
 			turn_off()
 		else:

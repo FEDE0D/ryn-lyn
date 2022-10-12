@@ -13,12 +13,15 @@ func activate():
 	active = true
 	collision_layer = 8
 	$visuals/Light2D.show()
+	if not $StonePlayer.playing:
+		$StonePlayer.play(0.5)
 
 func deactivate():
 #	monitorable = false
 	active = false
 	collision_layer = 0
 	$visuals/Light2D.hide()
+	$StonePlayer.stop()
 
 func invert():
 	if !active:
