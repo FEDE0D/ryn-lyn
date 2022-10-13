@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://resources/images/tilable/gravel_2.png" type="Texture" id=30]
 [ext_resource path="res://resources/images/tilable/bush_patch_2.png" type="Texture" id=31]
 [ext_resource path="res://resources/images/tilable/heights_platform_rock_2.png" type="Texture" id=32]
+[ext_resource path="res://resources/images/decorations/exit_sign.png" type="Texture" id=33]
 [ext_resource path="res://scenes/UI/AsistenceUI.tscn" type="PackedScene" id=34]
 [ext_resource path="res://resources/images/tilable/wood.png" type="Texture" id=35]
 [ext_resource path="res://resources/images/tilable/tree_stack_trunk.png" type="Texture" id=36]
@@ -1253,6 +1254,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Sprite" type="Sprite" parent="visuals"]
+position = Vector2( 13893.6, 1365.56 )
+rotation = -1.16455
+scale = Vector2( 0.192513, 0.192513 )
+z_index = 1
+texture = ExtResource( 33 )
+
 [node name="tutoriales" type="Node2D" parent="."]
 
 [node name="Tutorial2" parent="tutoriales" instance=ExtResource( 7 )]
@@ -1283,7 +1291,7 @@ position = Vector2( 8520, 1420 )
 dialog = ExtResource( 3 )
 
 [node name="Tutorial6" parent="tutoriales" instance=ExtResource( 7 )]
-position = Vector2( 16420, 220 )
+position = Vector2( 16620, 160 )
 show_on_start = false
 dialog = ExtResource( 3 )
 
@@ -1292,7 +1300,7 @@ position = Vector2( 16620, 0 )
 z_index = 1
 
 [node name="CollectStoneTrigger" parent="tutoriales" instance=ExtResource( 17 )]
-position = Vector2( 16280, 140 )
+position = Vector2( 16440, 140 )
 scale = Vector2( 1, 2 )
 enabled = false
 doors = [ NodePath("../Tutorial6") ]
@@ -1339,7 +1347,7 @@ position = Vector2( 16020, 340 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 unique_name_in_owner = true
-position = Vector2( 16340, 20 )
+position = Vector2( 260, 100 )
 moving_platform_apply_velocity_on_leave = 2
 
 [node name="doors" type="Node2D" parent="."]
@@ -1598,10 +1606,10 @@ bottom_text = "para alcanzar lugares altos"
 
 [node name="ActionTutorialStoneHidden" parent="ActionTutorials/ActionTutorialZoom" instance=ExtResource( 40 )]
 visible = false
-margin_left = 17600.0
-margin_top = 142.857
-margin_right = 17720.0
-margin_bottom = 242.857
+margin_left = 17657.1
+margin_top = 257.143
+margin_right = 17777.1
+margin_bottom = 357.143
 action = "action"
 top_text = "Manten presionado"
 bottom_text = "para usar la piedra"

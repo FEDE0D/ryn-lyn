@@ -27,10 +27,14 @@ func _on_dialog_start(dialog: DialogResource):
 		$"%Subtitles".bbcode_text = "[b]%s[/b]:\n%s" % [actor.name, line]
 		$"%ActorImage".texture = actor.image
 		
+		if GameConfig.config.acc_text_to_speech:
+			TTS.speak("%s dice. %s" % [actor.name, line], true)
+		
 		$"%Tween".interpolate_property($"%Subtitles", "percent_visible", 0.0, 1.0, duration)
 		$"%Tween".start()
 		yield(self, "subtitle_action")
 	$"%Subtitles".clear()
 	$"%SubtitlesContainer".hide()
+	TTS.stop()
 	current_line_index = 0
 	GameState.pop_state()

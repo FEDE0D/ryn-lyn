@@ -32,7 +32,8 @@ func _on_SaveBtn_pressed():
 
 func _on_button_focus(container_name):
 	for c in $"%ParentContainer".get_children():
-		c.hide()
+		if c.has_method("hide"):
+			c.hide()
 	$"%ParentContainer".get_node(container_name).show()
 
 func _on_assign_button_pressed(action):

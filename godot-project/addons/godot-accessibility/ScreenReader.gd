@@ -38,7 +38,8 @@ func click_focused(node):
 	pass
 
 func unfocused(node):
-	focus_restore_timer = get_tree().create_timer(0.2)
+	if is_inside_tree():
+		focus_restore_timer = get_tree().create_timer(0.2)
 
 func augment_node(node):
 	if not enabled or Engine.editor_hint:
@@ -207,6 +208,5 @@ func _process(delta):
 	if focus_restore_timer and focus_restore_timer.time_left <= 0:
 		var focus = find_focusable_control(get_tree().root)
 		if focus and not focus.get_focus_owner():
-			print("Restoring focus.")
 			focus.grab_focus()
 			focus.grab_click_focus()

@@ -141,7 +141,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 3 )
 script = ExtResource( 6 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." groups=["no-tts"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.133333, 0.113725, 0.258824, 0 )
@@ -240,6 +240,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="CenterContainer/Control2/CardControl/PanelContainer/VBoxContainer/Control2"]
+unique_name_in_owner = true
 margin_right = 420.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
@@ -259,6 +260,7 @@ custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/Control2/CardControl/PanelContainer/VBoxContainer/Control2/MarginContainer"]
+unique_name_in_owner = true
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 400.0
@@ -266,11 +268,6 @@ margin_bottom = 277.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 5 )
-bbcode_enabled = true
-bbcode_text = "La Piedra-Luna es un artefacto mágico que utilizaban los Runalún para almacenar y trabajar el poder de la luz de la luna.
-Esta es una de las pocas piedras de luna que quedan en esta parte de las Montañas Negras.
-
-Usa la luz de la Piedra-Luna para despertar a los hombres piedra de su sueño y hacerlos mover."
 text = "La Piedra-Luna es un artefacto mágico que utilizaban los Runalún para almacenar y trabajar el poder de la luz de la luna.
 Esta es una de las pocas piedras de luna que quedan en esta parte de las Montañas Negras.
 

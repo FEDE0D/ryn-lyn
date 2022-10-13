@@ -9,10 +9,13 @@ func _ready():
 	queue.start()
 
 func change_scene(scn: String):
-	resource = scn
-	queue.queue_resource(scn, true)
-	get_tree().paused = true
-	$SceneLoader/AnimationPlayer.play("close")
+	if OS.get_name() == "HTML5":
+		get_tree().change_scene(scn)
+	else:
+		resource = scn
+		queue.queue_resource(scn, true)
+		get_tree().paused = true
+		$SceneLoader/AnimationPlayer.play("close")
 
 func start_loading():
 	get_tree().current_scene.queue_free()
@@ -24,3 +27,5 @@ func check_loaded():
 		get_tree().change_scene_to(scene)
 		get_tree().paused = false
 		$SceneLoader/AnimationPlayer.play("open")
+	else:
+		print(queue.get_progress(resource))

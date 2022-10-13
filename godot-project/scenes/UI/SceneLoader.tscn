@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/UI/SceneLoader.gd" type="Script" id=1]
 [ext_resource path="res://resources/images/player/Hurt/0_Fallen_Angels_Hurt_000.png" type="Texture" id=2]
+[ext_resource path="res://addons/godot-accessibility/ScreenReader.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -204,7 +205,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="SceneLoader"]
+[node name="ColorRect" type="ColorRect" parent="SceneLoader" groups=["no-tts"]]
 anchor_right = 1.0
 color = Color( 0.0666667, 0.0941176, 0.121569, 1 )
 
@@ -230,3 +231,6 @@ material = SubResource( 6 )
 position = Vector2( -40, -40 )
 scale = Vector2( 0.266667, 0.266667 )
 texture = ExtResource( 2 )
+
+[node name="ScreenReader" type="Node" parent="."]
+script = ExtResource( 3 )

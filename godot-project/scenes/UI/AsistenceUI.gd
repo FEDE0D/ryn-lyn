@@ -17,7 +17,7 @@ func _on_enter_section(title, objective_text):
 	var item = item_pkg_scn.instance()
 	item.text = objective_text
 	items.append(item)
-	$MarginContainer/PanelContainer/VBoxContainer.add_child(item)
+	$"%VBoxContainer".add_child(item)
 	
 	show_objectives()
 	yield(get_tree().create_timer(5.0), "timeout")

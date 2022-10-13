@@ -4,7 +4,7 @@
 [ext_resource path="res://resources/fonts/ui-xs.tres" type="DynamicFont" id=2]
 [ext_resource path="res://resources/themes/default.tres" type="Theme" id=3]
 
-[node name="AsistenceUI" type="Control"]
+[node name="AsistenceUI" type="Control" groups=["no-tts"]]
 pause_mode = 2
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
@@ -33,6 +33,7 @@ margin_bottom = 66.0
 size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+unique_name_in_owner = true
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 433.0

@@ -33,6 +33,3 @@ func _on_ConfirmationDialog_confirmed():
 func _on_ConfirmationDialog_hide():
 	$HBoxContainer/PanelContainer/Panel/VBoxContainer/SalirButton.grab_focus()
 
-func _on_Restart_pressed():
-	GameState.hide_pause()
-	get_tree().reload_current_scene()

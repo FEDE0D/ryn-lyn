@@ -6,7 +6,7 @@
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=4]
 [ext_resource path="res://scenes/UI/background/Background.gd" type="Script" id=5]
 
-[node name="Background" type="ParallaxBackground"]
+[node name="Background" type="ParallaxBackground" groups=["no-tts"]]
 script = ExtResource( 5 )
 disabled_color = Color( 0.145098, 0.196078, 0.254902, 1 )
 

@@ -25,7 +25,6 @@ func load_config():
 	# LOAD ACCESSIBILITY
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED, SceneTree.STRETCH_ASPECT_EXPAND, get_viewport_rect().size, config.acc_screen_scale)
 	AudioServer.set_bus_effect_enabled(0, 0, GameConfig.config.acc_audio_mono)
-	print("mono: ", AudioServer.is_bus_effect_enabled(0, 0))
 
 func save_config():
 	# SAVE GRAPHICS

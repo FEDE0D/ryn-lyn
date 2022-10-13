@@ -13,7 +13,6 @@ func get_siblings():
 	return null
 
 func click(item := node, button_index = BUTTON_LEFT):
-	print("Click")
 	var click = InputEventMouseButton.new()
 	click.button_index = button_index
 	click.pressed = true
@@ -88,11 +87,7 @@ func button_focused():
 
 func texturebutton_focused():
 	var texture = node.texture_normal
-	print_debug(texture.resource_name)
-	print_debug(texture.resource_path)
 	var rid = texture.get_rid()
-	print_debug(rid)
-	print_debug(rid.get_id())
 	TTS.speak("button", false)
 
 func item_list_item_focused(idx):
@@ -109,7 +104,6 @@ func item_list_item_focused(idx):
 func item_list_focused():
 	var count = node.get_item_count()
 	var selected = node.get_selected_items()
-	print_debug(selected)
 	if len(selected) == 0:
 		if node.get_item_count() == 0:
 			return TTS.speak("list, 0 items", false)
@@ -224,7 +218,6 @@ func popup_menu_focused():
 	TTS.speak("menu", false)
 
 func popup_menu_item_id_focused(index):
-	print_debug("item id focus %s" % index)
 	var tokens = PoolStringArray([])
 	var shortcut = node.get_item_shortcut(index)
 	var name
@@ -462,7 +455,6 @@ func tab_container_input(event):
 		node.current_tab = new_tab
 
 func focused():
-	print_debug("Focus: %s" % node)
 	TTS.stop()
 	if not node is Label:
 		var label = guess_label()
@@ -503,9 +495,12 @@ func focused():
 		texturebutton_focused()
 	elif node is Tree:
 		tree_focused()
+	elif node is TextureRect:
+		pass
+	elif node is ColorRect:
+		pass
 	else:
 		TTS.speak(node.get_class(), true)
-		print_debug("No handler")
 	if node.hint_tooltip and not spoke_hint_tooltip:
 		TTS.speak(node.hint_tooltip, false)
 	spoke_hint_tooltip = false
@@ -513,7 +508,6 @@ func focused():
 var timer
 
 func unfocused():
-	print_debug("Unfocused")
 	position_in_children = 0
 	timer = node.get_tree().create_timer(1)
 
@@ -603,7 +597,7 @@ func editor_inspector_section_input(event):
 			TTS.speak("collapsed", true)
 
 func _init(node):
-	if node.is_in_group("accessible"):
+	if node.is_in_group("accessible") or node.is_in_group("no-tts") or (node.get_parent() and node.get_parent().is_in_group("no-tts")):
 		return
 	node.add_to_group("accessible")
 	add_to_group("accessibles")

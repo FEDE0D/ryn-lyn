@@ -123,6 +123,7 @@ text = "Gráficos"
 margin_left = 160.0
 margin_right = 316.0
 margin_bottom = 33.0
+focus_neighbour_bottom = NodePath("../../../MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer2/ToolButton")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "SettingsMenuButton"
@@ -350,6 +351,7 @@ focus_neighbour_top = NodePath("../../../../../../../../HBoxContainer/Control2/C
 text = "Moverse a la izquierda"
 
 [node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer2/ToolButton" groups=["action_left"]]
+position = Vector2( -3, 0 )
 script = ExtResource( 3 )
 key_code = -1
 axis = -1
@@ -747,6 +749,7 @@ margin_bottom = 55.0
 text = "Text-To-Speech"
 
 [node name="AccContainer" type="ScrollContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 follow_focus = true
