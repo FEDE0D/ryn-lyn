@@ -7,7 +7,7 @@ func _ready():
 	# UI 1.5 -> zoom 0.7
 	# UI 2.0 -> zoom 0.94
 	self.zoom = ((0.48 * GameConfig.config.acc_screen_scale) - 0.02) * Vector2.ONE
-	print(GameConfig.config.acc_screen_scale, zoom)
+#	get_tree().call_group("action-tutorials", "set_scale", self.zoom)
 
 func _process(delta):
 	if shake_time > 0:

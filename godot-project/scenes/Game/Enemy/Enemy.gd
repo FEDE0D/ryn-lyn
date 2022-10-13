@@ -15,7 +15,7 @@ func on_player_stomp():
 	$"%StateMachine".state.on_player_stomp()
 	$StompPlayer.pitch_scale = rand_range(0.6, 0.65)
 	$StompPlayer.play()
-
+	
 func process_motion():
 	move_force += direction * motion_force
 	if $RayCastWallRight.is_colliding():

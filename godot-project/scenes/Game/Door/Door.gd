@@ -15,6 +15,8 @@ func activate(ignore_state: bool = false):
 	$AnimationPlayer.play_backwards("open")
 	$AudioStreamPlayer.play()
 	get_tree().call_group("camera", "shake", 1.2)
+	if GameConfig.config.acc_closed_caption:
+		get_tree().call_group("caption", "descriptive", "RETUMBAR DE PIEDRAS")
 
 func deactivate(ignore_state: bool = false, silent: bool = false):
 	if not active and not ignore_state:
@@ -25,6 +27,8 @@ func deactivate(ignore_state: bool = false, silent: bool = false):
 	if not silent:
 		$AudioStreamPlayer.play()
 		get_tree().call_group("camera", "shake", 1.2)
+		if GameConfig.config.acc_closed_caption:
+			get_tree().call_group("caption", "descriptive", "RETUMBAR DE PIEDRAS")
 
 func invert():
 	if active:

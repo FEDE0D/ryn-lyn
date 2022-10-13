@@ -10,6 +10,7 @@ onready var time: float = timer
 func _ready():
 	if active:
 		$visuals/AnimatedSprite.play("on")
+		$FireSound.play()
 
 func _on_Area2D_body_entered(body):
 	if not collisions.has(body):
@@ -42,11 +43,16 @@ func _process(delta):
 func turn_on():
 	active = true
 	$visuals/AnimatedSprite.play("on")
+	$FireSound.play()
 	for door in doors:
 		get_node(door).invert()
 
 func turn_off():
 	active = false
 	$visuals/AnimatedSprite.play("off")
+	$FireSound.stop()
 	for door in doors:
 		get_node(door).invert()
+
+func _on_SoundArea_body_entered(body):
+	get_tree().call_group("caption", "descriptive", "SONIDO DE FUEGO")

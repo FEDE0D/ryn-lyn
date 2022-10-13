@@ -14,6 +14,8 @@ func _ready():
 func activate():
 	if !active:
 		active = true
+		if GameConfig.config.acc_closed_caption:
+			get_tree().call_group("caption", "descriptive", "ROCAS TEMBLANDO")
 		$AnimationPlayer.play("show")
 		yield($AnimationPlayer, "animation_finished")
 		show_dialog()
@@ -40,3 +42,9 @@ func _on_Area2D_body_exited(body):
 		return
 	$ActionDisplay.hide()
 	set_process_input(false)
+
+func _on_SoundArea_body_entered(body):
+	if active:
+		$PsstSound.play()
+		get_tree().call_group("caption", "descriptive", "*CHISTADO*")
+		$BlinkAnimation.play("blink")

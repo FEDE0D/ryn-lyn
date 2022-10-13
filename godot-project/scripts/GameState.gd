@@ -14,7 +14,7 @@ func start_game():
 	_state = [STATE.GAME]
 
 func main_menu():
-	get_tree().change_scene("res://scenes/UI/menu/MainMenu.tscn")
+	SceneLoader.change_scene("res://scenes/UI/menu/MainMenu.tscn")
 
 func show_pause():
 	if !is_in_state(GameState.STATE.PAUSED):

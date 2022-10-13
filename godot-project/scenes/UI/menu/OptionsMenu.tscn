@@ -145,7 +145,7 @@ focus_neighbour_right = NodePath(".")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "SettingsMenuButton"
-text = "Accesibilidad"
+text = "Juego"
 
 [node name="Control3" type="Control" parent="VBoxContainer/Control/HBoxContainer"]
 margin_left = 962.0
@@ -259,6 +259,58 @@ size_flags_vertical = 5
 text = "1920x1080"
 items = [ "1920x1080", null, false, 0, null, "1280x720", null, false, 1, null ]
 selected = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer"]
+margin_top = 74.0
+margin_right = 1109.0
+margin_bottom = 144.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="AccHideBackgroundChk" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer3"]
+unique_name_in_owner = true
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 1094.0
+margin_bottom = 55.0
+text = "Ocultar fondo"
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer"]
+margin_top = 148.0
+margin_right = 1109.0
+margin_bottom = 201.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer4"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 1094.0
+margin_bottom = 38.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer4/HBoxContainer"]
+margin_right = 358.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.5
+text = "Escala de pantalla"
+
+[node name="AccWindowScaleSlider" type="HSlider" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer4/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 362.0
+margin_right = 1079.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+min_value = 1.0
+max_value = 2.0
+step = 0.1
+value = 1.5
 
 [node name="ControlContainer" type="HBoxContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer"]
 visible = false
@@ -643,6 +695,57 @@ margin_bottom = 16.0
 size_flags_horizontal = 3
 value = 100.0
 
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer"]
+margin_top = 158.0
+margin_right = 1109.0
+margin_bottom = 228.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="AccMonoAudioChk" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer/MarginContainer5"]
+unique_name_in_owner = true
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 1094.0
+margin_bottom = 55.0
+text = "Audio mono"
+
+[node name="MarginContainer6" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer"]
+margin_top = 148.0
+margin_right = 1109.0
+margin_bottom = 218.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="AccClosedCaptionChk" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer/MarginContainer6"]
+unique_name_in_owner = true
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 1094.0
+margin_bottom = 55.0
+text = "Closed caption"
+
+[node name="MarginContainer7" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer"]
+margin_top = 148.0
+margin_right = 1109.0
+margin_bottom = 218.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="AccTTSChk" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer/MarginContainer7"]
+unique_name_in_owner = true
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 1094.0
+margin_bottom = 55.0
+text = "Text-To-Speech"
+
 [node name="AccContainer" type="ScrollContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -687,109 +790,6 @@ margin_top = 15.0
 margin_right = 1094.0
 margin_bottom = 55.0
 text = "Mostrar objetivos"
-
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer"]
-margin_top = 148.0
-margin_right = 1109.0
-margin_bottom = 218.0
-custom_constants/margin_right = 15
-custom_constants/margin_top = 15
-custom_constants/margin_left = 15
-custom_constants/margin_bottom = 15
-
-[node name="AccHideBackgroundChk" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer3"]
-unique_name_in_owner = true
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 1094.0
-margin_bottom = 55.0
-text = "Ocultar fondo"
-
-[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer"]
-margin_top = 222.0
-margin_right = 1109.0
-margin_bottom = 275.0
-custom_constants/margin_right = 15
-custom_constants/margin_top = 15
-custom_constants/margin_left = 15
-custom_constants/margin_bottom = 15
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer4"]
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 1094.0
-margin_bottom = 38.0
-
-[node name="Label" type="Label" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer4/HBoxContainer"]
-margin_right = 358.0
-margin_bottom = 23.0
-size_flags_horizontal = 3
-size_flags_vertical = 5
-size_flags_stretch_ratio = 0.5
-text = "Escala de pantalla"
-
-[node name="AccWindowScaleSlider" type="HSlider" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer4/HBoxContainer"]
-unique_name_in_owner = true
-margin_left = 362.0
-margin_right = 1079.0
-margin_bottom = 23.0
-size_flags_horizontal = 3
-size_flags_vertical = 5
-min_value = 1.0
-max_value = 2.0
-step = 0.1
-value = 1.5
-
-[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer"]
-margin_top = 279.0
-margin_right = 1109.0
-margin_bottom = 349.0
-custom_constants/margin_right = 15
-custom_constants/margin_top = 15
-custom_constants/margin_left = 15
-custom_constants/margin_bottom = 15
-
-[node name="AccMonoAudioChk" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer5"]
-unique_name_in_owner = true
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 1094.0
-margin_bottom = 55.0
-text = "Audio mono"
-
-[node name="MarginContainer6" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer"]
-margin_top = 353.0
-margin_right = 1109.0
-margin_bottom = 423.0
-custom_constants/margin_right = 15
-custom_constants/margin_top = 15
-custom_constants/margin_left = 15
-custom_constants/margin_bottom = 15
-
-[node name="AccClosedCaptionChk" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer6"]
-unique_name_in_owner = true
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 1094.0
-margin_bottom = 55.0
-text = "Closed caption"
-
-[node name="MarginContainer7" type="MarginContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer"]
-margin_top = 427.0
-margin_right = 1109.0
-margin_bottom = 497.0
-custom_constants/margin_right = 15
-custom_constants/margin_top = 15
-custom_constants/margin_left = 15
-custom_constants/margin_bottom = 15
-
-[node name="AccTTSChk" type="CheckButton" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer7"]
-unique_name_in_owner = true
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 1094.0
-margin_bottom = 55.0
-text = "Text-To-Speech"
 
 [node name="Control3" type="Control" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer"]
 margin_left = 1178.0
@@ -841,6 +841,8 @@ bus = "Music"
 [connection signal="focus_entered" from="VBoxContainer/Control/HBoxContainer/Control2/AudioBtn" to="." method="_on_button_focus" binds= [ "AudioContainer" ]]
 [connection signal="focus_entered" from="VBoxContainer/Control/HBoxContainer/Control2/AccBtn" to="." method="_on_button_focus" binds= [ "AccContainer" ]]
 [connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer/WindowModeCheckBtn" to="." method="_on_WindowModeCheckBtn_toggled"]
+[connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer3/AccHideBackgroundChk" to="." method="_on_AccHideBackgroundChk_toggled"]
+[connection signal="value_changed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/GraphicContainer/MarginContainer4/HBoxContainer/AccWindowScaleSlider" to="." method="_on_ui_scale_value_changed"]
 [connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer2/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "left" ]]
 [connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer3/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "right" ]]
 [connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer4/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "jump" ]]
@@ -852,12 +854,10 @@ bus = "Music"
 [connection signal="pressed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer10/ToolButton" to="." method="_on_assign_button_pressed" binds= [ "camera_down" ]]
 [connection signal="value_changed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer/MarginContainer3/Control/MusicVolSlider" to="." method="_on_MusicVolSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer/MarginContainer2/HBoxContainer/SoundFXVolSlider" to="." method="_on_SoundFXVolSlider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer/MarginContainer5/AccMonoAudioChk" to="." method="_on_AccMonoAudioChk_toggled"]
+[connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer/MarginContainer6/AccClosedCaptionChk" to="." method="_on_AccClosedCaptionChk_toggled"]
+[connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AudioContainer/MarginContainer7/AccTTSChk" to="." method="_on_AccTTSChk_toggled"]
 [connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer/AccShowTutorialChk" to="." method="_on_AccShowTutorialChk_toggled"]
 [connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer2/AccShowObjectivesChk" to="." method="_on_AccShowObjectivesChk_toggled"]
-[connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer3/AccHideBackgroundChk" to="." method="_on_AccHideBackgroundChk_toggled"]
-[connection signal="value_changed" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer4/HBoxContainer/AccWindowScaleSlider" to="." method="_on_ui_scale_value_changed"]
-[connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer5/AccMonoAudioChk" to="." method="_on_AccMonoAudioChk_toggled"]
-[connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer6/AccClosedCaptionChk" to="." method="_on_AccClosedCaptionChk_toggled"]
-[connection signal="toggled" from="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/AccContainer/AccContainer/MarginContainer7/AccTTSChk" to="." method="_on_AccTTSChk_toggled"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/Control/CancelBtn" to="." method="_on_CancelBtn_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/Control/SaveBtn" to="." method="_on_SaveBtn_pressed"]

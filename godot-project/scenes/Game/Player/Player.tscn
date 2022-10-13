@@ -211,7 +211,7 @@ position = Vector2( 0, -1 )
 scale = Vector2( 0.0711111, 0.0711113 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 15
+frame = 10
 playing = true
 
 [node name="FeetDust" type="CPUParticles2D" parent="visual/direction"]

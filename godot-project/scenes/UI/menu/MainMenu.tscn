@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/UI/menu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/mythology_of_egypt/Mythology Of Egypt.ttf" type="DynamicFontData" id=2]
@@ -25,20 +25,7 @@
 [ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_015.png" type="Texture" id=23]
 [ext_resource path="res://resources/images/player/Idle/0_Fallen_Angels_Idle_000.png" type="Texture" id=24]
 [ext_resource path="res://resources/audio/background/little-adventure-95822.mp3" type="AudioStream" id=25]
-
-[sub_resource type="Shader" id=5]
-code = "shader_type canvas_item;
-
-uniform vec4 color: hint_color = vec4(1, 1, 1, 1);
-
-void fragment() {
-	vec4 pixColor = texture(TEXTURE, UV);
-	COLOR = color * vec4(1, 1, 1, pixColor.a);
-}"
-
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
-shader_param/color = Color( 0.02895, 0.0234, 0.09, 1 )
+[ext_resource path="res://scenes/UI/menu/MainMenuPlayerShader.tres" type="Material" id=26]
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
@@ -89,10 +76,10 @@ margin_right = 340.0
 margin_bottom = -160.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
-material = SubResource( 6 )
+material = ExtResource( 26 )
 scale = Vector2( 0.438889, 0.438889 )
 frames = SubResource( 7 )
-frame = 9
+frame = 2
 playing = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
