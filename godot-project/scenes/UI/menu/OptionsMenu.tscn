@@ -527,6 +527,7 @@ action = "camera_down"
 pressable = false
 
 [node name="AudioContainer" type="VBoxContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -643,7 +644,6 @@ size_flags_horizontal = 3
 value = 100.0
 
 [node name="AccContainer" type="ScrollContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 follow_focus = true

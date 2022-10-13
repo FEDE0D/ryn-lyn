@@ -7,11 +7,11 @@ func _ready():
 	
 	# TODO setup UI config settings
 	# GRAPHICS
-	$"%WindowModeCheckBtn".pressed = OS.window_fullscreen
+	$"%WindowModeCheckBtn".pressed = GameConfig.config.graphics_fullscreen_mode
 	# CONTROLS
 	# AUDIO
-	$"%MusicVolSlider".value = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
-	$"%SoundFXVolSlider".value = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SoundFX")))
+	$"%MusicVolSlider".value = GameConfig.config.audio_volume_music
+	$"%SoundFXVolSlider".value = GameConfig.config.audio_volume_sound_effects
 	# ACCESSIBILITY
 	$"%AccShowTutorialChk".pressed = GameConfig.config.acc_show_controls
 	$"%AccShowObjectivesChk".pressed = GameConfig.config.acc_show_objectives
@@ -20,13 +20,14 @@ func _ready():
 	$"%AccMonoAudioChk".pressed = GameConfig.config.acc_audio_mono
 	$"%AccClosedCaptionChk".pressed = GameConfig.config.acc_closed_caption
 	$"%AccTTSChk".pressed = GameConfig.config.acc_text_to_speech
-
+	
 func _on_CancelBtn_pressed():
 	GameConfig.load_config()
 	GameState.main_menu()
 
 func _on_SaveBtn_pressed():
 	GameConfig.save_config()
+	GameConfig.load_config()
 	GameState.main_menu()
 
 func _on_button_focus(container_name):

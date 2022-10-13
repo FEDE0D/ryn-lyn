@@ -92,7 +92,7 @@ margin_bottom = -160.0
 material = SubResource( 6 )
 scale = Vector2( 0.438889, 0.438889 )
 frames = SubResource( 7 )
-frame = 2
+frame = 9
 playing = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

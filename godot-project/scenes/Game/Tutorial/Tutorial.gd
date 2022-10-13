@@ -31,7 +31,8 @@ func show_dialog():
 func _on_Area2D_body_entered(body):
 	if !active:
 		return
-	$ActionDisplay.show()
+	if GameConfig.config.acc_show_controls:
+		$ActionDisplay.show()
 	set_process_input(true)
 	
 func _on_Area2D_body_exited(body):

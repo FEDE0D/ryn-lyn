@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -25,14 +25,13 @@
 [ext_resource path="res://scenes/Game/Tutorial/GuideStone.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/UI/SectionTitle.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scenes/UI/BlurEffect.tscn" type="PackedScene" id=25]
-[ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_4.png" type="Texture" id=26]
+[ext_resource path="res://scenes/UI/background/Background.tscn" type="PackedScene" id=26]
 [ext_resource path="res://resources/images/tilable/b6f797a70b411b2d6c4481dac17a323a--d-texture-paint-texture.jpg" type="Texture" id=27]
 [ext_resource path="res://resources/images/tilable/grass.png" type="Texture" id=28]
 [ext_resource path="res://resources/images/tilable/8ad4ed6ed2efa873e7264442b2019736--d-texture-paint-texture.jpg" type="Texture" id=29]
 [ext_resource path="res://resources/images/tilable/gravel_2.png" type="Texture" id=30]
 [ext_resource path="res://resources/images/tilable/bush_patch_2.png" type="Texture" id=31]
 [ext_resource path="res://resources/images/tilable/heights_platform_rock_2.png" type="Texture" id=32]
-[ext_resource path="res://resources/images/tilable/tree_wallpaper_1.png" type="Texture" id=33]
 [ext_resource path="res://scenes/UI/AsistenceUI.tscn" type="PackedScene" id=34]
 [ext_resource path="res://resources/images/tilable/wood.png" type="Texture" id=35]
 [ext_resource path="res://resources/images/tilable/tree_stack_trunk.png" type="Texture" id=36]
@@ -61,68 +60,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 3.36898, 0, 1, Vector2( 0.161905, 0.545455 ), 0.
 [node name="World1" type="Node2D"]
 script = ExtResource( 22 )
 
-[node name="Background" type="ParallaxBackground" parent="."]
-scroll_ignore_camera_zoom = true
-
-[node name="CanvasModulate" type="CanvasModulate" parent="Background"]
-color = Color( 0.733333, 0.733333, 0.733333, 1 )
-
-[node name="BackgroundColor" type="ColorRect" parent="Background"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.333333, 0.396078, 0.372549, 1 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2( 0.3, 0 )
-motion_mirroring = Vector2( 1280, 0 )
-
-[node name="Polygon2D" type="Polygon2D" parent="Background/ParallaxLayer"]
-position = Vector2( 0, -20 )
-color = Color( 0.184314, 0.27451, 0.113725, 1 )
-polygon = PoolVector2Array( -460, 120, -240, 120, -100, 160, 20, 120, 260, 120, 420, 200, 660, 180, 800, 180, 960, 240, 1120, 160, 1240, 220, 1400, 400, 1400, 1420, -480, 1420 )
-
-[node name="TextureRect" type="TextureRect" parent="Background/ParallaxLayer"]
-margin_left = 5.0
-margin_top = -40.0
-margin_right = 941.0
-margin_bottom = 270.0
-texture = ExtResource( 33 )
-expand = true
-
-[node name="TreeConiferousFg4" type="Sprite" parent="Background/ParallaxLayer"]
-modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
-position = Vector2( 350, -518.681 )
-scale = Vector2( 0.972222, 0.972222 )
-texture = ExtResource( 26 )
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background"]
-modulate = Color( 0.792157, 0.792157, 0.792157, 1 )
-z_index = 1
-motion_scale = Vector2( 0.4, 0 )
-motion_offset = Vector2( 640, 0 )
-motion_mirroring = Vector2( 1280, 0 )
-
-[node name="TreeConiferousFg3" type="Sprite" parent="Background/ParallaxLayer2"]
-modulate = Color( 0.870588, 0.870588, 0.870588, 1 )
-position = Vector2( 506.875, -218.785 )
-scale = Vector2( 0.613095, 0.613095 )
-texture = ExtResource( 2 )
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background"]
-modulate = Color( 0.792157, 0.792157, 0.792157, 1 )
-z_index = 2
-motion_scale = Vector2( 0.5, 0 )
-motion_mirroring = Vector2( 1280, 0 )
-
-[node name="TreeConiferousFg2" type="Sprite" parent="Background/ParallaxLayer3"]
-position = Vector2( 700.41, -286.628 )
-scale = Vector2( 0.764625, 0.764625 )
-texture = ExtResource( 1 )
-
-[node name="FrontColor" type="ColorRect" parent="Background"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.2607, 0.33, 0.328845, 0.545098 )
+[node name="Background" parent="." instance=ExtResource( 26 )]
 
 [node name="InGameUI" type="CanvasLayer" parent="."]
 
@@ -1405,7 +1343,7 @@ position = Vector2( 16020, 340 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 unique_name_in_owner = true
-position = Vector2( 280, 100 )
+position = Vector2( 320, 100 )
 moving_platform_apply_velocity_on_leave = 2
 
 [node name="doors" type="Node2D" parent="."]

@@ -30,9 +30,11 @@ func _on_state_changed(new_state, previous_state):
 		hide_objectives()
 
 func show_objectives():
-	$Tween.interpolate_property(self, "modulate", Color.transparent, Color.white, 1.0, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-	$Tween.start()
+	if GameConfig.config.acc_show_objectives:
+		$Tween.interpolate_property(self, "modulate", Color.transparent, Color.white, 1.0, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+		$Tween.start()
 
 func hide_objectives():
-	$Tween.interpolate_property(self, "modulate", Color.white, Color.transparent, 1.0, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-	$Tween.start()
+	if GameConfig.config.acc_show_objectives:
+		$Tween.interpolate_property(self, "modulate", Color.white, Color.transparent, 1.0, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+		$Tween.start()

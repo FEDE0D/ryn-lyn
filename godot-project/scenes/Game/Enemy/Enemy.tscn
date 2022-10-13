@@ -153,7 +153,7 @@ position = Vector2( 0, -5 )
 scale = Vector2( 0.0866667, 0.0866666 )
 frames = SubResource( 9 )
 animation = "idle"
-frame = 2
+frame = 5
 playing = true
 
 [node name="StateMachine" type="Node" parent="."]

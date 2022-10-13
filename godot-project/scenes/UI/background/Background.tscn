@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/images/tilable/tree_wallpaper_1.png" type="Texture" id=1]
+[ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_4.png" type="Texture" id=2]
+[ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=3]
+[ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=4]
+[ext_resource path="res://scenes/UI/background/Background.gd" type="Script" id=5]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource( 5 )
+disabled_color = Color( 0.145098, 0.196078, 0.254902, 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.733333, 0.733333, 0.733333, 1 )
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.333333, 0.396078, 0.372549, 1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.3, 0 )
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="Polygon2D" type="Polygon2D" parent="ParallaxLayer"]
+position = Vector2( 0, -60 )
+color = Color( 0.184314, 0.27451, 0.113725, 1 )
+polygon = PoolVector2Array( -460, 120, -240, 120, -100, 160, 20, 120, 260, 120, 420, 200, 660, 180, 800, 180, 960, 240, 1120, 160, 1200, 120, 1320, 160, 1380, 120, 1540, 120, 1520, 820, 1540, 1420, -480, 1420 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+margin_left = 5.0
+margin_top = -40.0
+margin_right = 941.0
+margin_bottom = 270.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="TreeConiferousFg4" type="Sprite" parent="ParallaxLayer"]
+modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+position = Vector2( 350, -518.681 )
+scale = Vector2( 0.972222, 0.972222 )
+texture = ExtResource( 2 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+modulate = Color( 0.792157, 0.792157, 0.792157, 1 )
+z_index = 1
+motion_scale = Vector2( 0.4, 0 )
+motion_offset = Vector2( 640, 0 )
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="TreeConiferousFg3" type="Sprite" parent="ParallaxLayer2"]
+modulate = Color( 0.870588, 0.870588, 0.870588, 1 )
+position = Vector2( 506.875, -218.785 )
+scale = Vector2( 0.613095, 0.613095 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+modulate = Color( 0.792157, 0.792157, 0.792157, 1 )
+z_index = 2
+motion_scale = Vector2( 0.5, 0 )
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="TreeConiferousFg2" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 700.41, -286.628 )
+scale = Vector2( 0.764625, 0.764625 )
+texture = ExtResource( 4 )
+
+[node name="FrontColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.258824, 0.329412, 0.329412, 0.545098 )
