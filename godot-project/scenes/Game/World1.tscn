@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_2.png" type="Texture" id=1]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_fg_3.png" type="Texture" id=2]
@@ -38,7 +38,11 @@
 [ext_resource path="res://resources/images/tilable/tree_stack_trunk.png" type="Texture" id=36]
 [ext_resource path="res://resources/images/decorations/coniferous/tree_coniferous_3.png" type="Texture" id=37]
 [ext_resource path="res://resources/audio/background/enchanted-forest-shamanic-drums-and-music-1745.ogg" type="AudioStream" id=38]
+[ext_resource path="res://resources/dialogs/dialog_2.tres" type="Resource" id=39]
 [ext_resource path="res://scenes/UI/ActionTutorial.tscn" type="PackedScene" id=40]
+[ext_resource path="res://resources/dialogs/dialog_3.tres" type="Resource" id=41]
+[ext_resource path="res://resources/dialogs/dialog_4.tres" type="Resource" id=42]
+[ext_resource path="res://resources/dialogs/dialog_5.tres" type="Resource" id=43]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -1268,7 +1272,7 @@ mode = "ACTIVATE"
 
 [node name="Tutorial3" parent="tutoriales" instance=ExtResource( 7 )]
 position = Vector2( 3160, 320 )
-dialog = ExtResource( 3 )
+dialog = ExtResource( 39 )
 
 [node name="Trigger" parent="tutoriales/Tutorial3" instance=ExtResource( 17 )]
 scale = Vector2( 7, 7 )
@@ -1277,16 +1281,23 @@ mode = "ACTIVATE"
 
 [node name="Tutorial4" parent="tutoriales" instance=ExtResource( 7 )]
 position = Vector2( 6640, 1040 )
-dialog = ExtResource( 3 )
+dialog = ExtResource( 41 )
 
 [node name="Tutorial5" parent="tutoriales" instance=ExtResource( 7 )]
 position = Vector2( 8520, 1420 )
-dialog = ExtResource( 3 )
+show_on_start = false
+dialog = ExtResource( 42 )
+
+[node name="Trigger" parent="tutoriales/Tutorial5" instance=ExtResource( 17 )]
+position = Vector2( -180, 40 )
+scale = Vector2( 4, 4 )
+doors = [ NodePath("..") ]
+mode = "ACTIVATE"
 
 [node name="Tutorial6" parent="tutoriales" instance=ExtResource( 7 )]
 position = Vector2( 16620, 160 )
 show_on_start = false
-dialog = ExtResource( 3 )
+dialog = ExtResource( 43 )
 
 [node name="MoonStoneItem" parent="tutoriales" instance=ExtResource( 21 )]
 position = Vector2( 16620, 0 )
@@ -1589,10 +1600,10 @@ margin_right = -1489.53
 margin_bottom = -8.57143
 
 [node name="ActionTutorial3" parent="ActionTutorials/ActionTutorialZoom" instance=ExtResource( 40 )]
-margin_left = 14342.9
-margin_top = 1857.14
-margin_right = 14462.9
-margin_bottom = 1957.14
+margin_left = 14457.2
+margin_top = 1828.57
+margin_right = 14577.2
+margin_bottom = 1928.57
 action = ""
 top_text = "Salta sobre la cabeza de los tráucos"
 bottom_text = "para alcanzar lugares altos"

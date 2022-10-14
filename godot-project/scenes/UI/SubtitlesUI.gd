@@ -28,7 +28,7 @@ func _on_dialog_start(dialog: DialogResource):
 		$"%ActorImage".texture = actor.image
 		
 		if GameConfig.config.acc_text_to_speech:
-			TTS.speak("%s dice. %s" % [actor.name, line], true)
+			TTS.speak("%s dice. %s" % [actor.name, line.replace("[b]", "").replace("[/b]", "")], true)
 		
 		$"%Tween".interpolate_property($"%Subtitles", "percent_visible", 0.0, 1.0, duration)
 		$"%Tween".start()

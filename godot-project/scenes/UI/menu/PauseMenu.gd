@@ -28,7 +28,7 @@ func _on_SalirButton_pressed():
 func _on_ConfirmationDialog_confirmed():
 	$ConfirmationDialog.hide()
 	get_tree().paused = false
-	GameState.main_menu()
+	GameState.main_menu(false)
 
 func _on_ConfirmationDialog_hide():
 	$HBoxContainer/PanelContainer/Panel/VBoxContainer/SalirButton.grab_focus()

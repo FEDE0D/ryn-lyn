@@ -13,8 +13,8 @@ var _state = [STATE.GAME]
 func start_game():
 	_state = [STATE.GAME]
 
-func main_menu():
-	SceneLoader.change_scene("res://scenes/UI/menu/MainMenu.tscn", true)
+func main_menu(load_sync: bool = false):
+	SceneLoader.change_scene("res://scenes/UI/menu/MainMenu.tscn", load_sync)
 
 func show_pause():
 	if !is_in_state(GameState.STATE.PAUSED):
