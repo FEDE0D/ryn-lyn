@@ -8,7 +8,7 @@ func _on_PlayBtn_pressed():
 	SceneLoader.change_scene("res://scenes/Game/World1.tscn")
 
 func _on_OptionsBtn_pressed():
-	SceneLoader.change_scene("res://scenes/UI/menu/OptionsMenu.tscn")
+	SceneLoader.change_scene("res://scenes/UI/menu/OptionsMenu.tscn", true)
 
 func _on_QuitBtn_pressed():
 	get_tree().quit()

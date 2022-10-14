@@ -46,5 +46,6 @@ func _on_Area2D_body_exited(body):
 func _on_SoundArea_body_entered(body):
 	if active:
 		$PsstSound.play()
-		get_tree().call_group("caption", "descriptive", "*CHISTIDO*")
 		$BlinkAnimation.play("blink")
+		if GameConfig.config.acc_closed_caption:
+			get_tree().call_group("caption", "descriptive", "*CHISTIDO*")

@@ -314,7 +314,6 @@ step = 0.1
 value = 1.5
 
 [node name="ControlContainer" type="HBoxContainer" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -348,6 +347,8 @@ margin_top = 15.0
 margin_right = 537.0
 margin_bottom = 46.0
 focus_neighbour_top = NodePath("../../../../../../../../HBoxContainer/Control2/ControlBtn")
+focus_neighbour_right = NodePath("../../../VBoxContainer2/MarginContainer7/ToolButton")
+focus_neighbour_bottom = NodePath("../../MarginContainer3/ToolButton")
 text = "Moverse a la izquierda"
 
 [node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer2/ToolButton" groups=["action_left"]]
@@ -372,6 +373,9 @@ margin_left = 15.0
 margin_top = 15.0
 margin_right = 537.0
 margin_bottom = 46.0
+focus_neighbour_top = NodePath("../../MarginContainer2/ToolButton")
+focus_neighbour_right = NodePath("../../../VBoxContainer2/MarginContainer8/ToolButton")
+focus_neighbour_bottom = NodePath("../../MarginContainer4/ToolButton")
 text = "Moverse a la derecha"
 
 [node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer3/ToolButton" groups=["action_right"]]
@@ -395,6 +399,9 @@ margin_left = 15.0
 margin_top = 15.0
 margin_right = 537.0
 margin_bottom = 46.0
+focus_neighbour_top = NodePath("../../MarginContainer3/ToolButton")
+focus_neighbour_right = NodePath("../../../VBoxContainer2/MarginContainer9/ToolButton")
+focus_neighbour_bottom = NodePath("../../MarginContainer5/ToolButton")
 text = "Saltar"
 
 [node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer4/ToolButton" groups=["action_jump"]]
@@ -418,6 +425,9 @@ margin_left = 15.0
 margin_top = 15.0
 margin_right = 537.0
 margin_bottom = 46.0
+focus_neighbour_top = NodePath("../../MarginContainer4/ToolButton")
+focus_neighbour_right = NodePath("../../../VBoxContainer2/MarginContainer10/ToolButton")
+focus_neighbour_bottom = NodePath("../../MarginContainer6/ToolButton")
 text = "Acción"
 
 [node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer5/ToolButton" groups=["action_action"]]
@@ -441,6 +451,9 @@ margin_left = 15.0
 margin_top = 15.0
 margin_right = 537.0
 margin_bottom = 46.0
+focus_neighbour_top = NodePath("../../MarginContainer5/ToolButton")
+focus_neighbour_right = NodePath("../../../VBoxContainer2/MarginContainer10/ToolButton")
+focus_neighbour_bottom = NodePath("../../../../../../../../../MarginContainer2/Control/SaveBtn")
 text = "Saltar subtítulos"
 
 [node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer/MarginContainer6/ToolButton" groups=["action_subtitle"]]
@@ -501,7 +514,9 @@ margin_left = 15.0
 margin_top = 15.0
 margin_right = 538.0
 margin_bottom = 46.0
+focus_neighbour_left = NodePath("../../../VBoxContainer/MarginContainer2/ToolButton")
 focus_neighbour_top = NodePath("../../../../../../../../HBoxContainer/Control2/ControlBtn")
+focus_neighbour_bottom = NodePath("../../MarginContainer8/ToolButton")
 text = "Mover cámara a la izquierda"
 
 [node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer7/ToolButton" groups=["action_camera_left"]]
@@ -525,6 +540,9 @@ margin_left = 15.0
 margin_top = 15.0
 margin_right = 538.0
 margin_bottom = 46.0
+focus_neighbour_left = NodePath("../../../VBoxContainer/MarginContainer3/ToolButton")
+focus_neighbour_top = NodePath("../../MarginContainer7/ToolButton")
+focus_neighbour_bottom = NodePath("../../MarginContainer9/ToolButton")
 text = "Mover cámara a la derecha"
 
 [node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer8/ToolButton" groups=["action_camera_right"]]
@@ -548,6 +566,9 @@ margin_left = 15.0
 margin_top = 15.0
 margin_right = 538.0
 margin_bottom = 46.0
+focus_neighbour_left = NodePath("../../../VBoxContainer/MarginContainer4/ToolButton")
+focus_neighbour_top = NodePath("../../MarginContainer8/ToolButton")
+focus_neighbour_bottom = NodePath("../../MarginContainer10/ToolButton")
 text = "Mover cámara hacia arriba"
 
 [node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer9/ToolButton" groups=["action_camera_up"]]
@@ -571,6 +592,9 @@ margin_left = 15.0
 margin_top = 15.0
 margin_right = 538.0
 margin_bottom = 46.0
+focus_neighbour_left = NodePath("../../../VBoxContainer/MarginContainer5/ToolButton")
+focus_neighbour_top = NodePath("../../MarginContainer9/ToolButton")
+focus_neighbour_bottom = NodePath("../../../../../../../../../MarginContainer2/Control/SaveBtn")
 text = "Mover cámara hacia abajo"
 
 [node name="ActionDisplay" type="Node2D" parent="VBoxContainer/Control/MarginContainer/PanelContainer/HBoxContainer/ParentContainer/ControlContainer/VBoxContainer2/MarginContainer10/ToolButton" groups=["action_camera_down"]]

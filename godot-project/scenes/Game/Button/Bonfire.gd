@@ -55,4 +55,5 @@ func turn_off():
 		get_node(door).invert()
 
 func _on_SoundArea_body_entered(body):
-	get_tree().call_group("caption", "descriptive", "SONIDO DE FUEGO")
+	if GameConfig.config.acc_closed_caption:
+		get_tree().call_group("caption", "descriptive", "SONIDO DE FUEGO")

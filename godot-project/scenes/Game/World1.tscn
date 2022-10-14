@@ -66,11 +66,11 @@ script = ExtResource( 22 )
 
 [node name="SubtitlesUI" parent="InGameUI" instance=ExtResource( 6 )]
 
-[node name="PauseMenu" parent="InGameUI" instance=ExtResource( 8 )]
-
 [node name="SectionTitle" parent="InGameUI" instance=ExtResource( 24 )]
 
 [node name="AsistenceUI" parent="InGameUI" instance=ExtResource( 34 )]
+
+[node name="PauseMenu" parent="InGameUI" instance=ExtResource( 8 )]
 
 [node name="BlurEffect" parent="InGameUI" instance=ExtResource( 25 )]
 mouse_filter = 2
@@ -1237,13 +1237,6 @@ texture_mode = 1
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
-
-[node name="Label" type="Label" parent="visuals"]
-margin_left = 11700.0
-margin_top = 1200.0
-margin_right = 11760.0
-margin_bottom = 1214.0
-text = "CASCADA"
 
 [node name="TreeConiferousFg1" type="Sprite" parent="visuals"]
 position = Vector2( 10886.8, 537.982 )

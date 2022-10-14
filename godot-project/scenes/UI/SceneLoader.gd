@@ -8,8 +8,8 @@ func _ready():
 	queue = preload("res://scripts/resource_queue.gd").new()
 	queue.start()
 
-func change_scene(scn: String):
-	if OS.get_name() == "HTML5":
+func change_scene(scn: String, load_sync = false):
+	if OS.get_name() == "HTML5" or load_sync:
 		get_tree().change_scene(scn)
 	else:
 		resource = scn

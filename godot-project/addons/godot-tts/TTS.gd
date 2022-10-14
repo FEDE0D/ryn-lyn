@@ -40,6 +40,8 @@ func get_rate():
 var rate setget set_rate, get_rate
 
 func speak(text, interrupt := true):
+	if not GameConfig.config.acc_text_to_speech:
+		return
 	if tts != null:
 		tts.speak(text, interrupt)
 	elif OS.has_feature('JavaScript'):
