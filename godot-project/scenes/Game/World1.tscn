@@ -1317,22 +1317,23 @@ scale = Vector2( 10, 10 )
 [node name="GuideStone" parent="tutoriales" instance=ExtResource( 23 )]
 position = Vector2( 900, 140 )
 section_title = "Bosque Largo"
-objective_text = "Encuentra la entrada al Templo Chuluk"
+objective_text = "Explora el bosque"
 
 [node name="GuideStone2" parent="tutoriales" instance=ExtResource( 23 )]
 position = Vector2( 5380, 940 )
-section_title = "Templo Chuluk"
-objective_text = "Encuentra la salida al templo"
+section_title = "Templo Chuluñe	"
+objective_text = "Encuentra una entrada al interior del templo"
 
 [node name="GuideStone3" parent="tutoriales" instance=ExtResource( 23 )]
 position = Vector2( 12720, 1480 )
-section_title = "Ryn-Lyn"
-objective_text = "Encuentra y utiliza la piedra de luna para salir del bosque"
+section_title = "Runalún"
+objective_text = "Ingresa al templo"
 
 [node name="GuideStone4" parent="tutoriales" instance=ExtResource( 23 )]
 position = Vector2( 14120, 1280 )
 z_index = -1
-section_title = "El fin"
+section_title = "La salida"
+objective_text = "Sigue hasta la salida del templo"
 
 [node name="gollems" type="Node2D" parent="."]
 
